@@ -1,0 +1,1 @@
+set_attack_value(attack, AG_SPRITE, sprite_get(string(form) + attack_names[attack]));
