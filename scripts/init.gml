@@ -204,11 +204,15 @@ attack_names = [ //has the names of all the attacks
 
 //#region SORA VARIABLES
 
-//#region form system variables
+//#region hud variables
 form = 0;
 gauge_val = 0; //max 5000
 cur_offset = 26;
 form_offset = [26, 18, 2, 0, 28];
+particle_dist = 0;
+particle_angle = 0;
+prev_form = form;
+form_fx = 0;
 //#endregion
 
 //#region form alt array
@@ -461,5 +465,60 @@ blade_alt = [
     [[], [], []],
     [[], [], []],
 ]
+];
+//#endregion
+
+//#region attack window skip array
+attack_frameskip = [
+    [0, 0, 0, 0],//0,
+    [0, 0, 0, 0],//jab,
+    [0, 0, 0, 0],//2,
+    [0, 0, 0, 0],//3,
+    [4, 9, 0, 0],//ftilt,
+    [3, 6, 0, 0],//dtilt,
+    [4, 7, 0, 0],//utilt,
+    [5, 9, 0, 0],//fstrong,
+    [0, 0, 0, 0],//dstrong,
+    [0, 0, 0, 0],//ustrong,
+    [0, 0, 0, 0],//dattack,
+    [0, 0, 0, 0],//fair,
+    [0, 0, 0, 0],//bair,
+    [0, 0, 0, 0],//dair,
+    [0, 0, 0, 0],//uair,
+    [0, 0, 0, 0],//nair,
+    [0, 0, 0, 0],//fspecial,
+    [0, 0, 0, 0],//dspecial,
+    [0, 0, 0, 0],//uspecial,
+    [0, 0, 0, 0],//nspecial,
+    [0, 0, 0, 0],//FSTRONG_2,
+    [0, 0, 0, 0],//DSTRONG_2,
+    [0, 0, 0, 0],//USTRONG_2,
+    [0, 0, 0, 0],//USPECIAL_GROUND,
+    [0, 0, 0, 0],//USPECIAL_2,
+    [0, 0, 0, 0],//FSPECIAL_2,
+    [0, 0, 0, 0],//FTHROW,
+    [0, 0, 0, 0],//UTHROW,
+    [0, 0, 0, 0],//DTHROW,
+    [0, 0, 0, 0],//NTHROW,
+    [0, 0, 0, 0],//DSPECIAL_2,
+    [0, 0, 0, 0],//EXTRA_1,
+    [0, 0, 0, 0],//DSPECIAL_AIR,
+    [0, 0, 0, 0],//NSPECIAL_2,
+    [0, 0, 0, 0],//FSPECIAL_AIR,
+    [0, 0, 0, 0],//taunt,
+    [0, 0, 0, 0],//TAUNT_2,
+    [0, 0, 0, 0],//EXTRA_2,
+    [0, 0, 0, 0],//EXTRA_3,
+    [0, 0, 0, 0],//39,
+    [0, 0, 0, 0],//40,
+    [0, 0, 0, 0],//NSPECIAL_AIR,
+    [0, 0, 0, 0],//42,
+    [0, 0, 0, 0],//43,
+    [0, 0, 0, 0],//44,
+    [0, 0, 0, 0],//45,
+    [0, 0, 0, 0],//46,
+    [0, 0, 0, 0],//47,
+    [0, 0, 0, 0],//48,
+    [0, 0, 0, 0],//49 (final strong default)
 ];
 //#endregion
