@@ -1,3 +1,25 @@
+var mul = 16; //spacing
+var hud_dist = 50;
+var is_attacking = (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR);
+
+draw_debug_text(temp_x+mul*0, temp_y+mul*-4 - hud_dist, "state = " + string(get_state_name(state)));
+draw_debug_text(temp_x+mul*0, temp_y+mul*-3 - hud_dist, "state_timer = " + string(state_timer));
+if (
+    is_attacking || state == PS_PARRY || state == PS_ROLL_FORWARD || state == PS_ROLL_BACKWARD ||
+    state == PS_TECH_FORWARD || state == PS_TECH_BACKWARD || state == PS_AIR_DODGE)
+{
+    if (is_attacking) draw_debug_text(temp_x+mul*0, temp_y+mul*-7 - hud_dist, "attack = " + string(attack_names[attack]));
+    if (is_attacking) draw_debug_text(temp_x+mul*0, temp_y+mul*-8 - hud_dist, "attack = " + string(attack));
+    draw_debug_text(temp_x+mul*0, temp_y+mul*-6 - hud_dist, "window = " + string(window));
+    draw_debug_text(temp_x+mul*0, temp_y+mul*-5 - hud_dist, "window_timer = " + string(window_timer));
+}
+draw_debug_text(temp_x+mul*0, temp_y+mul*-2 - hud_dist, "x = " + string(x));
+draw_debug_text(temp_x+mul*0, temp_y+mul*-1 - hud_dist, "y = " + string(y));
+draw_debug_text(temp_x+mul*5, temp_y+mul*-2 - hud_dist, "hsp = " + string(hsp));
+draw_debug_text(temp_x+mul*5, temp_y+mul*-1 - hud_dist, "vsp = " + string(vsp));
+
+
+
 //form name
 cur_offset = lerp(cur_offset, form_offset[form], 0.1);
 draw_sprite_ext(sprite_get("hud_text_bg"), 0, temp_x + cur_offset, temp_y - 20, 2, 2, 0, c_white, 1);
@@ -40,7 +62,33 @@ draw_primitive_end();
 maskFooter();
 //max
 if gauge_val >= 5000 draw_sprite_ext(sprite_get("hud_max"), form, temp_x + 106, temp_y - 26, 2, 2, 0, c_white, 1);
-
+//particle
+particle_dist += (!form && particle_dist < 20? 2: (particle_dist? -2: 0));
+if particle_dist{
+    particle_angle += (particle_angle < 350? 5: -355);
+    for(var h = 0; h < floor(gauge_val/1000); h++){
+        draw_sprite_ext(sprite_get("hud_particle"), 0, particle_dist * dcos(particle_angle + 360/ floor(gauge_val/1000) * h) + 187 + temp_x, particle_dist * dsin(particle_angle + 360/ floor(gauge_val/1000) * h) + temp_y - 15, 2, 2, particle_angle + 360/ floor(gauge_val/1000) * h, c_white, 1);
+    }
+}
+//particle effects
+if !form && prev_form{
+    for(var l = 0; l < 26; l++){
+        var part = instance_create(temp_x + view_get_xview() + l*3 + 100, temp_y - l%6 - 2 + view_get_yview(), "obj_article2");
+        part.part_x = temp_x + l*3 + 100;
+        part.part_y = temp_y - l%6 - 2;
+        part.alpha_change = 0.02 + random_func_2(l, 5, 1)/100;
+        part.movement_speed = 2 + random_func_2(l, 5, 0);
+    }
+}
+with obj_article2 if player_id = other && "hud_particle" in self{
+    draw_sprite_ext(sprite_get("hud_particle"), 0, x, y, 2, 2, 0, c_white, real_alpha);
+}
+if form && !prev_form{
+    form_fx = 30;
+}
+if form_fx form_fx--;
+draw_sprite_ext(sprite_get("hud_light"), 0, temp_x - 64, temp_y - 49, 2, 2, 0, c_white, form_fx/30);
+prev_form = form;
 
 
 

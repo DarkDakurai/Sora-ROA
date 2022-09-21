@@ -1,45 +1,59 @@
-sprite_change_offset("idle", 0, 0);
-sprite_change_offset("hurt", 0, 0);
-sprite_change_offset("crouch", 0, 0);
-sprite_change_offset("walk", 0, 0);
-sprite_change_offset("walkturn", 0, 0);
-sprite_change_offset("dash", 0, 0);
-sprite_change_offset("dashstart", 0, 0);
-sprite_change_offset("dashstop", 0, 0);
-sprite_change_offset("dashturn", 0, 0);
+//movement
+for(var j = 0; j < 10; j++){
+sprite_change_offset(string(j%5)+"PS_IDLE"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_CROUCH"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_WALK"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_WALK_TURN"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_DASH"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_DASH_START"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_DASH_STOP"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_DASH_TURN"+(j >= 5? "_blade":""), 64, 94)
 
-sprite_change_offset("jumpstart", 0, 0);
-sprite_change_offset("jump", 0, 0);
-sprite_change_offset("doublejump", 0, 0);
-sprite_change_offset("walljump", 0, 0);
-sprite_change_offset("pratfall", 0, 0);
-sprite_change_offset("land", 0, 0);
-sprite_change_offset("landinglag", 0, 0);
+sprite_change_offset(string(j%5)+"PS_JUMPSQUAT"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_FIRST_JUMP"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_DOUBLE_JUMP"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_WALL_JUMP"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_PRATFALL"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_LANDING_LAG"+(j >= 5? "_blade":""), 64, 94)
 
-sprite_change_offset("parry", 0, 0);
-sprite_change_offset("roll_forward", 0, 0);
-sprite_change_offset("roll_backward", 0, 0);
-sprite_change_offset("airdodge", 0, 0);
-sprite_change_offset("waveland", 0, 0);
-sprite_change_offset("tech", 0, 0);
+sprite_change_offset(string(j%5)+"PS_PARRY"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_ROLL_FORWARD"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_ROLL_BACKRWARD"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_AIRDODGE"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_WAVELAND"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_TECH_GROUND"+(j >= 5? "_blade":""), 64, 94)
 
-sprite_change_offset("jab", 0, 0);
-sprite_change_offset("dattack", 0, 0);
-sprite_change_offset("ftilt", 0, 0);
-sprite_change_offset("dtilt", 0, 0);
-sprite_change_offset("utilt", 0, 0);
-sprite_change_offset("nair", 0, 0);
-sprite_change_offset("fair", 0, 0);
-sprite_change_offset("bair", 0, 0);
-sprite_change_offset("uair", 0, 0);
-sprite_change_offset("dair", 0, 0);
-sprite_change_offset("fstrong", 0, 0);
-sprite_change_offset("ustrong", 0, 0);
-sprite_change_offset("dstrong", 0, 0);
-sprite_change_offset("nspecial", 0, 0);
-sprite_change_offset("fspecial", 0, 0);
-sprite_change_offset("uspecial", 0, 0);
-sprite_change_offset("dspecial", 0, 0);
-sprite_change_offset("taunt", 0, 0);
+sprite_change_offset(string(j%5)+"HURT0"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT1"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT2"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT3"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT4"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT5"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"HURT6"+(j >= 5? "_blade":""), 64, 94)
 
+//attacks
+sprite_change_offset(string(j%5)+"jab"+(j >= 5? "_blade":""), 170, 156);//
+sprite_change_offset(string(j%5)+"dattack"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"ftilt"+(j >= 5? "_blade":""), 146, 156);//
+sprite_change_offset(string(j%5)+"dtilt"+(j >= 5? "_blade":""), 146, 156);//
+sprite_change_offset(string(j%5)+"utilt"+(j >= 5? "_blade":""), 146, 156);//
+sprite_change_offset(string(j%5)+"nair"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"fair"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"bair"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"uair"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"dair"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"fstrong"+(j >= 5? "_blade":""), 164, 156);//
+sprite_change_offset(string(j%5)+"ustrong"+(j >= 5? "_blade":""), 164, 156);
+sprite_change_offset(string(j%5)+"dstrong"+(j >= 5? "_blade":""), 164, 156);
+sprite_change_offset(string(j%5)+"nspecial"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"fspecial"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"dspecial"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"taunt"+(j >= 5? "_blade":""), 170, 156);
+}
+
+//plat
 sprite_change_offset("plat", 0, 0);
+
+//misc
+sprite_change_offset("hud_particle", 10, 10);
