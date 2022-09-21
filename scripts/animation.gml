@@ -88,4 +88,8 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = state_timer * idle_anim_speed;
         break;
     }
+}else{
+    if attack == AT_DSTRONG && !form && window == 1 && strong_charge{
+        image_index = 5 + (strong_charge / 4) % 4;
+    }
 }

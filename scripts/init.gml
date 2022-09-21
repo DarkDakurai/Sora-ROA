@@ -203,6 +203,7 @@ attack_names = [ //has the names of all the attacks
 //#endregion
 
 //#region SORA VARIABLES
+prev_taunt_p = taunt_pressed
 
 //#region hud variables
 form = 0;
@@ -471,7 +472,7 @@ blade_alt = [
 //#region attack window skip array
 attack_frameskip = [
     [0, 0, 0, 0],//0,
-    [0, 0, 0, 0],//jab,
+    [9, 15, 0, 0],//jab,
     [0, 0, 0, 0],//2,
     [0, 0, 0, 0],//3,
     [4, 9, 0, 0],//ftilt,
