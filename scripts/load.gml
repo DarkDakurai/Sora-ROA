@@ -18,7 +18,7 @@ sprite_change_offset(string(j%5)+"PS_LANDING_LAG"+(j >= 5? "_blade":""), 64, 94)
 
 sprite_change_offset(string(j%5)+"PS_PARRY"+(j >= 5? "_blade":""), 64, 94)
 sprite_change_offset(string(j%5)+"PS_ROLL_FORWARD"+(j >= 5? "_blade":""), 64, 94)
-sprite_change_offset(string(j%5)+"PS_ROLL_BACKRWARD"+(j >= 5? "_blade":""), 64, 94)
+sprite_change_offset(string(j%5)+"PS_ROLL_BACKWARD"+(j >= 5? "_blade":""), 64, 94)
 sprite_change_offset(string(j%5)+"PS_AIRDODGE"+(j >= 5? "_blade":""), 64, 94)
 sprite_change_offset(string(j%5)+"PS_WAVELAND"+(j >= 5? "_blade":""), 64, 94)
 sprite_change_offset(string(j%5)+"PS_TECH_GROUND"+(j >= 5? "_blade":""), 64, 94)
