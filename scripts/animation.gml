@@ -113,12 +113,15 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
     }
 }else{
-    if attack == AT_DSTRONG && !form && window == 1 && strong_charge{
-        image_index = 5 + (strong_charge / 4) % 4;
+    if attack == AT_DSTRONG && !form && window == 1{
+        if strong_charge image_index = 5 + (strong_charge / 4) % 4;
+        if (floor(image_index%image_number) == 8 || floor(image_index%image_number) == 6) && !sfx_timer{
+            sound_play(sound_get("KB_swipeweak1"));
+            sfx_timer = 5;
+        }
     }
 }
 if sfx_timer sfx_timer--;
-print(sfx_timer)
 
 #define footstep()
 sound_play(sound_get("sora_footsteps" + string(random_func_2(floor(abs(x%200)), 3, 1) + 1)));

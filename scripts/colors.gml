@@ -1,4 +1,4 @@
-// DEFAULT COLOR PALETTE
+// DEFAULT COLOR
 
 // Hair
 set_color_profile_slot( 0, 0, 255, 129, 56 );
@@ -27,6 +27,7 @@ set_color_profile_slot_range( 5, 1, 38, 32 );
 // Keyblade Handle
 set_color_profile_slot( 0, 6, 218, 137, 245 );
 set_color_profile_slot_range( 6, 2, 38, 31 );
+
 
 // ALTERNATE COLORS
 set_num_palettes( 32 );

@@ -63,4 +63,18 @@ switch(attack){
         break;
     }
     break;
+    case AT_DSTRONG:
+    switch form{
+        case 0:
+        if window == 2 && window_timer == 4 sound_play(sound_get("KB_hitmedium2"));
+        break;
+    }
+    break;
+    case AT_USTRONG:
+    switch form{
+        case 1:
+        if window == 5 && window_timer == 7 sound_play(sound_get("OK_swipemedium1"));
+        break;
+    }
+    break;
 }
