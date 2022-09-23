@@ -455,7 +455,7 @@ attack_frameskip = [
     [5, 9, 0, 0],//fstrong,
     [4, 7, 0, 0],//dstrong,
     [4, 7, 0, 0],//ustrong,
-    [0, 0, 0, 0],//dattack,
+    [5, 9, 0, 0],//dattack,
     [0, 0, 0, 0],//fair,
     [0, 0, 0, 0],//bair,
     [0, 0, 0, 0],//dair,

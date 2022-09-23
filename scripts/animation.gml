@@ -13,6 +13,12 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
                 sfx_timer = 10;
             }
             break;
+            case 1:
+            if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 6) && !sfx_timer{
+                footstep();
+                sfx_timer = 10;
+            }
+            break;
         }
         break;
         case PS_WALK_TURN:
@@ -25,6 +31,12 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = state_timer * dash_anim_speed;
         switch form{
             case 0:
+            if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 5) && !sfx_timer{
+                footstep();
+                sfx_timer = 10;
+            }
+            break;
+            case 1:
             if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 5) && !sfx_timer{
                 footstep();
                 sfx_timer = 10;
@@ -52,19 +64,12 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = ((state_timer + 5) * .7 >= image_number - 1? image_number - 1: (state_timer + 5) * .7);
         break;
         case PS_LAND:
-        image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
-        if !form{
-            sprite_index = sprite_get(string(form) + "PS_CROUCH");
-            image_index = (state_timer + 2 >= image_number - 1? image_number - 1: state_timer + 2);
-        }
+        sprite_index = sprite_get(string(form) + "PS_CROUCH");
+        image_index = (state_timer + 2 >= image_number - 1? image_number - 1: state_timer + 2);
         break;
         case PS_LANDING_LAG:
-        sprite_index = sprite_get(string(form) + "PS_LAND");
-        image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
-        if !form{
-            sprite_index = sprite_get(string(form) + "PS_CROUCH");
-            image_index = (state_timer + 2 >= image_number - 1? image_number - 1: state_timer + 2);
-        }
+        sprite_index = sprite_get(string(form) + "PS_CROUCH");
+        image_index = (state_timer + 2 >= image_number - 1? image_number - 1: state_timer + 2);
         break;
         case PS_WAVELAND:
         sprite_index = sprite_get(string(form) + "PS_CROUCH");

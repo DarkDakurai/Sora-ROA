@@ -15,7 +15,6 @@ prat_fall_accel     = form = 2? 0.95: 0.85;
 air_friction        = form = 2? 0.02: 0.04;
 fast_fall           = form = 2? 16: 14;
 
-
 //debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
 if down_down && taunt_down && gauge_val gauge_val -= 100;

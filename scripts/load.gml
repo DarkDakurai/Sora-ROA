@@ -34,7 +34,7 @@ sprite_change_offset(string(j%5)+"HURT6"+(j >= 5? "_blade":""), 162, 126)
 
 //attacks
 sprite_change_offset(string(j%5)+"jab"+(j >= 5? "_blade":""), 170, 156);//
-sprite_change_offset(string(j%5)+"dattack"+(j >= 5? "_blade":""), 170, 156);
+sprite_change_offset(string(j%5)+"dattack"+(j >= 5? "_blade":""), 180, 156);//
 sprite_change_offset(string(j%5)+"ftilt"+(j >= 5? "_blade":""), 146, 156);//
 sprite_change_offset(string(j%5)+"dtilt"+(j >= 5? "_blade":""), 146, 156);//
 sprite_change_offset(string(j%5)+"utilt"+(j >= 5? "_blade":""), 146, 156);//
@@ -44,8 +44,8 @@ sprite_change_offset(string(j%5)+"bair"+(j >= 5? "_blade":""), 170, 156);
 sprite_change_offset(string(j%5)+"uair"+(j >= 5? "_blade":""), 170, 156);
 sprite_change_offset(string(j%5)+"dair"+(j >= 5? "_blade":""), 170, 156);
 sprite_change_offset(string(j%5)+"fstrong"+(j >= 5? "_blade":""), 164, 156);//
-sprite_change_offset(string(j%5)+"ustrong"+(j >= 5? "_blade":""), 178, 156);
-sprite_change_offset(string(j%5)+"dstrong"+(j >= 5? "_blade":""), 175, 156);
+sprite_change_offset(string(j%5)+"ustrong"+(j >= 5? "_blade":""), 178, 156);//
+sprite_change_offset(string(j%5)+"dstrong"+(j >= 5? "_blade":""), 175, 156);//
 sprite_change_offset(string(j%5)+"nspecial"+(j >= 5? "_blade":""), 170, 156);
 sprite_change_offset(string(j%5)+"fspecial"+(j >= 5? "_blade":""), 170, 156);
 sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 170, 156);

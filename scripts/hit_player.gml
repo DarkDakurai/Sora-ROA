@@ -1,7 +1,7 @@
-if my_hitboxID.attack == AT_JAB && my_hitboxID.hbox_num == 7{
+if my_hitboxID.attack == AT_JAB && my_hitboxID.hbox_num == 7 && form == 1{
     sound_play(sound_get("OK_hitheavy1"));
 }
-if my_hitboxID.attack == AT_USTRONG{
+if my_hitboxID.attack == AT_USTRONG && form == 1{
     switch my_hitboxID.hbox_num{
         case 3:
         sound_play(sound_get("OK_hitheavy3"));
@@ -16,4 +16,9 @@ if my_hitboxID.attack == AT_USTRONG{
         sound_play(sound_get("OK_hitweak2"));
         break;
     }
+}
+
+if my_hitboxID.attack == AT_DATTACK && form == 1{
+    if my_hitboxID.hbox_num == 3 sound_play(sound_get("OK_hitweak2"));
+    else sound_play(sound_get("OK_hitmedium2"));
 }
