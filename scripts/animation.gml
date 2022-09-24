@@ -75,9 +75,6 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         sprite_index = sprite_get(string(form) + "PS_CROUCH");
         image_index = image_number/2;
         break;
-        case PS_TECH_GROUND:
-        sprite_index = sprite_get(string(form) + "PS_TECHGROUND");
-        break;
         case PS_PARRY_START:
         sprite_index = sprite_get(string(form) + "PS_IDLE");
         break;
@@ -85,8 +82,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         sprite_index = sprite_get(string(form) + "HURT" + string(hurt_img));
         break;
         case PS_HITSTUN_LAND:
-        sprite_index = sprite_get(string(form) + "PS_LAND");
-        image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
+        sprite_index = sprite_get(string(form) + "HURT" + string(hurt_img));
         break;
         case PS_TUMBLE:
         sprite_index = sprite_get(string(form) + "HURT" + string(hurt_img));

@@ -21,3 +21,7 @@ if down_down && taunt_down && gauge_val gauge_val -= 100;
 if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
 if !taunt_pressed && prev_taunt_p && jump_down && form form--
 prev_taunt_p = taunt_pressed
+/*hsp = 0;
+vsp = 0;
+x = room_width/2
+y = room_height/2

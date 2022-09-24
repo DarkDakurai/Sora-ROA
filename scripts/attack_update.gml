@@ -109,4 +109,70 @@ switch(attack){
         break;
     }
     break;
+    case AT_NAIR:
+    switch form{
+        case 0:
+        hud_offset = floor(lerp(hud_offset, 60, 0.2));
+        break;
+        case 1:
+        if has_hit && window == 6 && (jump_pressed || attack_pressed || special_pressed){
+            iasa_script();
+        }
+        if window < 5 hud_offset = floor(lerp(hud_offset, 90, 0.2));
+        break;
+    }
+    break;
+    case AT_FAIR:
+    switch form{
+        case 0:
+        hud_offset = floor(lerp(hud_offset, 100, 0.2));
+        break;
+        case 1:
+        if has_hit && window == 6 && (jump_pressed || attack_pressed || special_pressed){
+            iasa_script();
+        }
+        hud_offset = floor(lerp(hud_offset, 100, 0.2));
+        break;
+    }
+    break;
+    case AT_BAIR:
+    switch form{
+        case 1:
+        if has_hit && window == 5 && (jump_pressed || attack_pressed || special_pressed){
+            iasa_script();
+        }
+        break;
+    }
+    break;
+    case AT_UAIR:
+    switch form{
+        case 0:
+        if window == 1 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        break;
+        case 1:
+        if window < 5 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        if has_hit && window == 5 && (jump_pressed || attack_pressed || special_pressed){
+            iasa_script();
+        }
+        break;
+    }
+    break;
+    case AT_DAIR:
+    switch form{
+        case 0:
+        hud_offset = floor(lerp(hud_offset, 30, 0.2));
+        break;
+        case 1:
+        hud_offset = floor(lerp(hud_offset, 60, 0.2));
+        if window == 4 && !free{
+            destroy_hitboxes();
+            window = 5;
+            window_timer = 0;
+        }
+        if window == 6 && (jump_pressed || attack_pressed || special_pressed){
+            iasa_script();
+        }
+        break;
+    }
+    break;
 }

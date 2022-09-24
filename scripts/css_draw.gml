@@ -27,8 +27,8 @@ var alt_cur = get_player_color(player);
 
 alt_name = [
 "Sora",
-"Riku",
-"Kairi",
+"Edgy Friend",
+"Kindhearted" + chr(10) + "Friend",
 "Roxas & Friends",
 "BBS",
 "Oops!" + chr(10) + "All Xehanort!",
@@ -37,26 +37,26 @@ alt_name = [
 "FF10",
 "TWEWY",
 "THE BOUNCER",
-"Fire Emblem",
-"Triforce Gaming",
-"Pit Gang",
-"THE MONADO",
-"Undertale",
-"Deltarune",
+"Anime" + chr(10) + "Swordsmen",
+"Triforce" + chr(10) + "Of Heart",
+"Icarus",
+"Hearts of Bionis",
+"Undersomething",
+"Fun Gang" + chr(10) + "+ Lancer",
 "Abyss",
 "Drip",
-"Symphonic Gang",
+"Symphonia",
 "Glint of Coldsteel",
-"Persona",
+"Wildcards",
 "Featuring" + chr(10) + "Dante from the" + chr(10) + "Devil May Cry" + chr(10) + "series",
-"Paper Mario",
-"Inscryption",
+"Paper Heart",
+"Card Game",
 "Here Comes" + chr(10) + "Daredevil",
 "Wheel of Fate" + chr(10) + "is Turning",
 "First Clause" + chr(10) + "Divide",
 "Workshop",
 "VC Campers",
-"FF Classes",
+"Warrior Of Light",
 "Brasil"
 ];
 
@@ -73,7 +73,7 @@ prev_alt = alt_cur;
 if(alt_cur == 17) draw_sprite_ext(sprite_get("css_icons"), 2, temp_x + 174, temp_y + 108, 1, 1, 0, c_white, 1);
 draw_sprite_part_ext(sprite_get("0PS_IDLE"), anim_timer * 0.15, 130, 0, 100, 400, temp_x + 8, temp_y - 12 + 20 * alpha_alt/3, 1, 1, c_white, alpha_alt);
 draw_set_halign(alt_cur == 22? fa_center: fa_left);
-textDraw(temp_x + (alt_cur == 22? 130: 60), temp_y + (alt_cur == 22? 99: (alt_cur == 26 || alt_cur == 25 || alt_cur == 27 || alt_cur == 5? 127: 141)), "fName", make_color_rgb(sora_alt[0][alt_cur][0][0], sora_alt[0][alt_cur][0][1], sora_alt[0][alt_cur][0][2]), 14, 400, 1, 1, alpha_alt, alt_name[alt_cur], c_black);
+textDraw(temp_x + (alt_cur == 22? 130: 60), temp_y + (alt_cur == 22? 99: (alt_cur == 26 || alt_cur == 25 || alt_cur == 27 || alt_cur == 5 || alt_cur == 2 || alt_cur == 5 || alt_cur == 11 || alt_cur == 12 || alt_cur == 16? 127: 141)), "fName", make_color_rgb(sora_alt[0][alt_cur][5][0], sora_alt[0][alt_cur][5][1], sora_alt[0][alt_cur][5][2]), 14, 400, 1, 1, alpha_alt, alt_name[alt_cur], c_black);
 #define textDraw(x, y, font, color, lineb, linew, scale, outline, alpha, string, outline_c)
 
 draw_set_font(asset_get(argument[2]));

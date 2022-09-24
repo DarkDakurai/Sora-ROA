@@ -15,9 +15,6 @@ if form == 1 || form == 3{
         case PS_WAVELAND:
         temp_state = "PS_CROUCH";
         break;
-        case PS_TECH_GROUND:
-        temp_state = "PS_TECHGROUND";
-        break;
         case PS_PARRY_START:
         temp_state = "PS_IDLE";
         break;
@@ -25,7 +22,7 @@ if form == 1 || form == 3{
         temp_state = "HURT" + string(hurt_img);
         break;
         case PS_HITSTUN_LAND:
-        temp_state = "PS_LAND";
+        temp_state = "HURT" + string(hurt_img);
         break;
         case PS_TUMBLE:
         temp_state = "HURT" + string(hurt_img);

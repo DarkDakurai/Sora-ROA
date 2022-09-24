@@ -1,5 +1,12 @@
+if "sora_alt" in self{
+if get_char_info(player, INFO_HUD) != sprite_get("mapped_hud"){
+    set_ui_element(UI_HUD_ICON, sprite_get("mapped_hud"));
+}
 for(var k = 0; k < 7; k++){
     set_character_color_slot(k, sora_alt["form" in self? form: 0][get_player_color(player)][k][0], sora_alt["form" in self? form: 0][get_player_color(player)][k][1], sora_alt["form" in self? form: 0][get_player_color(player)][k][2]);
+}
+}else if !get_player_color(player){
+    set_ui_element(UI_HUD_ICON, sprite_get("unmapped_hud"))
 }
 if "blade_alt" in self{
 //oblivion
