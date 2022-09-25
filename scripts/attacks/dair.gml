@@ -39,7 +39,6 @@ set_window_value(AT_DAIR, 4, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DAIR, 5, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_DAIR, 5, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_DAIR, 5, AG_WINDOW_ANIM_FRAME_START, 10);
-set_window_value(AT_DAIR, 5, AG_WINDOW_HAS_WHIFFLAG, 1);
 set_window_value(AT_DAIR, 5, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DAIR, 5, AG_WINDOW_SFX, asset_get("sfx_ori_stomp_hit"));
 set_window_value(AT_DAIR, 5, AG_WINDOW_GOTO, 20);

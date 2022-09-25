@@ -34,6 +34,7 @@ if my_hitboxID.attack == AT_DAIR && form == 1{
         sound_play(sound_get("OK_hitmedium2"));
     }
     if window == 4{
+        move_cooldown[AT_DAIR] = 30;
         destroy_hitboxes();
         window = 6;
         window_timer = 0;

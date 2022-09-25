@@ -50,9 +50,9 @@ if form == 1 || form == 3{
         temp_state = "PS_IDLE";
         break;
     }
-        draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x, y, spr_dir, 1, spr_angle, c_white, image_alpha);
+        draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, c_white, image_alpha);
     }else{
-        draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + "_blade"), image_index, x, y, spr_dir, 1, spr_angle, c_white, image_alpha);
+        draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, c_white, image_alpha);
     }
     
 }
