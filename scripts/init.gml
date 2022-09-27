@@ -462,8 +462,8 @@ attack_frameskip = [
     [3, 6, 0, 0],//uair,
     [4, 7, 0, 0],//nair,
     [0, 0, 0, 0],//fspecial,
-    [0, 0, 0, 0],//dspecial,
-    [0, 0, 0, 0],//uspecial,
+    [6, 8, 0, 0],//dspecial,
+    [4, 9, 0, 0],//uspecial,
     [0, 0, 0, 0],//nspecial,
     [0, 0, 0, 0],//FSTRONG_2,
     [0, 0, 0, 0],//DSTRONG_2,
@@ -496,6 +496,17 @@ attack_frameskip = [
     [0, 0, 0, 0],//48,
     [0, 0, 0, 0],//49 (final strong default)
 ];
+//#endregion
+
+//#region attack variables
+
+//dspecial
+form_sel = -1;
+draw_sel = -1;
+orb_alpha = 0;
+window_set_array = [3, 4, 3, 4, 5];
+layout_pos = [[55 - 16, -40], [-16, -100], [-55 - 16, -40], [-16, 10]];
+form_revert = 0;
 //#endregion
 
 //#region sfx

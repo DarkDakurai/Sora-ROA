@@ -175,4 +175,78 @@ switch(attack){
         break;
     }
     break;
+    case AT_USPECIAL:
+    switch form{
+        case 0:
+        if window == 3 && window_timer == 12 set_state(PS_PRATFALL);
+        hud_offset = floor(lerp(hud_offset, 140, 0.2));
+        break;
+        case 1:
+        if window == 8 && window_timer == 9 set_state(PS_PRATFALL);
+        hud_offset = floor(lerp(hud_offset, 140, 0.2));
+        break;
+    }
+    break;
+    case AT_DSPECIAL:
+    if window <= 5 hud_offset = floor(lerp(hud_offset, 200, 0.2));
+    switch form{
+        case 0:
+        can_move = 0;
+        can_fast_fall = 0;
+        if window == 1 && !special_down{
+            form_sel = (joy_pad_idle? -1: floor(floor((joy_dir/45)%8)/2 + .5)%4);
+            if form_sel == -1{
+                state = PS_IDLE;
+                state_timer = 0;
+            }else{
+                window = 2;
+                window_timer = 0;
+                set_window_value(AT_DSPECIAL, 2, AG_WINDOW_GOTO, window_set_array[form_sel + 1]);
+            }
+        }
+        if window == 2 && window_timer == 12{
+            form = form_sel + 1;
+            init_shader();
+            form_revert = 0;
+        }
+        if window != 1{
+            soft_armor = 999999999;
+            vsp = 0;
+            hsp = 0;
+        }
+        break;
+        case 1:
+        if window == 6 && window_timer == 1{
+            sound_play(jump_sound);
+        }
+        if window == 6 && window_timer == 11 sound_play(sound_get("OK_swipemedium1"));
+        break;
+    }
+    if form_revert{
+        hud_offset = floor(lerp(hud_offset, 200, 0.2));
+        can_move = 0;
+        can_fast_fall = 0;
+        if window == 1 && !special_down{
+            form_sel = (joy_pad_idle? -1: floor(floor((joy_dir/45)%8)/2 + .5)%4);
+            if form_sel == -1{
+                state = PS_IDLE;
+                state_timer = 0;
+            }else{
+                window = 2;
+                window_timer = 0;
+                set_window_value(AT_DSPECIAL, 2, AG_WINDOW_GOTO, window_set_array[form_sel + 1]);
+            }
+        }
+        if window == 2 && window_timer == 12{
+            form = form_sel + 1;
+            init_shader();
+            form_revert = 0;
+        }
+        if window != 1{
+            soft_armor = 999999999;
+            vsp = 0;
+            hsp = 0;
+        }
+    }
+    break;
 }

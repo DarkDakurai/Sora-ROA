@@ -71,7 +71,7 @@ if alpha_alt > 0 {
 prev_alt = alt_cur;
 
 if(alt_cur == 17) draw_sprite_ext(sprite_get("css_icons"), 2, temp_x + 174, temp_y + 108, 1, 1, 0, c_white, 1);
-draw_sprite_part_ext(sprite_get("0PS_IDLE"), anim_timer * 0.15, 130, 0, 100, 400, temp_x + 8, temp_y - 12 + 20 * alpha_alt/3, 1, 1, c_white, alpha_alt);
+draw_sprite_part_ext(sprite_get("0PS_IDLE"), anim_timer * 0.15, 65, 0, 50, 200, temp_x + 8, temp_y - 12 + 20 * alpha_alt/3, 2, 2, c_white, alpha_alt);
 draw_set_halign(alt_cur == 22? fa_center: fa_left);
 textDraw(temp_x + (alt_cur == 22? 130: 60), temp_y + (alt_cur == 22? 99: (alt_cur == 26 || alt_cur == 25 || alt_cur == 27 || alt_cur == 5 || alt_cur == 2 || alt_cur == 5 || alt_cur == 11 || alt_cur == 12 || alt_cur == 16? 127: 141)), "fName", make_color_rgb(sora_alt[0][alt_cur][5][0], sora_alt[0][alt_cur][5][1], sora_alt[0][alt_cur][5][2]), 14, 400, 1, 1, alpha_alt, alt_name[alt_cur], c_black);
 #define textDraw(x, y, font, color, lineb, linew, scale, outline, alpha, string, outline_c)

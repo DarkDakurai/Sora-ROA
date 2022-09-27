@@ -47,10 +47,38 @@ sprite_change_offset(string(j%5)+"fstrong"+(j >= 5? "_blade":""), 82, 78);//
 sprite_change_offset(string(j%5)+"ustrong"+(j >= 5? "_blade":""), 89, 78);//
 sprite_change_offset(string(j%5)+"dstrong"+(j >= 5? "_blade":""), 88, 78);//
 sprite_change_offset(string(j%5)+"nspecial"+(j >= 5? "_blade":""), 85, 78);
+sprite_change_offset(string(j%5)+"nspecial_air"+(j >= 5? "_blade":""), 85, 78);
 sprite_change_offset(string(j%5)+"fspecial"+(j >= 5? "_blade":""), 85, 78);
-sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 85, 78);
-sprite_change_offset(string(j%5)+"dspecial"+(j >= 5? "_blade":""), 85, 78);
+sprite_change_offset(string(j%5)+"fspecial_air"+(j >= 5? "_blade":""), 85, 78);
+sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 90, 59);//
+sprite_change_offset(string(j%5)+"uspecial_air"+(j >= 5? "_blade":""), 90, 59);//
+sprite_change_offset(string(j%5)+"dspecial"+(j >= 5? "_blade":""), 87, 78);//
+sprite_change_offset(string(j%5)+"dspecial_air"+(j >= 5? "_blade":""), 87, 78);//
 sprite_change_offset(string(j%5)+"taunt"+(j >= 5? "_blade":""), 85, 78);
+
+//hurtboxes
+sprite_change_offset(string(j%5)+"jab_hurt", 85 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"dattack_hurt", 90 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"ftilt_hurt", 73 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"dtilt_hurt", 73 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"utilt_hurt", 73 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"nair_hurt", 91 * 2, 56 * 2);//
+sprite_change_offset(string(j%5)+"fair_hurt", 87 * 2, 62 * 2);//
+sprite_change_offset(string(j%5)+"bair_hurt", 87 * 2, 62 * 2);//
+sprite_change_offset(string(j%5)+"uair_hurt", 87 * 2, 62 * 2);//
+sprite_change_offset(string(j%5)+"dair_hurt", 87 * 2, 62 * 2);//
+sprite_change_offset(string(j%5)+"fstrong_hurt", 82 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"ustrong_hurt", 89 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"dstrong_hurt", 88 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"nspecial_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"nspecial_air_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"fspecial_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"fspecial_air_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"uspecial_hurt", 90 * 2, 59 * 2);//
+sprite_change_offset(string(j%5)+"uspecial_air_hurt", 90 * 2, 59 * 2);//
+sprite_change_offset(string(j%5)+"dspecial_hurt", 87 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"dspecial_air_hurt", 87 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"taunt_hurt", 85 * 2, 78 * 2);
 }
 
 //plat

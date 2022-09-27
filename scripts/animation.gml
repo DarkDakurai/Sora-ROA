@@ -112,6 +112,9 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         sprite_index = sprite_get(string(form) + "PS_IDLE");
         image_index = state_timer * idle_anim_speed;
         break;
+        case PS_WALL_JUMP:
+        image_index = ((state_timer / 4) + 1 >= image_number? image_number - 1: (state_timer / 4) + 1);
+        break;
     }
 }else{
     if attack == AT_DSTRONG && !form && window == 1{
