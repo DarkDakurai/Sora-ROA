@@ -180,6 +180,7 @@ attack_names = [ //has the names of all the attacks
 prev_taunt_p = taunt_pressed
 
 //#region hud variables
+//Base gauge
 form = 0;
 gauge_val = 0; //max 5000
 cur_offset = 26;
@@ -188,6 +189,14 @@ particle_dist = 0;
 particle_angle = 0;
 prev_form = form;
 form_fx = 0;
+//valor points
+vl_point = 0;
+vl_alpha = 0;
+//MP gauge
+mp = 1000;
+mp_recharge = 0;
+mp_alpha = 0;
+mp_gauge_alpha = 0;
 //#endregion
 
 //#region form alt array
@@ -464,7 +473,7 @@ attack_frameskip = [
     [0, 0, 0, 0],//fspecial,
     [6, 8, 0, 0],//dspecial,
     [4, 9, 0, 0],//uspecial,
-    [0, 0, 0, 0],//nspecial,
+    [7, 9, 0, 0],//nspecial,
     [0, 0, 0, 0],//FSTRONG_2,
     [0, 0, 0, 0],//DSTRONG_2,
     [0, 0, 0, 0],//USTRONG_2,
@@ -499,6 +508,15 @@ attack_frameskip = [
 //#endregion
 
 //#region attack variables
+
+//strongs
+got_gem = 0;
+
+//nspecial
+ragnarok_lv = 0;
+charged_ver = 1;
+valor_cool = 0;
+afterimage = 0;
 
 //dspecial
 form_sel = -1;

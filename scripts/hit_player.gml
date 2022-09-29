@@ -31,6 +31,10 @@ if my_hitboxID.attack == AT_DSPECIAL{
     sound_play(sound_get(my_hitboxID.hbox_num == 1? "OK_hitmedium2": "OK_hitheavy3"));
 }
 
+if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 3{
+    sound_play(sound_get("OK_hitheavy3"));
+}
+
 if my_hitboxID.attack == AT_DAIR && form == 1{
     if my_hitboxID.hbox_num == 4{
         sound_play(sound_get("OK_hitmedium1"));
@@ -47,3 +51,14 @@ if my_hitboxID.attack == AT_DAIR && form == 1{
 
 if !form && gauge_val < 5000 gauge_val += (my_hitboxID.damage + floor(my_hitboxID.kb_value * my_hitboxID.kb_scale)) * 20;
 if gauge_val > 5000 gauge_val = 5000;
+
+if form == 1 && (my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_USTRONG || my_hitboxID.attack == AT_DSTRONG) && vl_point < 4 && !got_gem{
+    got_gem = 1;
+    vl_point++;
+    sound_play(sound_get("valor_point"));
+}
+
+if(my_hitboxID.attack = AT_NSPECIAL && my_hitboxID.hbox_num = 1 && my_hitboxID.rag_lv > 0){
+    my_hitboxID.rag_lv--;
+    my_hitboxID.can_hit[hit_player_obj.player] = 1;
+}

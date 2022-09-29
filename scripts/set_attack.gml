@@ -10,7 +10,24 @@ if form{
     set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, 1);
     set_attack_value(AT_DAIR, AG_CATEGORY, 1);
 }
-if !(floor(gauge_val/1000)) && !form move_cooldown[AT_DSPECIAL] = 10;
+
+if form == 1{
+    valor_cool = 30;
+    afterimage = 0;
+    set_hitbox_value(AT_NSPECIAL, 3, HG_EXTRA_HITPAUSE, 10);
+    set_hitbox_value(AT_NSPECIAL, 3, HG_HITSTUN_MULTIPLIER, 1);
+    set_hitbox_value(AT_NSPECIAL, 3, HG_DRIFT_MULTIPLIER, 1);
+    if attack == AT_NSPECIAL && vl_point && !move_cooldown[AT_NSPECIAL]{
+        vl_point--;
+        valor_cool = 80;
+        afterimage = 1;
+        set_hitbox_value(AT_NSPECIAL, 3, HG_EXTRA_HITPAUSE, 30);
+        set_hitbox_value(AT_NSPECIAL, 3, HG_HITSTUN_MULTIPLIER, 2);
+        set_hitbox_value(AT_NSPECIAL, 3, HG_DRIFT_MULTIPLIER, 0);
+    }
+}
+
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, free - 1);
 
 set_attack_value(attack, AG_SPRITE, sprite_get(string(form) + attack_names[attack]));
 set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get(string(form) + attack_names[attack] + "_hurt"));
@@ -20,6 +37,9 @@ if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_a
 if attack == AT_DSPECIAL && form == 1{
     spawn_base_dust(x, y, free? "djump": "jump");
 }
+got_gem = 0;
+charged_ver = 1;
+ragnarok_lv = 0;
 
 #define spawn_base_dust
 {

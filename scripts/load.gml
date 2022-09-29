@@ -86,3 +86,13 @@ sprite_change_offset("plat", 0, 0);
 
 //misc
 sprite_change_offset("hud_particle", 10, 10);
+
+//ragnarok
+sprite_change_offset("ragnarok_artc_1", 175, 116);
+sprite_change_offset("ragnarok_artc_mask1", 175, 116);
+sprite_change_offset("ragnarok_artc_2", 175, 117);
+sprite_change_offset("ragnarok_artc_mask2", 175, 117);
+sprite_change_offset("ragnarok_artc_3", 178, 118);
+sprite_change_offset("ragnarok_artc_mask3", 178, 118);
+sprite_change_offset("ragnarok_projectile", 6, 18);
+sprite_change_offset("ragnarok_projectile_after", 10, 18);

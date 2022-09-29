@@ -79,9 +79,11 @@ if !form && prev_form{
         part.part_y = temp_y - l%6 - 2;
         part.alpha_change = 0.02 + random_func_2(l, 5, 1)/100;
         part.movement_speed = 2 + random_func_2(l, 5, 0);
+        part.image_alpha = 0;
+        part.hud_particle = 1;
     }
 }
-with obj_article2 if player_id = other && "hud_particle" in self{
+with obj_article2 if player_id = other && "hud_particle" in self && hud_particle{
     draw_sprite_ext(sprite_get("hud_particle"), 0, x, y, 2, 2, 0, c_white, real_alpha);
 }
 if form && !prev_form{
