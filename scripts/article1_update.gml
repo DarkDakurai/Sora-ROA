@@ -37,6 +37,7 @@ if instance_exists(grabp){
 		create_hitbox(AT_NSPECIAL, 2, x, y);
 	}
 	if grab_timer >= 31 + ragnarok_lv*10{
+		sound_play(sound_get("ragnarok_explode" + (ragnarok_lv < 3? "2": "")));
 		instance_destroy(self);
 		exit;
 	}
@@ -59,6 +60,7 @@ if (place_meeting(x - hsp, y - vsp, asset_get("par_block")))
 //death
 if (instance_exists(self) && lifetime >= 200 + 100 * ragnarok_lv)
 {
+	sound_play(sound_get("ragnarok_destroyed"));
 	var fx_orb = instance_create(x, y, "obj_article2");
 	fx_orb.particle_type = 1;
 	fx_orb.sprite_index = sprite_get("ragnarok_artc_3");

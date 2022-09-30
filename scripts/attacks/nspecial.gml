@@ -15,6 +15,8 @@ set_window_value(AT_NSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, -1);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 1);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_SFX, sound_get("ragnarok_charge"));
 
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH, 27);
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 9);
@@ -29,6 +31,9 @@ set_window_value(AT_NSPECIAL, 4, AG_WINDOW_ANIM_FRAME_START, 16);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_VSPEED, 0);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_GOTO, 20);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_SFX_FRAME, 8);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_SFX, sound_get("ragnarok_proj_fire"));
 
 set_window_value(AT_NSPECIAL, 5, AG_WINDOW_LENGTH, 18);
 set_window_value(AT_NSPECIAL, 5, AG_WINDOW_ANIM_FRAMES, 6);
@@ -88,7 +93,7 @@ set_hitbox_value(AT_NSPECIAL, 1, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_NSPECIAL, 1, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 0.6);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITPAUSE_SCALING, 0.2);
-//set_hitbox_value(AT_NSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_ori_energyhit_medium"));
+set_hitbox_value(AT_NSPECIAL, 1, HG_HIT_SFX, sound_get("ragnarok_proj_hit"));
 
 set_hitbox_value(AT_NSPECIAL, 2, HG_HITBOX_TYPE, 2);
 set_hitbox_value(AT_NSPECIAL, 2, HG_WINDOW, 4);
@@ -113,7 +118,7 @@ set_hitbox_value(AT_NSPECIAL, 2, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_NSPECIAL, 2, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_NSPECIAL, 2, HG_KNOCKBACK_SCALING, 0.6);
 set_hitbox_value(AT_NSPECIAL, 2, HG_HITPAUSE_SCALING, 0.2);
-//set_hitbox_value(AT_NSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_ori_energyhit_medium"));
+set_hitbox_value(AT_NSPECIAL, 2, HG_HIT_SFX, sound_get("ragnarok_hit"));
 
 //Valor
 

@@ -1,3 +1,6 @@
+maskHeader();
+maskMidder();
+maskFooter();
 var mul = 16; //spacing
 var hud_dist = 50;
 var is_attacking = (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR);

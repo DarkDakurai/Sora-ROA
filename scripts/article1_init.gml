@@ -3,7 +3,6 @@
 can_be_grounded = 1;
 ignores_walls = 0;
 uses_shader = 0;
-ragnarok_lv = 0;
 through_platforms = 1;
 lifetime = 0;
 should_scale = 1;
