@@ -38,6 +38,7 @@ if instance_exists(grabp){
 	}
 	if grab_timer >= 31 + ragnarok_lv*10{
 		sound_play(sound_get("ragnarok_explode" + (ragnarok_lv < 3? "2": "")));
+		spawn_dust_fx(x, y - 4, sprite_get("ragnarok_explosion"), 25);
 		instance_destroy(self);
 		exit;
 	}

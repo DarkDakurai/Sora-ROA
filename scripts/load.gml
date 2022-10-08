@@ -48,8 +48,8 @@ sprite_change_offset(string(j%5)+"ustrong"+(j >= 5? "_blade":""), 89, 78);//
 sprite_change_offset(string(j%5)+"dstrong"+(j >= 5? "_blade":""), 88, 78);//
 sprite_change_offset(string(j%5)+"nspecial"+(j >= 5? "_blade":""), 85, 78);
 sprite_change_offset(string(j%5)+"nspecial_air"+(j >= 5? "_blade":""), 85, 78);
-sprite_change_offset(string(j%5)+"fspecial"+(j >= 5? "_blade":""), 85, 78);
-sprite_change_offset(string(j%5)+"fspecial_air"+(j >= 5? "_blade":""), 85, 78);
+sprite_change_offset(string(j%5)+"fspecial"+(j >= 5? "_blade":""), 86, 66);
+sprite_change_offset(string(j%5)+"fspecial_air"+(j >= 5? "_blade":""), 86, 66);
 sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 90, 59);//
 sprite_change_offset(string(j%5)+"uspecial_air"+(j >= 5? "_blade":""), 90, 59);//
 sprite_change_offset(string(j%5)+"dspecial"+(j >= 5? "_blade":""), 87, 78);//
@@ -72,8 +72,8 @@ sprite_change_offset(string(j%5)+"ustrong_hurt", 89 * 2, 78 * 2);//
 sprite_change_offset(string(j%5)+"dstrong_hurt", 88 * 2, 78 * 2);//
 sprite_change_offset(string(j%5)+"nspecial_hurt", 85 * 2, 78 * 2);
 sprite_change_offset(string(j%5)+"nspecial_air_hurt", 85 * 2, 78 * 2);
-sprite_change_offset(string(j%5)+"fspecial_hurt", 85 * 2, 78 * 2);
-sprite_change_offset(string(j%5)+"fspecial_air_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"fspecial_hurt", 86 * 2, 66 * 2);
+sprite_change_offset(string(j%5)+"fspecial_air_hurt", 86 * 2, 66 * 2);
 sprite_change_offset(string(j%5)+"uspecial_hurt", 90 * 2, 59 * 2);//
 sprite_change_offset(string(j%5)+"uspecial_air_hurt", 90 * 2, 59 * 2);//
 sprite_change_offset(string(j%5)+"dspecial_hurt", 87 * 2, 78 * 2);//
@@ -86,6 +86,7 @@ sprite_change_offset("plat", 0, 0);
 
 //misc
 sprite_change_offset("hud_particle", 10, 10);
+sprite_change_offset("1particle", 15, 15);
 
 //ragnarok
 sprite_change_offset("ragnarok_artc_1", 175, 116);
@@ -96,3 +97,8 @@ sprite_change_offset("ragnarok_artc_3", 178, 118);
 sprite_change_offset("ragnarok_artc_mask3", 178, 118);
 sprite_change_offset("ragnarok_projectile", 6, 18);
 sprite_change_offset("ragnarok_projectile_after", 10, 18);
+sprite_change_offset("ragnarok_explosion", 89, 56);
+
+//fspecial
+sprite_change_offset("0fspecial_proj", 162, 102);
+sprite_change_offset("0fspecial_mask", 19, 61);

@@ -4,6 +4,7 @@ particle_type = 0;
 1 = ragnarok held for too long
 2 = ragnarok projectile
 3 = general afterimage
+4 = valor particle
 */
 inited = 1;
 uses_shader = 0;

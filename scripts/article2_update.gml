@@ -13,6 +13,13 @@ if inited{
         case 2:
         sprite_index = sprite_get("ragnarok_projectile_after");
         break;
+        case 4:
+        timer = 20;
+        vsp = -3 - random_func_2(abs(floor(x%200)), 3, 0);
+        hsp = 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0);
+        image_xscale = 2;
+        image_yscale = 2;
+        break;
     }
 }
 
@@ -48,6 +55,14 @@ switch particle_type{
     break;
     case 3:
     image_alpha = timer/15;
+    timer--;
+    if !timer{
+        instance_destroy(self);
+        exit;
+    }
+    break;
+    case 4:
+    image_alpha = timer/20;
     timer--;
     if !timer{
         instance_destroy(self);

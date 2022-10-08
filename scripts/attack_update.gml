@@ -312,7 +312,10 @@ switch(attack){
                 sound_play(sound_get("ragnarok_destroyed"));
             }
         }
-        if window == 6 && window_timer == 9 instance_create(x + 10 * spr_dir, y - 110, "obj_article1");
+        if window == 6 && window_timer == 9{
+            instance_create(x + 10 * spr_dir, y - 110, "obj_article1");
+            sound_play(sound_get("ragnarok_summon"));
+        }
         if window == 6 hud_offset = floor(lerp(hud_offset, 200, 0.2));
         if window == 4{
             hud_offset = floor(lerp(hud_offset, 40, 0.2));
@@ -324,9 +327,124 @@ switch(attack){
         if window == 7 && window_timer == 14 sound_play(sound_get("OK_swipemedium1"));
         if window == 7 && !(window_timer%4) && afterimage == 1{
             var afterm = instance_create(x, y, "obj_article2");
+            afterm.spr_dir = spr_dir;
             afterm.particle_type = 3;
             afterm.timer = 15;
             afterm.image_index = image_index;
+        }
+        break;
+    }
+    break;
+    case AT_FSPECIAL:
+    switch form{
+        case 0:
+        switch window{
+            case 4:
+            if window_timer == 18 sound_play(sound_get("sora_dash"));
+            if window_timer == 22 sound_play(sound_get("KB_recall"));
+            can_move = 0;
+            hsp = 0;
+            vsp = 0;
+            fsp_grab.state = PS_FLASHED;
+            fsp_grab.hsp = 0;
+            fsp_grab.vsp = 0;
+            fsp_grab.x = proj_pos[2];
+            fsp_grab.y = proj_pos[3];
+            if window_timer >= 12 && window_timer <= 15{
+                x = lerp(x, proj_pos[0] - 30 * spr_dir, 0.2);
+                y = lerp(y, fsp_grab.y - floor(fsp_grab.char_height/3), 0.2);
+            }else if window_timer > 15{
+                x = proj_pos[0] - 30 * spr_dir;
+                y = fsp_grab.y - floor(fsp_grab.char_height/3);
+            }
+            if(spr_dir? right_down: left_down){
+                set_window_value(AT_FSPECIAL, 5, AG_WINDOW_HSPEED, 14);
+            }else if(!spr_dir? right_down: left_down){
+                set_window_value(AT_FSPECIAL, 5, AG_WINDOW_HSPEED, 8);
+            }else{
+                set_window_value(AT_FSPECIAL, 5, AG_WINDOW_HSPEED, 11);
+            }
+            break;
+            case 6:
+            if window_timer == 18 sound_play(sound_get("sora_dash"));
+            if window_timer > 11 && window_timer < 15{
+                x = lerp(x, proj_pos[0] - 38 * spr_dir, 0.2);
+                y = lerp(y, proj_pos[1] + 52, 0.2);
+            }else if window_timer >= 15{
+                x = proj_pos[0] - 38 * spr_dir;
+                y = proj_pos[1] + 52;
+            }
+            can_move = 0;
+            hsp = 0;
+            vsp = 0;
+            break;
+            case 7:
+            ignores_walls = 1;
+            x = proj_pos[0] - 38 * spr_dir;
+            y = proj_pos[1] + 52;
+            can_move = 0;
+            hsp = 0;
+            vsp = 0;
+            if jump_pressed{
+                set_state(PS_DOUBLE_JUMP);
+            }
+            break;
+        }
+        break;
+        
+        case 1:
+        if power_up && !(state_timer%4){
+            var afterm = instance_create(x, y, "obj_article2");
+            afterm.spr_dir = spr_dir;
+            afterm.particle_type = 3;
+            afterm.timer = 15;
+            afterm.image_index = image_index;
+        }
+        switch window{
+            case 8:
+            if window_timer >= 6 hsp = 7 * spr_dir;
+            if window_timer = 10 sound_play(asset_get("sfx_swipe_medium2"));
+            if window_timer == 12 && vl_point{
+                vl_point--;
+                window = 9;
+                window_timer = 0;
+            }else if window_timer == 12{
+                hsp = 10 * spr_dir;
+                window = 10;
+                window_timer = 0;
+            }
+            break;
+            case 9:
+            if instance_exists(fsp_grab){
+                fsp_grab.state = PS_FLASHED;
+                fsp_grab.x = proj_pos[2];
+                fsp_grab.y = proj_pos[3];
+            }
+            vsp = 0;
+            if window_timer == 1 sound_play(sound_get("sora_dodge"));
+            if window_timer == 3 && !has_hit{
+                window = 10;
+                window_timer = 7;
+                destroy_hitboxes();
+            }
+            if window_timer == 9{
+                if vl_point{
+                    vl_point--;
+                    window = 9;
+                    window_timer = 0;
+                    sound_play(asset_get("sfx_swipe_medium2"));
+                }else{
+                    window = 10;
+                    window_timer = 0;
+                    sound_play(asset_get("sfx_swipe_medium2"));
+                }
+                sound_play(sound_get("sora_dash"));
+                spr_dir *= -1;
+                hsp *= -1;
+                x = fsp_grab.x - 80 * spr_dir;
+                y = fsp_grab.y - floor(fsp_grab.char_height/5);
+            }
+            break;
         }
         break;
     }

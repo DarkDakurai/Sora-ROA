@@ -19,7 +19,7 @@ set_window_value(AT_USTRONG, 2, AG_WINDOW_SFX_FRAME, 4);
 set_window_value(AT_USTRONG, 2, AG_WINDOW_SFX, asset_get("sfx_swipe_medium2"));
 set_window_value(AT_USTRONG, 2, AG_WINDOW_VSPEED, -5);
 
-set_window_value(AT_USTRONG, 3, AG_WINDOW_LENGTH, 30);
+set_window_value(AT_USTRONG, 3, AG_WINDOW_LENGTH, 25);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAMES, 10);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 10);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_HAS_WHIFFLAG, 1);

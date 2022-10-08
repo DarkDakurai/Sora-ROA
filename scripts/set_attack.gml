@@ -21,7 +21,7 @@ if form == 1{
         vl_point--;
         valor_cool = 80;
         afterimage = 1;
-        set_hitbox_value(AT_NSPECIAL, 3, HG_EXTRA_HITPAUSE, 30);
+        set_hitbox_value(AT_NSPECIAL, 3, HG_EXTRA_HITPAUSE, 40);
         set_hitbox_value(AT_NSPECIAL, 3, HG_HITSTUN_MULTIPLIER, 2);
         set_hitbox_value(AT_NSPECIAL, 3, HG_DRIFT_MULTIPLIER, 0);
     }
@@ -40,6 +40,13 @@ if attack == AT_DSPECIAL && form == 1{
 got_gem = 0;
 charged_ver = 1;
 ragnarok_lv = 0;
+proj_pos = [];
+fsp_grab = noone;
+power_up = 0;
+
+if form == 1 && vl_point{
+    power_up = 1;
+}
 
 #define spawn_base_dust
 {

@@ -35,7 +35,21 @@ if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR &&
     form_sel = -1;
 }
 
-//debug
+if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIAL && window >= 6 && !form mask_index = sprite_get("0fspecial_mask");
+else if mask_index != def_coll mask_index = def_coll;
+
+if !form && move_cooldown[AT_FSPECIAL] && free move_cooldown[AT_FSPECIAL] = 2;
+
+switch form{
+    case 1:
+    if get_gameplay_time()%3 == 0{
+        var partc = instance_create(x, y - 40, "obj_article2");
+        partc.particle_type = 4;
+    }
+    break;
+}
+
+/*/debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
 if down_down && taunt_down && gauge_val gauge_val -= 100;
 if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++

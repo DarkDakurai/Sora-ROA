@@ -62,3 +62,16 @@ if(my_hitboxID.attack = AT_NSPECIAL && my_hitboxID.hbox_num = 1 && my_hitboxID.r
     my_hitboxID.rag_lv--;
     my_hitboxID.can_hit[hit_player_obj.player] = 1;
 }
+
+if my_hitboxID.attack == AT_FSPECIAL && my_hitboxID.hbox_num == 1 && fsp_grab == noone && !hit_player_obj.custom_clone && !hit_player_obj.clone{
+    window = 4;
+    window_timer = 0;
+    fsp_grab = hit_player_obj;
+    proj_pos = [my_hitboxID.x, my_hitboxID.y, fsp_grab.x, fsp_grab.y];
+    fsp_grab.y -= 2;
+}
+
+if my_hitboxID.attack == AT_FSPECIAL && my_hitboxID.hbox_num >= 3 && fsp_grab == noone && !hit_player_obj.custom_clone && !hit_player_obj.clone{
+    fsp_grab = hit_player_obj;
+    proj_pos = [0, 0, fsp_grab.x, fsp_grab.y];
+}

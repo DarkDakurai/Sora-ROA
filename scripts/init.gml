@@ -470,7 +470,7 @@ attack_frameskip = [
     [3, 7, 0, 0],//dair,
     [3, 6, 0, 0],//uair,
     [4, 7, 0, 0],//nair,
-    [0, 0, 0, 0],//fspecial,
+    [8, 11, 0, 0],//fspecial,
     [6, 8, 0, 0],//dspecial,
     [4, 9, 0, 0],//uspecial,
     [7, 9, 0, 0],//nspecial,
@@ -525,6 +525,12 @@ orb_alpha = 0;
 window_set_array = [3, 4, 3, 4, 5];
 layout_pos = [[55 - 16, -40], [-16, -100], [-55 - 16, -40], [-16, 10]];
 form_revert = 0;
+
+//fspecial
+def_coll = mask_index;
+fsp_grab = noone;
+proj_pos = [];
+power_up = 0;
 //#endregion
 
 //#region sfx
