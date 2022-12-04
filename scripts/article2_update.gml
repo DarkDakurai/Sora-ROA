@@ -62,7 +62,7 @@ switch particle_type{
     }
     break;
     case 4:
-    image_alpha = timer/20;
+    image_alpha = timer/12;
     timer--;
     if !timer{
         instance_destroy(self);

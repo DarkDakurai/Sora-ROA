@@ -230,59 +230,59 @@ set_color_profile_slot( 22, 4, 97, 83, 145 ); //Glove/Shoe Accents
 set_color_profile_slot( 22, 5, 206, 212, 227 ); //Keyblade Blade
 set_color_profile_slot( 22, 6, 69, 89, 105 ); //Keyblade Handle
 
-// Paper Mario(Paper Mario)
-set_color_profile_slot( 23, 0, 143, 72, 48 ); //Hair
-set_color_profile_slot( 23, 1, 242, 44, 48 ); //Shirt
-set_color_profile_slot( 23, 2, 52, 108, 204 ); //Pants
-set_color_profile_slot( 23, 3, 240, 213, 74 ); //Pants Accents
-set_color_profile_slot( 23, 4, 157, 86, 44 ); //Glove/Shoe Accents
-set_color_profile_slot( 23, 5, 214, 184, 41 ); //Keyblade Blade
-set_color_profile_slot( 23, 6, 128, 100, 27 ); //Keyblade Handle
-
 // Leshy(Inscryption)
-set_color_profile_slot( 24, 0, 81, 146, 56 ); //Hair
-set_color_profile_slot( 24, 1, 115, 66, 52 ); //Shirt
-set_color_profile_slot( 24, 2, 20, 59, 22 ); //Pants
-set_color_profile_slot( 24, 3, 174, 117, 48 ); //Pants Accents
-set_color_profile_slot( 24, 4, 87, 53, 43 ); //Glove/Shoe Accents
-set_color_profile_slot( 24, 5, 87, 125, 51 ); //Keyblade Blade
-set_color_profile_slot( 24, 6, 245, 131, 45 ); //Keyblade Handle
+set_color_profile_slot( 23, 0, 81, 146, 56 ); //Hair
+set_color_profile_slot( 23, 1, 115, 66, 52 ); //Shirt
+set_color_profile_slot( 23, 2, 20, 59, 22 ); //Pants
+set_color_profile_slot( 23, 3, 174, 117, 48 ); //Pants Accents
+set_color_profile_slot( 23, 4, 87, 53, 43 ); //Glove/Shoe Accents
+set_color_profile_slot( 23, 5, 87, 125, 51 ); //Keyblade Blade
+set_color_profile_slot( 23, 6, 245, 131, 45 ); //Keyblade Handle
 
 // Sol Badguy(Guilty Gear)
-set_color_profile_slot( 25, 0, 82, 49, 27 ); //Hair
-set_color_profile_slot( 25, 1, 173, 50, 29 ); //Shirt
-set_color_profile_slot( 25, 2, 209, 198, 187 ); //Pants
-set_color_profile_slot( 25, 3, 71, 68, 62 ); //Pants Accents
-set_color_profile_slot( 25, 4, 166, 159, 151 ); //Glove/Shoe Accents
-set_color_profile_slot( 25, 5, 122, 44, 20 ); //Keyblade Blade
-set_color_profile_slot( 25, 6, 22, 25, 26 ); //Keyblade Handle
+set_color_profile_slot( 24, 0, 82, 49, 27 ); //Hair
+set_color_profile_slot( 24, 1, 173, 50, 29 ); //Shirt
+set_color_profile_slot( 24, 2, 209, 198, 187 ); //Pants
+set_color_profile_slot( 24, 3, 71, 68, 62 ); //Pants Accents
+set_color_profile_slot( 24, 4, 166, 159, 151 ); //Glove/Shoe Accents
+set_color_profile_slot( 24, 5, 122, 44, 20 ); //Keyblade Blade
+set_color_profile_slot( 24, 6, 22, 25, 26 ); //Keyblade Handle
 
 // Ragna(Blazblue)
-set_color_profile_slot( 26, 0, 248, 252, 255 ); //Hair
-set_color_profile_slot( 26, 1, 224, 0, 0 ); //Shirt
-set_color_profile_slot( 26, 2, 9, 8, 7 ); //Pants
-set_color_profile_slot( 26, 3, 232, 234, 236 ); //Pants Accents
-set_color_profile_slot( 26, 4, 168, 177, 185 ); //Glove/Shoe Accents
-set_color_profile_slot( 26, 5, 231, 235, 235 ); //Keyblade Blade
-set_color_profile_slot( 26, 6, 60, 56, 50 ); //Keyblade Handle
+set_color_profile_slot( 25, 0, 248, 252, 255 ); //Hair
+set_color_profile_slot( 25, 1, 224, 0, 0 ); //Shirt
+set_color_profile_slot( 25, 2, 9, 8, 7 ); //Pants
+set_color_profile_slot( 25, 3, 232, 234, 236 ); //Pants Accents
+set_color_profile_slot( 25, 4, 168, 177, 185 ); //Glove/Shoe Accents
+set_color_profile_slot( 25, 5, 231, 235, 235 ); //Keyblade Blade
+set_color_profile_slot( 25, 6, 60, 56, 50 ); //Keyblade Handle
 
 // Hyde(Undernight in-birth)
-set_color_profile_slot( 27, 0, 255, 243, 157 ); //Hair
-set_color_profile_slot( 27, 1, 54, 54, 54 ); //Shirt
-set_color_profile_slot( 27, 2, 79, 79, 79 ); //Pants
-set_color_profile_slot( 27, 3, 250, 253, 255 ); //Pants Accents
-set_color_profile_slot( 27, 4, 127, 125, 127 ); //Glove/Shoe Accents
-set_color_profile_slot( 27, 5, 196, 0, 3 ); //Keyblade Blade
-set_color_profile_slot( 27, 6, 33, 28, 30 ); //Keyblade Handle
+set_color_profile_slot( 26, 0, 255, 243, 157 ); //Hair
+set_color_profile_slot( 26, 1, 54, 54, 54 ); //Shirt
+set_color_profile_slot( 26, 2, 79, 79, 79 ); //Pants
+set_color_profile_slot( 26, 3, 250, 253, 255 ); //Pants Accents
+set_color_profile_slot( 26, 4, 127, 125, 127 ); //Glove/Shoe Accents
+set_color_profile_slot( 26, 5, 196, 0, 3 ); //Keyblade Blade
+set_color_profile_slot( 26, 6, 33, 28, 30 ); //Keyblade Handle
 
 // Lonin(Workshop Characters)
-set_color_profile_slot( 28, 0, 185, 122, 87 ); //Hair
-set_color_profile_slot( 28, 1, 89, 133, 190 ); //Shirt
-set_color_profile_slot( 28, 2, 209, 48, 72 ); //Pants
-set_color_profile_slot( 28, 3, 128, 19, 102 ); //Pants Accents
-set_color_profile_slot( 28, 4, 69, 67, 168 ); //Glove/Shoe Accents
-set_color_profile_slot( 28, 5, 152, 134, 217 ); //Keyblade Blade
-set_color_profile_slot( 28, 6, 209, 61, 84 ); //Keyblade Handle
+set_color_profile_slot( 27, 0, 185, 122, 87 ); //Hair
+set_color_profile_slot( 27, 1, 89, 133, 190 ); //Shirt
+set_color_profile_slot( 27, 2, 209, 48, 72 ); //Pants
+set_color_profile_slot( 27, 3, 128, 19, 102 ); //Pants Accents
+set_color_profile_slot( 27, 4, 69, 67, 168 ); //Glove/Shoe Accents
+set_color_profile_slot( 27, 5, 152, 134, 217 ); //Keyblade Blade
+set_color_profile_slot( 27, 6, 209, 61, 84 ); //Keyblade Handle
+
+// Leak(It's a reference)
+set_color_profile_slot( 28, 0, 96, 75, 72 ); //Hair
+set_color_profile_slot( 28, 1, 96, 75, 72 ); //Shirt
+set_color_profile_slot( 28, 2, 231, 213, 189 ); //Pants
+set_color_profile_slot( 28, 3, 16, 16, 16 ); //Pants Accents
+set_color_profile_slot( 28, 4, 246, 180, 65 ); //Glove/Shoe Accents
+set_color_profile_slot( 28, 5, 30, 66, 49 ); //Keyblade Blade
+set_color_profile_slot( 28, 6, 186, 188, 190 ); //Keyblade Handle
 
 // Lil Miku (VC Campers)
 set_color_profile_slot( 29, 0, 0, 204, 0 ); //Hair

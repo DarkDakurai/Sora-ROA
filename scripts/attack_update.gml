@@ -18,6 +18,11 @@ switch(attack){
             iasa_script();
         }
         break;
+        case 2:
+        if has_hit && window == 8 && window_timer >= 3 && jump_pressed && !hitstop{
+            iasa_script();
+        }
+        break;
     }
     break;
     case AT_UTILT:
@@ -34,6 +39,9 @@ switch(attack){
         }
         hud_offset = floor(lerp(hud_offset, 160, 0.2));
         break;
+        case 2:
+        if (window == 7 && window_timer >= 10) || window == 8 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        break;
     }
     break;
     case AT_FTILT:
@@ -46,6 +54,9 @@ switch(attack){
             iasa_script();
         }
         if window >= 5 hud_offset = floor(lerp(hud_offset, 80, 0.2));
+        break;
+        case 2:
+        if image_index <= 9 hud_offset = floor(lerp(hud_offset, 50, 0.2));
         break;
     }
     break;
@@ -67,6 +78,9 @@ switch(attack){
             sound_play(asset_get("sfx_swipe_medium2"));
         }
         break;
+        case 2:
+        if (window_timer <= 12 && window == 18)|| window == 17 hud_offset = floor(lerp(hud_offset, 80, 0.2));
+        break;
     }
     break;
     case AT_DSTRONG:
@@ -84,7 +98,7 @@ switch(attack){
     case AT_USTRONG:
     switch form{
         case 0:
-        if window == 2 hud_offset = floor(lerp(hud_offset, 150, 0.2));
+        if window == 2 hud_offset = floor(lerp(hud_offset, 190, 0.2));
         break;
         case 1:
         if window == 5 && window_timer == 5 sound_play(sound_get("OK_swipemedium1"));
@@ -96,6 +110,7 @@ switch(attack){
     switch form{
         case 0:
         hud_offset = floor(lerp(hud_offset, 90, 0.2));
+        if window == 4 && window_timer >= 10 + (has_hit? 0: 5) iasa_script();
         break;
     }
     break;
@@ -340,8 +355,8 @@ switch(attack){
         case 0:
         switch window{
             case 4:
-            if window_timer == 18 sound_play(sound_get("sora_dash"));
-            if window_timer == 22 sound_play(sound_get("KB_recall"));
+            if window_timer == 12 sound_play(sound_get("sora_dash"));
+            if window_timer == 14 sound_play(sound_get("KB_recall"));
             can_move = 0;
             hsp = 0;
             vsp = 0;
@@ -350,10 +365,10 @@ switch(attack){
             fsp_grab.vsp = 0;
             fsp_grab.x = proj_pos[2];
             fsp_grab.y = proj_pos[3];
-            if window_timer >= 12 && window_timer <= 15{
-                x = lerp(x, proj_pos[0] - 30 * spr_dir, 0.2);
-                y = lerp(y, fsp_grab.y - floor(fsp_grab.char_height/3), 0.2);
-            }else if window_timer > 15{
+            if window_timer >= 8 && window_timer <= 11{
+                x = lerp(x, proj_pos[0] - 30 * spr_dir, 0.4);
+                y = lerp(y, fsp_grab.y - floor(fsp_grab.char_height/3), 0.4);
+            }else if window_timer > 11{
                 x = proj_pos[0] - 30 * spr_dir;
                 y = fsp_grab.y - floor(fsp_grab.char_height/3);
             }

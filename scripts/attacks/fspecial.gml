@@ -22,7 +22,7 @@ set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_SFX, sound_get("KB_recall"));
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_SFX_FRAME, 20);
 
-set_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH, 45);
+set_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH, 30);
 set_window_value(AT_FSPECIAL, 4, AG_WINDOW_ANIM_FRAMES, 15);
 set_window_value(AT_FSPECIAL, 4, AG_WINDOW_ANIM_FRAME_START, 29);
 set_window_value(AT_FSPECIAL, 4, AG_WINDOW_HAS_SFX, 1);

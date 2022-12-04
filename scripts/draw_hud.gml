@@ -25,6 +25,7 @@ draw_debug_text(temp_x+mul*5, temp_y+mul*0 - hud_dist, "image_index = " + string
 
 
 //form name
+if "cur_offset" not in self exit;
 cur_offset = lerp(cur_offset, form_offset[form], 0.1);
 draw_sprite_ext(sprite_get("hud_text_bg"), 0, temp_x + cur_offset, temp_y - 20, 2, 2, 0, c_white, 1);
 maskHeader();
@@ -77,7 +78,7 @@ if particle_dist{
 //particle effects
 if !form && prev_form{
     for(var l = 0; l < 26; l++){
-        var part = instance_create(temp_x + view_get_xview() + l*3 + 100, temp_y - l%6 - 2 + view_get_yview(), "obj_article2");
+        var part = instance_create(floor(temp_x + view_get_xview() + l*3 + 100), floor(temp_y - l%6 - 2 + view_get_yview()), "obj_article2");
         part.part_x = temp_x + l*3 + 100;
         part.part_y = temp_y - l%6 - 2;
         part.alpha_change = 0.02 + random_func_2(l, 5, 1)/100;

@@ -49,12 +49,12 @@ alt_name = [
 "Glint of Coldsteel",
 "Wildcards",
 "Featuring" + chr(10) + "Dante from the" + chr(10) + "Devil May Cry" + chr(10) + "series",
-"Paper Heart",
 "Card Game",
 "Here Comes" + chr(10) + "Daredevil",
-"Wheel of Fate" + chr(10) + "is Turning",
-"First Clause" + chr(10) + "Divide",
+"The Wheel of Fate" + chr(10) + "is Turning",
+"First Clause," + chr(10) + "Divide",
 "Workshop",
+"Pocket creatures",
 "VC Campers",
 "Warrior Of Light",
 "Brasil"
@@ -73,7 +73,7 @@ prev_alt = alt_cur;
 if(alt_cur == 17) draw_sprite_ext(sprite_get("css_icons"), 2, temp_x + 174, temp_y + 108, 1, 1, 0, c_white, 1);
 draw_sprite_part_ext(sprite_get("0PS_IDLE"), anim_timer * 0.15, 65, 0, 50, 200, temp_x + 8, temp_y - 12 + 20 * alpha_alt/3, 2, 2, c_white, alpha_alt);
 draw_set_halign(alt_cur == 22? fa_center: fa_left);
-textDraw(temp_x + (alt_cur == 22? 130: 60), temp_y + (alt_cur == 22? 99: (alt_cur == 26 || alt_cur == 25 || alt_cur == 27 || alt_cur == 5 || alt_cur == 2 || alt_cur == 5 || alt_cur == 11 || alt_cur == 12 || alt_cur == 16? 127: 141)), "fName", make_color_rgb(sora_alt[0][alt_cur][5][0], sora_alt[0][alt_cur][5][1], sora_alt[0][alt_cur][5][2]), 14, 400, 1, 1, alpha_alt, alt_name[alt_cur], c_black);
+textDraw(temp_x + (alt_cur == 22? 130: 60), temp_y + (alt_cur == 22? 99: (alt_cur == 26 || alt_cur == 25 || alt_cur == 24 || alt_cur == 5 || alt_cur == 2 || alt_cur == 5 || alt_cur == 11 || alt_cur == 12 || alt_cur == 16? 127: 141)), "fName", make_color_rgb(sora_alt[0][alt_cur][5][0], sora_alt[0][alt_cur][5][1], sora_alt[0][alt_cur][5][2]), 14, 400, 1, 1, alpha_alt, alt_name[alt_cur], c_black);
 #define textDraw(x, y, font, color, lineb, linew, scale, outline, alpha, string, outline_c)
 
 draw_set_font(asset_get(argument[2]));

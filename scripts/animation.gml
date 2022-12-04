@@ -54,7 +54,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = state_timer/2;
         break;
         case PS_FIRST_JUMP:
-        image_index = (state_timer * .7 >= image_number - 1? image_number - 1: state_timer * .7);
+        image_index = (state_timer * .6 + (!form?3:0) >= image_number - 1? image_number - 1: state_timer * .6 + (!form?3:0));
         break;
         case PS_DOUBLE_JUMP:
         image_index = state_timer * 3/10;
