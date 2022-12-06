@@ -102,3 +102,6 @@ sprite_change_offset("ragnarok_explosion", 89, 56);
 //fspecial
 sprite_change_offset("0fspecial_proj", 162, 102);
 sprite_change_offset("0fspecial_mask", 19, 61);
+
+//frostbite
+sprite_change_offset("frostbite_mark", 0, 9);

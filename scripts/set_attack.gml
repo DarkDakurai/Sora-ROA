@@ -11,7 +11,8 @@ if form{
     set_attack_value(AT_DAIR, AG_CATEGORY, 1);
 }
 
-if form == 1{
+switch form{
+    case 1:
     valor_cool = 30;
     afterimage = 0;
     set_hitbox_value(AT_NSPECIAL, 3, HG_EXTRA_HITPAUSE, 10);
@@ -25,6 +26,58 @@ if form == 1{
         set_hitbox_value(AT_NSPECIAL, 3, HG_HITSTUN_MULTIPLIER, 2);
         set_hitbox_value(AT_NSPECIAL, 3, HG_DRIFT_MULTIPLIER, 0);
     }
+    if attack == AT_DSPECIAL{
+        spawn_base_dust(x, y, free? "djump": "jump");
+    }
+    break;
+    
+    case 2:
+    switch attack{
+        case AT_FTILT:
+        if mp && !mp_recharge{
+            mp -= 250;
+            
+            set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, 21);
+            set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, 21);
+            set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, 21);
+            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 157);
+            set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+            set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+            set_hitbox_value(AT_FTILT, 10, HG_EXTRA_HITPAUSE, 30);
+        }else{
+            set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_FTILT, 10, HG_EXTRA_HITPAUSE, 0);
+        }
+        break;
+        case AT_UTILT:
+        frostbite = 0;
+        if mp && !mp_recharge{
+            mp -= 100;
+            frostbite = 1;
+        }
+        break;
+    }
+    
+    if mp <= 0{
+        mp = 0;
+        mp_recharge = 1;
+    }
+    break;
+    
+    case 3:
+    break;
+    
+    case 4:
+    break;
 }
 
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, free - 1);
@@ -34,9 +87,6 @@ set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get(string(form) + attack_nam
 if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + "_air_hurt"));
 if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + "_air"));
 
-if attack == AT_DSPECIAL && form == 1{
-    spawn_base_dust(x, y, free? "djump": "jump");
-}
 got_gem = 0;
 charged_ver = 1;
 ragnarok_lv = 0;

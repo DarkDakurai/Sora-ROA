@@ -107,7 +107,7 @@ set_window_value(AT_JAB, 16, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_JAB, 16, AG_WINDOW_CANCEL_TYPE, 1);
 set_window_value(AT_JAB, 16, AG_WINDOW_CANCEL_FRAME, 10);
 set_window_value(AT_JAB, 16, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_JAB, 16, AG_WINDOW_SFX, sound_get("OK_swipemedium1"));
+set_window_value(AT_JAB, 16, AG_WINDOW_SFX, sound_get("wisdom_jab"));
 
 set_window_value(AT_JAB, 17, AG_WINDOW_LENGTH, 14);
 set_window_value(AT_JAB, 17, AG_WINDOW_ANIM_FRAMES, 4);
@@ -115,13 +115,13 @@ set_window_value(AT_JAB, 17, AG_WINDOW_ANIM_FRAME_START, 8);
 set_window_value(AT_JAB, 17, AG_WINDOW_CANCEL_TYPE, 1);
 set_window_value(AT_JAB, 17, AG_WINDOW_CANCEL_FRAME, 10);
 set_window_value(AT_JAB, 17, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_JAB, 17, AG_WINDOW_SFX, sound_get("OK_swipemedium1"));
+set_window_value(AT_JAB, 17, AG_WINDOW_SFX, sound_get("wisdom_jab"));
 
 set_window_value(AT_JAB, 18, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_JAB, 18, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_JAB, 18, AG_WINDOW_ANIM_FRAME_START, 12);
 set_window_value(AT_JAB, 18, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_JAB, 18, AG_WINDOW_SFX, sound_get("OK_swipemedium1"));
+set_window_value(AT_JAB, 18, AG_WINDOW_SFX, sound_get("wisdom_jab_finisher"));
 
 
 set_num_hitboxes(AT_JAB, 10);
@@ -285,7 +285,7 @@ set_hitbox_value(AT_JAB, 9, HG_BASE_KNOCKBACK, 4);
 set_hitbox_value(AT_JAB, 9, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_JAB, 9, HG_FORCE_FLINCH, 1);
 set_hitbox_value(AT_JAB, 9, HG_HITBOX_GROUP, -1);
-set_hitbox_value(AT_JAB, 9, HG_HIT_SFX, sound_get("KB_hitmedium2"));
+set_hitbox_value(AT_JAB, 9, HG_HIT_SFX, sound_get("OK_hitmedium2"));
 
 set_hitbox_value(AT_JAB, 10, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_JAB, 10, HG_WINDOW, 18);
@@ -303,4 +303,4 @@ set_hitbox_value(AT_JAB, 10, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_JAB, 10, HG_BASE_HITPAUSE, 12);
 set_hitbox_value(AT_JAB, 10, HG_HITPAUSE_SCALING, 0.7);
 set_hitbox_value(AT_JAB, 10, HG_HITBOX_GROUP, -1);
-set_hitbox_value(AT_JAB, 10, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+set_hitbox_value(AT_JAB, 10, HG_HIT_SFX, sound_get("OK_hitmedium1"));

@@ -189,11 +189,14 @@ particle_dist = 0;
 particle_angle = 0;
 prev_form = form;
 form_fx = 0;
+
 //valor points
 vl_point = 0;
 vl_alpha = 0;
+
 //MP gauge
 mp = 1000;
+mp_bg = mp;
 mp_recharge = 0;
 mp_alpha = 0;
 mp_gauge_alpha = 0;
@@ -508,6 +511,10 @@ attack_frameskip = [
 //#endregion
 
 //#region attack variables
+
+//tilts
+frostbite = 0;
+frost_sprite = sprite_get("frostbite_mark");
 
 //strongs
 got_gem = 0;

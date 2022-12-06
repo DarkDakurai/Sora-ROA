@@ -1,3 +1,4 @@
+//keyblades
 shader_start();
 if form && form != 2{
     if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
@@ -58,6 +59,7 @@ if form && form != 2{
 }
 shader_end();
 
+//dspecial effects
 if attack == AT_DSPECIAL && !form && (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && window == 1{
     draw_sel = (joy_pad_idle? -1: floor(floor((joy_dir/45)%8)/2 + .5)%4);
     if orb_alpha < 1 orb_alpha += 1/15
@@ -72,12 +74,13 @@ if orb_alpha > 0{
     if draw_sel + 1 draw_sprite_ext(sprite_get("hud_icons_layout"), 0, x + layout_pos[draw_sel][0] - 2, y + layout_pos[draw_sel][1] - 2, 2, 2, 0, c_white, orb_alpha);
 }
 
+//mp gauge
 if form == 2{
     if mp_recharge{
-        var magic = get_gameplay_time()%360;
-        mp_gauge_alpha = dsin(magic);
+        var magic = get_gameplay_time()%90;
+        mp_gauge_alpha = (abs(dsin(magic*4))*.7) + .3;
     }else{
-        mp_gauge_alpha = lerp(mp_gauge_alpha, 1, 0.1);
+        mp_gauge_alpha = lerp(mp_gauge_alpha, 1, 0.15);
     }
     if mp_alpha < 1 mp_alpha += 0.05;
     if mp_alpha > 1 mp_alpha = 1;
@@ -93,12 +96,20 @@ if mp_alpha > 0{
     draw_sprite_ext(sprite_get("hud_MP_gauge"), 0, x - 45, y - 84 - hud_offset, 2, 2, 0, get_player_hud_color(player), mp_alpha);
     draw_sprite_ext(sprite_get("hud_MP"), 0, x + 29, y - 82 - hud_offset, 2, 2, 0, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha);
     draw_primitive_begin(pr_trianglestrip);
+    draw_vertex_color(x + 27 - 70, y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_vertex_color(x + 27 - 70 * (1 - mp_bg/1000), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_vertex_color(x + 27 - 70, y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_vertex_color(x + 27 - 70 * (1 - mp_bg/1000), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_primitive_end();
+    draw_primitive_begin(pr_trianglestrip);
     draw_vertex_color(x + 27 - 70, y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
-    draw_vertex_color(x + 27, y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
+    draw_vertex_color(x + 27 - 70 * (1 - mp/1000), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
     draw_vertex_color(x + 27 - 70, y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
-    draw_vertex_color(x + 27, y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
+    draw_vertex_color(x + 27 - 70 * (1 - mp/1000), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
     draw_primitive_end();
 }
+
+//valor points
 if form == 1{
     if vl_alpha < 1 vl_alpha += 0.05;
     if vl_alpha > 1 vl_alpha = 1;

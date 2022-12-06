@@ -15,10 +15,23 @@ prat_fall_accel     = form = 2? 0.95: 0.85;
 air_friction        = form = 2? 0.02: 0.04;
 fast_fall           = form = 2? 16: 14;
 
-//gauge drain
+//drive gauge
 if form && gauge_val gauge_val--;
 if gauge_val < 0 gauge_val = 0;
 if !gauge_val && form && !form_revert form_revert = 1;
+
+//mp gauge
+if mp_recharge  && mp <= 1000{
+    mp += 3;
+    if mp >= 1000{
+        mp = 1000;
+        mp_recharge = 0;
+    }
+}
+if mp_bg != mp{
+    mp_bg += (mp-mp_bg)/abs(mp-mp_bg)*5;
+    if abs(mp-mp_bg)<5 mp_bg = mp;
+}
 
 //revert to base
 if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR && state != PS_WRAPPED{
@@ -35,11 +48,14 @@ if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR &&
     form_sel = -1;
 }
 
+//fspecial collision change
 if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIAL && window >= 6 && !form mask_index = sprite_get("0fspecial_mask");
 else if mask_index != def_coll mask_index = def_coll;
 
+//special cooldowns
 if !form && move_cooldown[AT_FSPECIAL] && free move_cooldown[AT_FSPECIAL] = 2;
 
+//form particles
 switch form{
     case 1:
     if get_gameplay_time()%3 == 0{
@@ -47,6 +63,31 @@ switch form{
         partc.particle_type = 4;
     }
     break;
+}
+
+//frostbite
+with oPlayer if self != other && frostbite{
+    frostbite_timer--;
+    if !frostbite_timer && !trigger_bite{
+        frostbite = 0
+        frostbite_timer = 600;
+        trigger_bite = 0;
+        bite_distance = 0;
+        frost_angle = 0;
+    }
+    if !trigger_bite frost_angle += 5;
+    if trigger_bite{
+        if frostbite_timer > 10 bite_distance = lerp(bite_distance, 20, 0.3);
+        else bite_distance = ease_cubeIn(floor(char_height) + 20, floor(-char_height) - 20, 10 - frostbite_timer, 10);
+        if frostbite_timer == 0{
+            with other create_hitbox(AT_EXTRA_1, 1, other.x, other.y - char_height/2);
+            frostbite = 0
+            frostbite_timer = 600;
+            trigger_bite = 0;
+            bite_distance = 0;
+            frost_angle = 0;
+        }
+    }
 }
 
 //debug
