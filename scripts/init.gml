@@ -472,7 +472,7 @@ attack_frameskip = [
     [3, 6, 0, 0],//bair,
     [3, 7, 0, 0],//dair,
     [3, 6, 0, 0],//uair,
-    [4, 7, 0, 0],//nair,
+    [4, 7, 10, 0],//nair,
     [8, 11, 0, 0],//fspecial,
     [6, 8, 0, 0],//dspecial,
     [4, 9, 0, 0],//uspecial,

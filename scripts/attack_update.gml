@@ -108,6 +108,7 @@ switch(attack){
         case 2:
         if enhance move_cooldown[AT_USTRONG] = 20;
         if window == 8 && window_timer == 10 sound_play(sound_get("wisdom_jab_finisher"));
+        if window >= 8 hud_offset = floor(lerp(hud_offset, 260, 0.2));
         break;
     }
     break;
@@ -116,6 +117,9 @@ switch(attack){
         case 0:
         hud_offset = floor(lerp(hud_offset, 90, 0.2));
         if window == 4 && window_timer >= 10 + (has_hit? 0: 5) iasa_script();
+        break;
+        case 2:
+        if window >= 11 hud_offset = floor(lerp(hud_offset, 95, 0.2));
         break;
     }
     break;

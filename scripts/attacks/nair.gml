@@ -1,7 +1,7 @@
 set_attack_value(AT_NAIR, AG_CATEGORY, 1);
 set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, 1);
 set_attack_value(AT_NAIR, AG_LANDING_LAG, 6);
-set_attack_value(AT_NAIR, AG_NUM_WINDOWS, 6);
+set_attack_value(AT_NAIR, AG_NUM_WINDOWS, 9);
 
 //base
 set_window_value(AT_NAIR, 1, AG_WINDOW_LENGTH, 21);
@@ -48,9 +48,31 @@ set_window_value(AT_NAIR, 6, AG_WINDOW_ANIM_FRAME_START, 11);
 set_window_value(AT_NAIR, 6, AG_WINDOW_HAS_WHIFFLAG, 1);
 set_window_value(AT_NAIR, 6, AG_WINDOW_GOTO, 20);
 
+//valor
+set_window_value(AT_NAIR, 7, AG_WINDOW_LENGTH, 8);
+set_window_value(AT_NAIR, 7, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_NAIR, 7, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_NAIR, 7, AG_WINDOW_VSPEED, -2);
+set_window_value(AT_NAIR, 7, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NAIR, 7, AG_WINDOW_SFX, asset_get("sfx_spin"));
+set_window_value(AT_NAIR, 7, AG_WINDOW_SFX_FRAME, 6);
+
+set_window_value(AT_NAIR, 8, AG_WINDOW_LENGTH, 19);
+set_window_value(AT_NAIR, 8, AG_WINDOW_ANIM_FRAMES, 7);
+set_window_value(AT_NAIR, 8, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_NAIR, 8, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NAIR, 8, AG_WINDOW_SFX, sound_get("KB_swipeweak2"));
+set_window_value(AT_NAIR, 8, AG_WINDOW_SFX_FRAME, 15);
+
+set_window_value(AT_NAIR, 9, AG_WINDOW_LENGTH, 10);
+set_window_value(AT_NAIR, 9, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_NAIR, 9, AG_WINDOW_ANIM_FRAME_START, 11);
+set_window_value(AT_NAIR, 9, AG_WINDOW_HAS_WHIFFLAG, 1);
+set_window_value(AT_NAIR, 9, AG_WINDOW_GOTO, 20);
 
 
-set_num_hitboxes(AT_NAIR, 5);
+
+set_num_hitboxes(AT_NAIR, 7);
 
 //Base
 set_hitbox_value(AT_NAIR, 1, HG_PARENT_HITBOX, 1);
@@ -144,3 +166,41 @@ set_hitbox_value(AT_NAIR, 5, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_NAIR, 5, HG_HITPAUSE_SCALING, 0.3);
 set_hitbox_value(AT_NAIR, 5, HG_HIT_SFX, sound_get("OK_hitmedium2"));
 set_hitbox_value(AT_NAIR, 5, HG_HITBOX_GROUP, 5);
+
+//Base
+set_hitbox_value(AT_NAIR, 6, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_NAIR, 6, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_NAIR, 6, HG_WINDOW, 8);
+set_hitbox_value(AT_NAIR, 6, HG_LIFETIME, 11);
+set_hitbox_value(AT_NAIR, 6, HG_HITBOX_X, 0);
+set_hitbox_value(AT_NAIR, 6, HG_HITBOX_Y, -25);
+set_hitbox_value(AT_NAIR, 6, HG_WIDTH, 80);
+set_hitbox_value(AT_NAIR, 6, HG_HEIGHT, 80);
+set_hitbox_value(AT_NAIR, 6, HG_PRIORITY, 1);
+set_hitbox_value(AT_NAIR, 6, HG_DAMAGE, 1);
+set_hitbox_value(AT_NAIR, 6, HG_ANGLE, 45);
+set_hitbox_value(AT_NAIR, 6, HG_BASE_KNOCKBACK, 4);
+set_hitbox_value(AT_NAIR, 6, HG_BASE_HITPAUSE, 2);
+set_hitbox_value(AT_NAIR, 6, HG_HIT_SFX, sound_get("KB_hitweak1"));
+set_hitbox_value(AT_NAIR, 6, HG_ANGLE_FLIPPER, 9);
+set_hitbox_value(AT_NAIR, 6, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_NAIR, 6, HG_TECHABLE, 3);
+set_hitbox_value(AT_NAIR, 6, HG_HIT_LOCKOUT, 3);
+
+set_hitbox_value(AT_NAIR, 7, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_NAIR, 7, HG_WINDOW, 8);
+set_hitbox_value(AT_NAIR, 7, HG_WINDOW_CREATION_FRAME, 17);
+set_hitbox_value(AT_NAIR, 7, HG_LIFETIME, 3);
+set_hitbox_value(AT_NAIR, 7, HG_HITBOX_X, -10);
+set_hitbox_value(AT_NAIR, 7, HG_HITBOX_Y, -35);
+set_hitbox_value(AT_NAIR, 7, HG_WIDTH, 50);
+set_hitbox_value(AT_NAIR, 7, HG_HEIGHT, 70);
+set_hitbox_value(AT_NAIR, 7, HG_PRIORITY, 1);
+set_hitbox_value(AT_NAIR, 7, HG_DAMAGE, 5);
+set_hitbox_value(AT_NAIR, 7, HG_ANGLE, 40);
+set_hitbox_value(AT_NAIR, 7, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_NAIR, 7, HG_KNOCKBACK_SCALING, 0.5);
+set_hitbox_value(AT_NAIR, 7, HG_BASE_HITPAUSE, 7);
+set_hitbox_value(AT_NAIR, 7, HG_HITPAUSE_SCALING, 0.3);
+set_hitbox_value(AT_NAIR, 7, HG_HIT_SFX, sound_get("KB_hitmedium2"));
+set_hitbox_value(AT_NAIR, 7, HG_HITBOX_GROUP, -1);

@@ -299,6 +299,22 @@ switch form{
             set_hitbox_value(AT_USTRONG, 8, HG_HIT_SFX, sound_get("OK_hitmedium1"));
         }
         break;
+        case AT_BAIR:
+        if mp && !mp_recharge && !move_cooldown[AT_USTRONG]{
+            mp -= 100;
+            enhance = 1;
+            
+            set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, -1);
+            set_hitbox_value(AT_BAIR, 5, HG_DAMAGE, 9);
+            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, 253);
+            set_hitbox_value(AT_BAIR, 5, HG_EFFECT, 1);
+        }else{
+            set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 5, HG_DAMAGE, 5);
+            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 5, HG_EFFECT, 0);
+        }
+        break;
     }
     
     if mp <= 0{

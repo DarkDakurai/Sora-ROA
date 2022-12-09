@@ -92,6 +92,16 @@ switch form{
         if my_hitboxID.hbox_num <= 3 sound_play(asset_get("sfx_forsburn_reappear_hit"));
         else sound_play(asset_get("sfx_forsburn_combust"));
     }
+    
+    if my_hitboxID.attack == AT_NAIR && my_hitboxID.hbox_num == 6 my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    
+    if my_hitboxID.attack == AT_BAIR{
+        if my_hitboxID.hbox_num == 4 my_hitboxID.can_hit[hit_player_obj.player] = 1;
+        if my_hitboxID.hbox_num == 4 && enhance{
+            sound_play(asset_get("sfx_forsburn_reappear_hit"));
+            spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, 252);
+        }else if enhance sound_play(asset_get("sfx_forsburn_combust"));
+    }
     break;
     
     case 3:
