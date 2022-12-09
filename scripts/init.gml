@@ -461,13 +461,13 @@ attack_frameskip = [
     [9, 15, 19, 0],//jab,
     [0, 0, 0, 0],//2,
     [0, 0, 0, 0],//3,
-    [4, 7, 0, 0],//ftilt,
-    [3, 6, 0, 0],//dtilt,
-    [4, 7, 0, 0],//utilt,
-    [5, 9, 0, 0],//fstrong,
-    [4, 7, 0, 0],//dstrong,
-    [4, 7, 0, 0],//ustrong,
-    [5, 9, 0, 0],//dattack,
+    [4, 7, 10, 0],//ftilt,
+    [3, 6, 9, 0],//dtilt,
+    [4, 7, 10, 0],//utilt,
+    [5, 9, 13, 0],//fstrong,
+    [4, 7, 11, 0],//dstrong,
+    [4, 7, 10, 0],//ustrong,
+    [5, 9, 12, 0],//dattack,
     [4, 7, 0, 0],//fair,
     [3, 6, 0, 0],//bair,
     [3, 7, 0, 0],//dair,
@@ -513,7 +513,7 @@ attack_frameskip = [
 //#region attack variables
 
 //tilts
-frostbite = 0;
+enhance = 0;
 frost_sprite = sprite_get("frostbite_mark");
 
 //strongs

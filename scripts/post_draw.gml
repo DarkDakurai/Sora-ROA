@@ -97,15 +97,15 @@ if mp_alpha > 0{
     draw_sprite_ext(sprite_get("hud_MP"), 0, x + 29, y - 82 - hud_offset, 2, 2, 0, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha);
     draw_primitive_begin(pr_trianglestrip);
     draw_vertex_color(x + 27 - 70, y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
-    draw_vertex_color(x + 27 - 70 * (1 - mp_bg/1000), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_vertex_color(x + 27 - 70 * (mp >= 0?(1 - mp_bg/1000): 1), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
     draw_vertex_color(x + 27 - 70, y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
-    draw_vertex_color(x + 27 - 70 * (1 - mp_bg/1000), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
+    draw_vertex_color(x + 27 - 70 * (mp >= 0?(1 - mp_bg/1000): 1), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), (mp_alpha == 1? mp_gauge_alpha: mp_alpha)- .5);
     draw_primitive_end();
     draw_primitive_begin(pr_trianglestrip);
     draw_vertex_color(x + 27 - 70, y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
-    draw_vertex_color(x + 27 - 70 * (1 - mp/1000), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
+    draw_vertex_color(x + 27 - 70 * (mp >= 0?(1 - mp/1000): 1), y - 82 - hud_offset, mp_recharge? make_color_rgb(255, 102, 211): make_color_rgb(102, 160, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
     draw_vertex_color(x + 27 - 70, y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
-    draw_vertex_color(x + 27 - 70 * (1 - mp/1000), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
+    draw_vertex_color(x + 27 - 70 * (mp >= 0?(1 - mp/1000): 1), y - 76 - hud_offset, mp_recharge? make_color_rgb(255, 0, 182): make_color_rgb(0, 97, 255), mp_alpha == 1? mp_gauge_alpha: mp_alpha);
     draw_primitive_end();
 }
 

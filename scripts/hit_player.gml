@@ -73,9 +73,24 @@ switch form{
     break;
     
     case 2:
-    if my_hitboxID.attack == AT_UTILT && my_hitboxID.hbox_num == 12{
-        if !hit_player_obj.frostbite sound_play(asset_get("sfx_ice_on_player"));
+    if my_hitboxID.attack == AT_UTILT && my_hitboxID.hbox_num == 12 && enhance{
+        if !hit_player_obj.frostbite sound_play(asset_get("sfx_abyss_explosion_start"));
         hit_player_obj.frostbite = 1;
+    }
+    
+    if my_hitboxID.attack == AT_FSTRONG && enhance{
+        if !hit_player_obj.frostbite{
+            sound_play(asset_get("sfx_abyss_explosion_start"));
+            sound_play(asset_get("sfx_abyss_hazard_burst"));
+        }
+        hit_player_obj.frostbite = 1;
+    }
+    
+    if my_hitboxID.attack == AT_DATTACK && enhance sound_play(asset_get("sfx_zetter_fireball_fire"));
+    
+    if my_hitboxID.attack == AT_DSTRONG && enhance{
+        if my_hitboxID.hbox_num <= 3 sound_play(asset_get("sfx_forsburn_reappear_hit"));
+        else sound_play(asset_get("sfx_forsburn_combust"));
     }
     break;
     

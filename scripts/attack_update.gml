@@ -56,6 +56,7 @@ switch(attack){
         if window >= 5 hud_offset = floor(lerp(hud_offset, 80, 0.2));
         break;
         case 2:
+        if enhance move_cooldown[AT_FTILT] = 20;
         if image_index <= 9 hud_offset = floor(lerp(hud_offset, 50, 0.2));
         break;
     }
@@ -104,6 +105,10 @@ switch(attack){
         if window == 5 && window_timer == 5 sound_play(sound_get("OK_swipemedium1"));
         if window == 5 hud_offset = floor(lerp(hud_offset, 110, 0.2));
         break;
+        case 2:
+        if enhance move_cooldown[AT_USTRONG] = 20;
+        if window == 8 && window_timer == 10 sound_play(sound_get("wisdom_jab_finisher"));
+        break;
     }
     break;
     case AT_FSTRONG:
@@ -122,6 +127,9 @@ switch(attack){
         case 1:
         if window == 5 && window_timer == 5 sound_play(sound_get("OK_swipeweak1"));
         if window == 7 && window_timer == 5 sound_play(sound_get("OK_swipeweak2"));
+        break;
+        case 2:
+        if enhance move_cooldown[AT_DATTACK] = 10;
         break;
     }
     break;

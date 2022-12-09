@@ -122,6 +122,7 @@ set_window_value(AT_JAB, 18, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_JAB, 18, AG_WINDOW_ANIM_FRAME_START, 12);
 set_window_value(AT_JAB, 18, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_JAB, 18, AG_WINDOW_SFX, sound_get("wisdom_jab_finisher"));
+set_window_value(AT_JAB, 18, AG_WINDOW_GOTO, 30);
 
 
 set_num_hitboxes(AT_JAB, 10);

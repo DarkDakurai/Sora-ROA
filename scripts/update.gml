@@ -67,6 +67,7 @@ switch form{
 
 //frostbite
 with oPlayer if self != other && frostbite{
+    if frostbite_anim < 8 frostbite_anim += 1/3;
     frostbite_timer--;
     if !frostbite_timer && !trigger_bite{
         frostbite = 0
@@ -74,18 +75,20 @@ with oPlayer if self != other && frostbite{
         trigger_bite = 0;
         bite_distance = 0;
         frost_angle = 0;
+        frostbite_anim = 0;
     }
     if !trigger_bite frost_angle += 5;
     if trigger_bite{
-        if frostbite_timer > 10 bite_distance = lerp(bite_distance, 20, 0.3);
-        else bite_distance = ease_cubeIn(floor(char_height) + 20, floor(-char_height) - 20, 10 - frostbite_timer, 10);
+        if frostbite_timer > 10 bite_distance = lerp(bite_distance, floor(char_height*2/3) + 30, 0.2);
+        else bite_distance = ease_cubeIn(floor(char_height*2/3) + 30, floor(-char_height*2/3) - 20, 10 - frostbite_timer, 10);
         if frostbite_timer == 0{
-            with other create_hitbox(AT_EXTRA_1, 1, other.x, other.y - char_height/2);
+            with other create_hitbox(AT_EXTRA_1, 1, floor(other.x), floor(other.y - char_height/2 - 10));
             frostbite = 0
             frostbite_timer = 600;
             trigger_bite = 0;
             bite_distance = 0;
             frost_angle = 0;
+            frostbite_anim = 0;
         }
     }
 }
