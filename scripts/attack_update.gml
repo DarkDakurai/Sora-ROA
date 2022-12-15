@@ -94,6 +94,9 @@ switch(attack){
         if window == 5 && window_timer >= 7 && free window_timer = 7;
         if window == 5 || (window == 6 && window_timer < 11) hud_offset = floor(lerp(hud_offset, 150, 0.2));
         break;
+        case 2:
+        if has_hit && window == 10 && enhance && window_timer >= 7 iasa_script();
+        break;
     }
     break;
     case AT_USTRONG:

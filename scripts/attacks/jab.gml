@@ -291,7 +291,7 @@ set_hitbox_value(AT_JAB, 9, HG_HIT_SFX, sound_get("OK_hitmedium2"));
 set_hitbox_value(AT_JAB, 10, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_JAB, 10, HG_WINDOW, 18);
 set_hitbox_value(AT_JAB, 10, HG_WINDOW_CREATION_FRAME, 1);
-set_hitbox_value(AT_JAB, 10, HG_LIFETIME, 2);
+set_hitbox_value(AT_JAB, 10, HG_LIFETIME, 3);
 set_hitbox_value(AT_JAB, 10, HG_HITBOX_X, 78);
 set_hitbox_value(AT_JAB, 10, HG_HITBOX_Y, -32);
 set_hitbox_value(AT_JAB, 10, HG_WIDTH, 65);

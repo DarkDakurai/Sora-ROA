@@ -1,7 +1,7 @@
 set_attack_value(AT_FAIR, AG_CATEGORY, 1);
 set_attack_value(AT_FAIR, AG_HAS_LANDING_LAG, 1);
 set_attack_value(AT_FAIR, AG_LANDING_LAG, 8);
-set_attack_value(AT_FAIR, AG_NUM_WINDOWS, 6);
+set_attack_value(AT_FAIR, AG_NUM_WINDOWS, 9);
 
 //Base
 set_window_value(AT_FAIR, 1, AG_WINDOW_LENGTH, 15);
@@ -49,7 +49,28 @@ set_window_value(AT_FAIR, 6, AG_WINDOW_HAS_WHIFFLAG, 1);
 set_window_value(AT_FAIR, 6, AG_WINDOW_GOTO, 20);
 
 
-set_num_hitboxes(AT_FAIR, 7);
+//wisdom
+set_window_value(AT_FAIR, 7, AG_WINDOW_LENGTH, 8);
+set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAME_START, 10);
+set_window_value(AT_FAIR, 7, AG_WINDOW_VSPEED, -2);
+set_window_value(AT_FAIR, 7, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FAIR, 7, AG_WINDOW_SFX, sound_get("OK_swipemedium1"));
+set_window_value(AT_FAIR, 7, AG_WINDOW_SFX_FRAME, 6);
+
+set_window_value(AT_FAIR, 8, AG_WINDOW_LENGTH, 4);
+set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_FAIR, 8, AG_WINDOW_HSPEED, 0);
+set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAME_START, 13);
+
+set_window_value(AT_FAIR, 9, AG_WINDOW_LENGTH, 10);
+set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAME_START, 15);
+set_window_value(AT_FAIR, 9, AG_WINDOW_HAS_WHIFFLAG, 1);
+set_window_value(AT_FAIR, 9, AG_WINDOW_GOTO, 20);
+
+
+set_num_hitboxes(AT_FAIR, 8);
 
 //Base
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_TYPE, 1);
@@ -175,3 +196,22 @@ set_hitbox_value(AT_FAIR, 7, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_FAIR, 7, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_FAIR, 7, HG_HITBOX_GROUP, 3);
 set_hitbox_value(AT_FAIR, 7, HG_HIT_SFX, sound_get("OK_hitweak2"));
+
+
+
+//wisdom
+set_hitbox_value(AT_FAIR, 8, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_FAIR, 8, HG_WINDOW, 8);
+set_hitbox_value(AT_FAIR, 8, HG_LIFETIME, 2);
+set_hitbox_value(AT_FAIR, 8, HG_HITBOX_X, 48);
+set_hitbox_value(AT_FAIR, 8, HG_HITBOX_Y, -26);
+set_hitbox_value(AT_FAIR, 8, HG_WIDTH, 80);
+set_hitbox_value(AT_FAIR, 8, HG_HEIGHT, 70);
+set_hitbox_value(AT_FAIR, 8, HG_PRIORITY, 5);
+set_hitbox_value(AT_FAIR, 8, HG_DAMAGE, 6);
+set_hitbox_value(AT_FAIR, 8, HG_ANGLE, 50);
+set_hitbox_value(AT_FAIR, 8, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_FAIR, 8, HG_KNOCKBACK_SCALING, .6);
+set_hitbox_value(AT_FAIR, 8, HG_BASE_HITPAUSE, 6);
+set_hitbox_value(AT_FAIR, 8, HG_HITPAUSE_SCALING, .5);
+set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));

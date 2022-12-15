@@ -57,16 +57,16 @@ set_window_value(AT_NAIR, 7, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_NAIR, 7, AG_WINDOW_SFX, asset_get("sfx_spin"));
 set_window_value(AT_NAIR, 7, AG_WINDOW_SFX_FRAME, 6);
 
-set_window_value(AT_NAIR, 8, AG_WINDOW_LENGTH, 19);
-set_window_value(AT_NAIR, 8, AG_WINDOW_ANIM_FRAMES, 7);
+set_window_value(AT_NAIR, 8, AG_WINDOW_LENGTH, 20);
+set_window_value(AT_NAIR, 8, AG_WINDOW_ANIM_FRAMES, 9);
 set_window_value(AT_NAIR, 8, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_NAIR, 8, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_NAIR, 8, AG_WINDOW_SFX, sound_get("KB_swipeweak2"));
-set_window_value(AT_NAIR, 8, AG_WINDOW_SFX_FRAME, 15);
+set_window_value(AT_NAIR, 8, AG_WINDOW_SFX_FRAME, 14);
 
 set_window_value(AT_NAIR, 9, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_NAIR, 9, AG_WINDOW_ANIM_FRAMES, 4);
-set_window_value(AT_NAIR, 9, AG_WINDOW_ANIM_FRAME_START, 11);
+set_window_value(AT_NAIR, 9, AG_WINDOW_ANIM_FRAME_START, 13);
 set_window_value(AT_NAIR, 9, AG_WINDOW_HAS_WHIFFLAG, 1);
 set_window_value(AT_NAIR, 9, AG_WINDOW_GOTO, 20);
 
@@ -171,7 +171,7 @@ set_hitbox_value(AT_NAIR, 5, HG_HITBOX_GROUP, 5);
 set_hitbox_value(AT_NAIR, 6, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_NAIR, 6, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_NAIR, 6, HG_WINDOW, 8);
-set_hitbox_value(AT_NAIR, 6, HG_LIFETIME, 11);
+set_hitbox_value(AT_NAIR, 6, HG_LIFETIME, 14);
 set_hitbox_value(AT_NAIR, 6, HG_HITBOX_X, 0);
 set_hitbox_value(AT_NAIR, 6, HG_HITBOX_Y, -25);
 set_hitbox_value(AT_NAIR, 6, HG_WIDTH, 80);
@@ -189,12 +189,12 @@ set_hitbox_value(AT_NAIR, 6, HG_HIT_LOCKOUT, 3);
 
 set_hitbox_value(AT_NAIR, 7, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_NAIR, 7, HG_WINDOW, 8);
-set_hitbox_value(AT_NAIR, 7, HG_WINDOW_CREATION_FRAME, 17);
+set_hitbox_value(AT_NAIR, 7, HG_WINDOW_CREATION_FRAME, 16);
 set_hitbox_value(AT_NAIR, 7, HG_LIFETIME, 3);
 set_hitbox_value(AT_NAIR, 7, HG_HITBOX_X, -10);
-set_hitbox_value(AT_NAIR, 7, HG_HITBOX_Y, -35);
-set_hitbox_value(AT_NAIR, 7, HG_WIDTH, 50);
-set_hitbox_value(AT_NAIR, 7, HG_HEIGHT, 70);
+set_hitbox_value(AT_NAIR, 7, HG_HITBOX_Y, -40);
+set_hitbox_value(AT_NAIR, 7, HG_WIDTH, 60);
+set_hitbox_value(AT_NAIR, 7, HG_HEIGHT, 80);
 set_hitbox_value(AT_NAIR, 7, HG_PRIORITY, 1);
 set_hitbox_value(AT_NAIR, 7, HG_DAMAGE, 5);
 set_hitbox_value(AT_NAIR, 7, HG_ANGLE, 40);

@@ -42,24 +42,32 @@ switch form{
             set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, 21);
             set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, 21);
             set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, 21);
-            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 157);
+            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 21);
+            set_hitbox_value(AT_FTILT, 11, HG_VISUAL_EFFECT, 157);
+            
             set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
             set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
             set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
-            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
-            set_hitbox_value(AT_FTILT, 10, HG_EXTRA_HITPAUSE, 30);
-            set_hitbox_value(AT_FTILT, 10, HG_DAMAGE, 6);
+            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+            set_hitbox_value(AT_FTILT, 11, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+            
+            set_hitbox_value(AT_FTILT, 11, HG_EXTRA_HITPAUSE, 30);
+            set_hitbox_value(AT_FTILT, 11, HG_DAMAGE, 6);
         }else{
             set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, 0);
             set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, 0);
             set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, 0);
             set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 11, HG_VISUAL_EFFECT, 0);
+            
             set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, sound_get("KB_hitweak1"));
-            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, sound_get("KB_hitweak2"));
             set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, sound_get("KB_hitweak1"));
-            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, sound_get("KB_hitweak1"));
-            set_hitbox_value(AT_FTILT, 10, HG_EXTRA_HITPAUSE, 0);
-            set_hitbox_value(AT_FTILT, 10, HG_DAMAGE, 4);
+            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, sound_get("KB_hitweak2"));
+            set_hitbox_value(AT_FTILT, 11, HG_HIT_SFX, sound_get("KB_hitheavy2"));
+            
+            set_hitbox_value(AT_FTILT, 11, HG_EXTRA_HITPAUSE, 0);
+            set_hitbox_value(AT_FTILT, 11, HG_DAMAGE, 4);
         }
         break;
         case AT_UTILT:
@@ -101,7 +109,7 @@ switch form{
             set_window_value(AT_FSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 15);
             set_window_value(AT_FSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 19);
             set_window_value(AT_FSTRONG, 11, AG_WINDOW_ANIM_FRAME_START, 22);
-            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 24);
+            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 25);
             
             set_hitbox_value(AT_FSTRONG, 5, HG_DAMAGE, 9);
             set_hitbox_value(AT_FSTRONG, 5, HG_BASE_KNOCKBACK, 8);
@@ -115,7 +123,7 @@ switch form{
             set_window_value(AT_FSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 1);
             set_window_value(AT_FSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 5);
             set_window_value(AT_FSTRONG, 11, AG_WINDOW_ANIM_FRAME_START, 8);
-            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 10);
+            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 11);
             
             set_hitbox_value(AT_FSTRONG, 5, HG_DAMAGE, 7);
             set_hitbox_value(AT_FSTRONG, 5, HG_BASE_KNOCKBACK, 7);
@@ -135,8 +143,13 @@ switch form{
             set_window_value(AT_DSTRONG, 7, AG_WINDOW_ANIM_FRAME_START, 15);
             set_window_value(AT_DSTRONG, 8, AG_WINDOW_ANIM_FRAME_START, 17);
             set_window_value(AT_DSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 18);
-            set_window_value(AT_DSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 25);
+            set_window_value(AT_DSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 26);
             
+            set_window_value(AT_DSTRONG, 9, AG_WINDOW_ANIM_FRAMES, 8);
+            set_window_value(AT_DSTRONG, 10, AG_WINDOW_ANIM_FRAMES, 6);
+            
+            set_window_value(AT_DSTRONG, 9, AG_WINDOW_LENGTH, 24);
+            set_window_value(AT_DSTRONG, 10, AG_WINDOW_LENGTH, 18);
             
             set_hitbox_value(AT_DSTRONG, 7, HG_HITBOX_X, -30);
             set_hitbox_value(AT_DSTRONG, 7, HG_HITBOX_Y, -22);
@@ -208,6 +221,11 @@ switch form{
             set_window_value(AT_DSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 4);
             set_window_value(AT_DSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 11);
             
+            set_window_value(AT_DSTRONG, 9, AG_WINDOW_ANIM_FRAMES, 7);
+            set_window_value(AT_DSTRONG, 10, AG_WINDOW_ANIM_FRAMES, 4);
+            
+            set_window_value(AT_DSTRONG, 9, AG_WINDOW_LENGTH, 21);
+            set_window_value(AT_DSTRONG, 10, AG_WINDOW_LENGTH, 12);
             
             set_hitbox_value(AT_DSTRONG, 7, HG_HITBOX_X, 32);
             set_hitbox_value(AT_DSTRONG, 7, HG_HITBOX_Y, -15);
@@ -300,19 +318,79 @@ switch form{
         }
         break;
         case AT_BAIR:
-        if mp && !mp_recharge && !move_cooldown[AT_USTRONG]{
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_BAIR]{
             mp -= 100;
             enhance = 1;
             
             set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, -1);
-            set_hitbox_value(AT_BAIR, 5, HG_DAMAGE, 9);
-            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, 253);
-            set_hitbox_value(AT_BAIR, 5, HG_EFFECT, 1);
+            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, -1);
+            set_hitbox_value(AT_BAIR, 6, HG_DAMAGE, 9);
+            set_hitbox_value(AT_BAIR, 6, HG_VISUAL_EFFECT, 253);
+            set_hitbox_value(AT_BAIR, 6, HG_EFFECT, 1);
         }else{
             set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_BAIR, 5, HG_DAMAGE, 5);
             set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_BAIR, 5, HG_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 6, HG_DAMAGE, 5);
+            set_hitbox_value(AT_BAIR, 6, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 6, HG_EFFECT, 0);
+        }
+        break;
+        case AT_FAIR:
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_FSTRONG]{
+            mp -= 100;
+            enhance = 1;
+            
+            set_window_value(AT_FAIR, 7, AG_WINDOW_LENGTH, 12);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAMES, 5);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAME_START, 1);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_VSPEED, -2);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_HAS_SFX, 1);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX, sound_get("wisdom_jab_finisher"));
+            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX_FRAME, 10);
+            
+            set_window_value(AT_FAIR, 8, AG_WINDOW_LENGTH, 3);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAMES, 1);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_HSPEED, -10);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAME_START, 6);
+            
+            set_window_value(AT_FAIR, 9, AG_WINDOW_LENGTH, 8);
+            set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAMES, 3);
+            set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAME_START, 7);
+            
+            
+            set_hitbox_value(AT_FAIR, 8, HG_HITBOX_X, 80);
+            set_hitbox_value(AT_FAIR, 8, HG_HITBOX_Y, -30);
+            set_hitbox_value(AT_FAIR, 8, HG_WIDTH, 110);
+            set_hitbox_value(AT_FAIR, 8, HG_HEIGHT, 80);
+            set_hitbox_value(AT_FAIR, 8, HG_DAMAGE, 6);
+            set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, asset_get("sfx_icehit_medium1"));
+        }else{
+            set_window_value(AT_FAIR, 7, AG_WINDOW_LENGTH, 8);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAMES, 3);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAME_START, 10);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_VSPEED, -2);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_HAS_SFX, 1);
+            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX, sound_get("OK_swipemedium1"));
+            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX_FRAME, 6);
+            
+            set_window_value(AT_FAIR, 8, AG_WINDOW_LENGTH, 4);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAMES, 2);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_HSPEED, 0);
+            set_window_value(AT_FAIR, 8, AG_WINDOW_ANIM_FRAME_START, 13);
+            
+            set_window_value(AT_FAIR, 9, AG_WINDOW_LENGTH, 10);
+            set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAMES, 4);
+            set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAME_START, 15);
+            
+            
+            set_hitbox_value(AT_FAIR, 8, HG_HITBOX_X, 48);
+            set_hitbox_value(AT_FAIR, 8, HG_HITBOX_Y, -26);
+            set_hitbox_value(AT_FAIR, 8, HG_WIDTH, 80);
+            set_hitbox_value(AT_FAIR, 8, HG_HEIGHT, 70);
+            set_hitbox_value(AT_FAIR, 8, HG_DAMAGE, 6);
+            set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));
         }
         break;
     }
