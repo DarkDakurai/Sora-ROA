@@ -186,6 +186,9 @@ switch(attack){
             iasa_script();
         }
         break;
+        case 2:
+        hud_offset = floor(lerp(hud_offset, (window <= 7 && window_timer <= 16? 130: 200), 0.25));
+        break;
     }
     break;
     case AT_DAIR:
@@ -203,6 +206,14 @@ switch(attack){
         if window == 6 && (jump_pressed || attack_pressed || special_pressed){
             iasa_script();
         }
+        break;
+        case 2:
+        hud_offset = floor(lerp(hud_offset, 60, 0.2));
+        if window == 7 && window_timer == 16 && enhance{
+            window = 9;
+            window_timer = 0;
+        }
+        if window == 9 && window_timer == 2 vsp = -6;
         break;
     }
     break;

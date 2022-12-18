@@ -3,12 +3,10 @@ if form{
     set_attack_value(AT_FSTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
     set_attack_value(AT_DSTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
     set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
-    set_attack_value(AT_DAIR, AG_CATEGORY, 2);
 }else{
     set_attack_value(AT_FSTRONG, AG_STRONG_CHARGE_WINDOW, 1);
     set_attack_value(AT_DSTRONG, AG_STRONG_CHARGE_WINDOW, 1);
     set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, 1);
-    set_attack_value(AT_DAIR, AG_CATEGORY, 1);
 }
 
 switch form{
@@ -29,6 +27,7 @@ switch form{
     if attack == AT_DSPECIAL{
         spawn_base_dust(x, y, free? "djump": "jump");
     }
+    set_attack_value(AT_DAIR, AG_CATEGORY, 2);
     break;
     
     case 2:
@@ -393,9 +392,21 @@ switch form{
             set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));
         }
         break;
+        case AT_DAIR:
+        set_attack_value(AT_DAIR, AG_CATEGORY, 1);
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_FSTRONG]{
+            mp -= 100;
+            enhance = 1;
+            set_hitbox_value(AT_DAIR, 7, HG_EXTRA_HITPAUSE, 8);
+        }else{
+            set_hitbox_value(AT_DAIR, 7, HG_EXTRA_HITPAUSE, 0);
+        }
+        break;
     }
     
     if mp <= 0{
+        mp = floor(mp*1.5);
         mp_recharge = 1;
     }
     break;

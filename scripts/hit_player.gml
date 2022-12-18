@@ -110,6 +110,10 @@ switch form{
         }
         hit_player_obj.frostbite = 1;
     }
+    
+    if my_hitboxID.attack == AT_DAIR && my_hitboxID.hbox_num == 7 && enhance hsp *= 0.2;
+    
+    if my_hitboxID.attack == AT_UAIR && my_hitboxID.hbox_num == 11 my_hitboxID.can_hit[hit_player_obj.player] = 1;
     break;
     
     case 3:
