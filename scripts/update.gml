@@ -33,6 +33,12 @@ if mp_bg != mp{
     if abs(mp-mp_bg)<5 mp_bg = mp;
 }
 
+//command deck
+if deck_change && deck_antimer < 180 deck_antimer += 10;
+else if deck_change{
+    deck_change = 0;
+}
+
 //revert to base
 if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR && state != PS_WRAPPED{
     set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("0dspecial"));

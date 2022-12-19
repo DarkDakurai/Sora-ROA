@@ -67,6 +67,7 @@ draw_primitive_end();
 maskFooter();
 //max
 if gauge_val >= 5000 draw_sprite_ext(sprite_get("hud_max"), form, temp_x + 106, temp_y - 26, 2, 2, 0, c_white, 1);
+
 //particle
 particle_dist += (!form && particle_dist < 20? 2: (particle_dist? -2: 0));
 if particle_dist{
@@ -75,6 +76,7 @@ if particle_dist{
         draw_sprite_ext(sprite_get("hud_particle"), 0, particle_dist * dcos(particle_angle + 360/ floor(gauge_val/1000) * h) + 187 + temp_x, particle_dist * dsin(particle_angle + 360/ floor(gauge_val/1000) * h) + temp_y - 15, 2, 2, particle_angle + 360/ floor(gauge_val/1000) * h, c_white, 1);
     }
 }
+
 //particle effects
 if !form && prev_form{
     for(var l = 0; l < 26; l++){
@@ -97,7 +99,11 @@ if form_fx form_fx--;
 draw_sprite_ext(sprite_get("hud_light"), 0, temp_x - 64, temp_y - 49, 2, 2, 0, c_white, form_fx/30);
 prev_form = form;
 
-
+//command deck
+if mp_alpha > 0{
+    draw_sprite_ext(sprite_get("command_deck"), (deck_antimer = 0? deck_val: (deck_antimer < 90? deck_val: (deck_val+2)%3)), temp_x + 2, temp_y - 40 -10*dsin(deck_antimer)*(deck_antimer < 90? -1: 1), 2, 2, 0, c_white, mp_alpha);
+    draw_sprite_ext(sprite_get("command_deck"), (deck_antimer = 0? (deck_val+2): (deck_antimer < 90? (deck_val+2)%3: deck_val)), temp_x + 2, temp_y - 40 -10*dsin(deck_antimer)*(deck_antimer < 90? 1: -1), 2, 2, 0, c_white, mp_alpha);
+}
 
 
 

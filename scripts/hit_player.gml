@@ -111,9 +111,48 @@ switch form{
         hit_player_obj.frostbite = 1;
     }
     
-    if my_hitboxID.attack == AT_DAIR && my_hitboxID.hbox_num == 7 && enhance hsp *= 0.2;
+    if my_hitboxID.attack == AT_DAIR && my_hitboxID.hbox_num == 7 && enhance{
+        old_hsp *= 0.1;
+        old_vsp *= 0.1;
+        if old_vsp > 0 old_vsp = -3;
+    }
     
     if my_hitboxID.attack == AT_UAIR && my_hitboxID.hbox_num == 11 my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    
+    
+    if my_hitboxID.attack == AT_DSPECIAL{
+        if my_hitboxID.hbox_num == 4{
+            if deck_val == 1 && enhance{
+                if !hit_player_obj.frostbite{
+                    sound_play(asset_get("sfx_abyss_explosion_start"));
+                    sound_play(asset_get("sfx_abyss_hazard_burst"));
+                }
+                hit_player_obj.frostbite = 1;
+            }else if !deck_val && enhance{
+                sound_play(asset_get("sfx_forsburn_reappear_hit"));
+            }
+        }else{
+            my_hitboxID.can_hit[hit_player_obj.player] = 1;
+            if !deck_val && enhance{
+                spawn_hit_fx(hit_player_obj.x, hit_player_obj.y - hit_player_obj.char_height/2, 252);
+                sound_play(asset_get("sfx_forsburn_combust"));
+            }else if enhance && deck_val == 1{
+                spawn_hit_fx(hit_player_obj.x, hit_player_obj.y - hit_player_obj.char_height/2, 29);
+            }
+        }
+    }
+    if my_hitboxID.attack == AT_USPECIAL && enhance{
+        if my_hitboxID.hbox_num <= 12 && !deck_val sound_play(asset_get("sfx_forsburn_combust"));
+        else if my_hitboxID.hbox_num == 13{
+            if deck_val == 1{
+                if !hit_player_obj.frostbite{
+                    sound_play(asset_get("sfx_abyss_explosion_start"));
+                    sound_play(asset_get("sfx_abyss_hazard_burst"));
+                }
+                hit_player_obj.frostbite = 1;
+            }else if !deck_val sound_play(asset_get("sfx_forsburn_reappear_hit"));
+        }
+    }
     break;
     
     case 3:

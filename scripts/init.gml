@@ -200,6 +200,12 @@ mp_bg = mp;
 mp_recharge = 0;
 mp_alpha = 0;
 mp_gauge_alpha = 0;
+
+//command deck
+deck_val = 0;
+deck_antimer = 180;
+deck_change = 0;
+
 //#endregion
 
 //#region form alt array
@@ -474,8 +480,8 @@ attack_frameskip = [
     [3, 6, 9, 0],//uair,
     [4, 7, 10, 0],//nair,
     [8, 11, 0, 0],//fspecial,
-    [6, 8, 0, 0],//dspecial,
-    [4, 9, 0, 0],//uspecial,
+    [6, 8, 10, 0],//dspecial,
+    [4, 9, 12, 0],//uspecial,
     [7, 9, 0, 0],//nspecial,
     [0, 0, 0, 0],//FSTRONG_2,
     [0, 0, 0, 0],//DSTRONG_2,

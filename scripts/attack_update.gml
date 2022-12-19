@@ -213,7 +213,10 @@ switch(attack){
             window = 9;
             window_timer = 0;
         }
-        if window == 9 && window_timer == 2 vsp = -6;
+        if window == 9 && window_timer == 2{
+            old_vsp = -6;
+            vsp = -6;
+        }
         break;
     }
     break;
@@ -226,6 +229,12 @@ switch(attack){
         case 1:
         if window == 8 && window_timer == 9 set_state(PS_PRATFALL);
         hud_offset = floor(lerp(hud_offset, 140, 0.2));
+        break;
+        case 2:
+        if window == 11 && window_timer == 24 set_state(PS_PRATFALL);
+        if window == 11 && window_timer == 5 vsp = -10;
+        hud_offset = lerp(hud_offset, 120, 0.2);
+        if window == 11 && window_timer == 12 && enhance deck_swap();
         break;
     }
     break;
@@ -285,7 +294,12 @@ switch(attack){
         }
         if window == 6 && window_timer == 11 sound_play(sound_get("OK_swipemedium1"));
         break;
+        case 2:
+        if window == 9 && window_timer == 15 && enhance deck_swap();
+        if window == 8 hud_offset = lerp(hud_offset, 120, 0.2);
+        break;
     }
+    
     if form_revert{
         hud_offset = floor(lerp(hud_offset, 200, 0.2));
         can_move = 0;
@@ -546,4 +560,11 @@ var win_time = argument_count > 6 ? argument[6] : 0;
         newdust.draw_angle = angle; //sets the angle of the dust sprite
         return newdust;
     }
+}
+
+#define deck_swap()
+{
+    deck_change = 1
+    deck_antimer = 0;
+    deck_val = (deck_val+1)%3
 }

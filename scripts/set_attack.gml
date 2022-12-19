@@ -337,7 +337,7 @@ switch form{
         break;
         case AT_FAIR:
         enhance = 0;
-        if mp && !mp_recharge && !move_cooldown[AT_FSTRONG]{
+        if mp && !mp_recharge && !move_cooldown[AT_FAIR]{
             mp -= 100;
             enhance = 1;
             
@@ -395,12 +395,128 @@ switch form{
         case AT_DAIR:
         set_attack_value(AT_DAIR, AG_CATEGORY, 1);
         enhance = 0;
-        if mp && !mp_recharge && !move_cooldown[AT_FSTRONG]{
+        if mp && !mp_recharge && !move_cooldown[AT_DAIR]{
             mp -= 100;
             enhance = 1;
             set_hitbox_value(AT_DAIR, 7, HG_EXTRA_HITPAUSE, 8);
         }else{
             set_hitbox_value(AT_DAIR, 7, HG_EXTRA_HITPAUSE, 0);
+        }
+        break;
+        case AT_NSPECIAL:
+        break;
+        case AT_FSPECIAL:
+        break;
+        case AT_DSPECIAL:
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_DSPECIAL]{
+            mp -= (deck_val? (deck_val == 1? 100: 250): 150);
+            enhance = 1;
+            switch deck_val{
+                case 0:
+                set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 301);
+                set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, sound_get("KB_hitmedium1"));
+                
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 0);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 1);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 253);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+                break;
+                case 1:
+                set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 0);
+                set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, asset_get("sfx_ice_dspecial_ground"));
+                
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 0);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 0);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 199);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+                break;
+                case 2:
+                set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 21);
+                set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 40);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 0);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 157);
+                set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+                break;
+            }
+        }else{
+            set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, sound_get("KB_hitmedium1"));
+            
+            set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 0);
+            set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 0);
+            set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+        }
+        break;
+        case AT_USPECIAL:
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_USPECIAL]{
+            mp -= (deck_val? (deck_val == 1? 100: 250): 150);
+            enhance = 1;
+            switch deck_val{
+                case 0:
+                set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, sound_get("KB_hitweak2"));
+                set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 252);
+                
+                set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, sound_get("KB_hitweak1"));
+                set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 252);
+                
+                set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, sound_get("KB_hitweak2"));
+                set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 252);
+                
+                set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 0);
+                set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+                set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 253);
+                set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 1);
+                break;
+                case 1:
+                set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, asset_get("sfx_ice_dspecial_ground"));
+                set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 29);
+                
+                set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, asset_get("sfx_ice_dspecial_ground"));
+                set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 29);
+                
+                set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, asset_get("sfx_ice_dspecial_ground"));
+                set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 29);
+                
+                set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 0);
+                set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+                set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 199);
+                set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
+                break;
+                case 2:
+                set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 21);
+                
+                set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 21);
+                
+                set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 21);
+                
+                set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 40);
+                set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+                set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 157);
+                set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
+                break;
+            }
+        }else{
+            set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, sound_get("KB_hitweak2"));
+            set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 0);
+            
+            set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, sound_get("KB_hitweak1"));
+            set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 0);
+            
+            set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, sound_get("KB_hitweak2"));
+            set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 0);
+            
+            set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 0);
+            set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
+            set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
         }
         break;
     }
