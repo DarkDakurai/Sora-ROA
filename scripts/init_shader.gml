@@ -9,7 +9,7 @@ for(var k = 0; k < 7; k++){
     set_ui_element(UI_HUD_ICON, sprite_get("unmapped_hud"))
 }
 if "blade_alt" in self{
-    if form{
+    if form && form != 2{
         //oblivion
         set_article_color_slot(0, blade_alt[0][get_player_color(player)][0][0], blade_alt[0][get_player_color(player)][0][1], blade_alt[0][get_player_color(player)][0][2]);
         set_article_color_slot(2, blade_alt[0][get_player_color(player)][1][0], blade_alt[0][get_player_color(player)][1][1], blade_alt[0][get_player_color(player)][1][2]);

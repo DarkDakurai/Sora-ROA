@@ -153,6 +153,27 @@ switch form{
             }else if !deck_val sound_play(asset_get("sfx_forsburn_reappear_hit"));
         }
     }
+    if my_hitboxID.attack == AT_FSPECIAL{
+        if my_hitboxID.hbox_num == 5 && fsp_grab = noone && !hit_player_obj.custom_clone && !hit_player_obj.clone{
+            set_window_value(AT_FSPECIAL, 12, AG_WINDOW_GOTO, 14);
+            if window == 13{
+                window = 14;
+                window_timer = 0;
+            }
+            fsp_grab = hit_player_obj;
+            proj_pos = [my_hitboxID.x, my_hitboxID.y, fsp_grab.x, fsp_grab.y];
+        }
+        if my_hitboxID.hbox_num == 6{
+            if my_hitboxID.deck == 0 sound_play(asset_get("sfx_forsburn_reappear_hit"));
+            else if my_hitboxID.deck == 1{
+                if !hit_player_obj.frostbite{
+                    sound_play(asset_get("sfx_abyss_explosion_start"));
+                    sound_play(asset_get("sfx_abyss_hazard_burst"));
+                }
+                hit_player_obj.frostbite = 1;
+            }
+        }
+    }
     break;
     
     case 3:

@@ -479,7 +479,7 @@ attack_frameskip = [
     [3, 7, 11, 0],//dair,
     [3, 6, 9, 0],//uair,
     [4, 7, 10, 0],//nair,
-    [8, 11, 0, 0],//fspecial,
+    [8, 11, 15, 0],//fspecial,
     [6, 8, 10, 0],//dspecial,
     [4, 9, 12, 0],//uspecial,
     [7, 9, 0, 0],//nspecial,
@@ -544,6 +544,7 @@ def_coll = mask_index;
 fsp_grab = noone;
 proj_pos = [];
 power_up = 0;
+cur_val = 0;
 //#endregion
 
 //#region sfx

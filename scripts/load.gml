@@ -105,3 +105,6 @@ sprite_change_offset("0fspecial_mask", 19, 61);
 
 //frostbite
 sprite_change_offset("frostbite_mark", 0, 9);
+
+//wisdom keyblade
+sprite_change_offset("wis_keyblade_article", 85, 66);

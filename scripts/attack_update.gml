@@ -502,6 +502,18 @@ switch(attack){
             break;
         }
         break;
+        case 2:
+        move_cooldown[AT_FSPECIAL] = 200;
+        if instance_exists(fsp_grab) && window_timer == 12 && window == 14{
+            var n = instance_create(fsp_grab.x + 30, fsp_grab.y - fsp_grab.char_height/2,"obj_article1");
+            n.type = 1;
+            n.spr_dir = -1;
+            var g = instance_create(fsp_grab.x - 30, fsp_grab.y - fsp_grab.char_height/2,"obj_article1");
+            g.type = 1;
+            g.spr_dir = 1;
+        }
+        if window == 14 && window_timer == 13 && enhance deck_swap();
+        break;
     }
     break;
 }

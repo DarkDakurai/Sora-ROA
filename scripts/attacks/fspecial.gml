@@ -1,5 +1,5 @@
 set_attack_value(AT_FSPECIAL, AG_CATEGORY, 2);
-set_attack_value(AT_FSPECIAL, AG_NUM_WINDOWS, 11);
+set_attack_value(AT_FSPECIAL, AG_NUM_WINDOWS, 15);
 set_attack_value(AT_FSPECIAL, AG_OFF_LEDGE, 1);
 
 //base
@@ -67,7 +67,36 @@ set_window_value(AT_FSPECIAL, 10, AG_WINDOW_ANIM_FRAME_START, 5);
 set_window_value(AT_FSPECIAL, 10, AG_WINDOW_GOTO, 20);
 
 
-set_num_hitboxes(AT_FSPECIAL, 4);
+//wisdom
+set_window_value(AT_FSPECIAL, 11, AG_WINDOW_LENGTH, 18);
+set_window_value(AT_FSPECIAL, 11, AG_WINDOW_ANIM_FRAMES, 6);
+set_window_value(AT_FSPECIAL, 11, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FSPECIAL, 11, AG_WINDOW_SFX, sound_get("KB_Throw2"));
+set_window_value(AT_FSPECIAL, 11, AG_WINDOW_SFX_FRAME, 14);
+
+set_window_value(AT_FSPECIAL, 12, AG_WINDOW_LENGTH, 18);
+set_window_value(AT_FSPECIAL, 12, AG_WINDOW_ANIM_FRAMES, 6);
+set_window_value(AT_FSPECIAL, 12, AG_WINDOW_ANIM_FRAME_START, 6);
+set_window_value(AT_FSPECIAL, 12, AG_WINDOW_GOTO, 13);
+
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_LENGTH, 45);
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_ANIM_FRAMES, 15);
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_ANIM_FRAME_START, 12);
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_GOTO, 20);
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_SFX, sound_get("KB_recall"));
+set_window_value(AT_FSPECIAL, 13, AG_WINDOW_SFX_FRAME, 13);
+
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_LENGTH, 40);
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_ANIM_FRAMES, 10);
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_ANIM_FRAME_START, 27);
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_SFX, sound_get("KB_recall"));
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_SFX_FRAME, 20);
+set_window_value(AT_FSPECIAL, 14, AG_WINDOW_GOTO, 20);
+
+
+set_num_hitboxes(AT_FSPECIAL, 6);
 
 //base
 set_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_TYPE, 2);
@@ -93,6 +122,8 @@ set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_FSPECIAL, 1, HG_HIT_SFX, sound_get("KB_hitheavy2"));
 set_hitbox_value(AT_FSPECIAL, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_PARRY_STUN, 1);
+set_hitbox_value(AT_FSPECIAL, 1, HG_EXTENDED_PARRY_STUN, 6);
 
 set_hitbox_value(AT_FSPECIAL, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_FSPECIAL, 2, HG_WINDOW, 5);
@@ -146,3 +177,57 @@ set_hitbox_value(AT_FSPECIAL, 4, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_FSPECIAL, 4, HG_HITPAUSE_SCALING, 0.5);
 set_hitbox_value(AT_FSPECIAL, 4, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_FSPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitheavy2"));
+
+//wisdom
+set_hitbox_value(AT_FSPECIAL, 5, HG_HITBOX_TYPE, 2);
+set_hitbox_value(AT_FSPECIAL, 5, HG_WINDOW, 12);
+set_hitbox_value(AT_FSPECIAL, 5, HG_LIFETIME, 30);
+set_hitbox_value(AT_FSPECIAL, 5, HG_HITBOX_X, 28);
+set_hitbox_value(AT_FSPECIAL, 5, HG_HITBOX_Y, -30);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_WALL_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_WIDTH, 50);
+set_hitbox_value(AT_FSPECIAL, 5, HG_HEIGHT, 50);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PRIORITY, 2);
+set_hitbox_value(AT_FSPECIAL, 5, HG_DAMAGE, 5);
+set_hitbox_value(AT_FSPECIAL, 5, HG_ANGLE, 90);
+set_hitbox_value(AT_FSPECIAL, 5, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_FSPECIAL, 5, HG_BASE_HITPAUSE, 5);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_ANIM_SPEED, 0.5);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_HSPEED, 15);
+set_hitbox_value(AT_FSPECIAL, 5, HG_EXTRA_HITPAUSE, 70);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_SPRITE, sprite_get("0fspecial_proj"));
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_HIT_SFX, sound_get("KB_hitheavy2"));
+set_hitbox_value(AT_FSPECIAL, 5, HG_VISUAL_EFFECT_Y_OFFSET, -16);
+set_hitbox_value(AT_FSPECIAL, 5, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_PROJECTILE_PARRY_STUN, 1);
+set_hitbox_value(AT_FSPECIAL, 5, HG_EXTENDED_PARRY_STUN, 6);
+
+set_hitbox_value(AT_FSPECIAL, 6, HG_HITBOX_TYPE, 2);
+set_hitbox_value(AT_FSPECIAL, 6, HG_SHAPE, 0);
+set_hitbox_value(AT_FSPECIAL, 6, HG_WIDTH, 100);
+set_hitbox_value(AT_FSPECIAL, 6, HG_HEIGHT, 100);
+set_hitbox_value(AT_FSPECIAL, 6, HG_LIFETIME, 4);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PRIORITY, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_DAMAGE, 3);
+set_hitbox_value(AT_FSPECIAL, 6, HG_ANGLE, 90);
+set_hitbox_value(AT_FSPECIAL, 6, HG_ANGLE_FLIPPER, 0);
+set_hitbox_value(AT_FSPECIAL, 6, HG_BASE_KNOCKBACK, 10);
+set_hitbox_value(AT_FSPECIAL, 6, HG_BASE_HITPAUSE, 5);
+set_hitbox_value(AT_FSPECIAL, 6, HG_EXTRA_HITPAUSE, 0);
+set_hitbox_value(AT_FSPECIAL, 6, HG_HITSTUN_MULTIPLIER, 1.2);
+set_hitbox_value(AT_FSPECIAL, 6, HG_HIT_SFX, asset_get(""));
+set_hitbox_value(AT_FSPECIAL, 6, HG_EFFECT, 0);
+set_hitbox_value(AT_FSPECIAL, 6, HG_VISUAL_EFFECT, 0);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_SPRITE, sprite_get("empty"));
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_WALL_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_UNBASHABLE, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_IS_TRANSCENDENT, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_DOES_NOT_REFLECT, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_PROJECTILE_PARRY_STUN, 1);
+set_hitbox_value(AT_FSPECIAL, 6, HG_EXTENDED_PARRY_STUN, 6);

@@ -33,6 +33,9 @@ if mp_bg != mp{
     if abs(mp-mp_bg)<5 mp_bg = mp;
 }
 
+//hud fix
+if abs(hud_offset) <= 1 && hud_offset != 0 hud_offset = 0;
+
 //command deck
 if deck_change && deck_antimer < 180 deck_antimer += 10;
 else if deck_change{

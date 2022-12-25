@@ -403,10 +403,6 @@ switch form{
             set_hitbox_value(AT_DAIR, 7, HG_EXTRA_HITPAUSE, 0);
         }
         break;
-        case AT_NSPECIAL:
-        break;
-        case AT_FSPECIAL:
-        break;
         case AT_DSPECIAL:
         enhance = 0;
         if mp && !mp_recharge && !move_cooldown[AT_DSPECIAL]{
@@ -517,6 +513,18 @@ switch form{
             set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
             set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 0);
             set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
+        }
+        break;
+        case AT_FSPECIAL:
+        set_window_value(AT_FSPECIAL, 12, AG_WINDOW_GOTO, 13);
+        fsp_grab = noone;
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_FSPECIAL]{
+            mp -= (deck_val? (deck_val == 1? 100: 250): 150);
+            enhance = 1;
+            cur_val = deck_val;
+        }else{
+            cur_val = -1;
         }
         break;
     }
