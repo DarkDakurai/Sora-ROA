@@ -388,6 +388,18 @@ switch(attack){
             afterm.image_index = image_index;
         }
         break;
+        case 2:
+        move_cooldown[AT_NSPECIAL] = 50;
+        hud_offset = floor(lerp(hud_offset, 250, 0.2));
+        if free && window_timer == 1 && vsp > -6 vsp = -6;
+        if window_timer == 11{
+            if !instance_exists(wis_trap){
+                wis_trap = instance_create(x - 2 * spr_dir, y - 104, "obj_article1");
+                wis_trap.type = 2;
+                wis_trap.spr_dir = spr_dir;
+            }else if wis_trap.state != 2 && !wis_trap.trigger wis_trap.trigger = 1;
+        }
+        break;
     }
     break;
     case AT_FSPECIAL:
@@ -503,7 +515,12 @@ switch(attack){
         }
         break;
         case 2:
-        move_cooldown[AT_FSPECIAL] = 200;
+        move_cooldown[AT_FSPECIAL] = 150;
+        if window == 12 && !instance_exists(fsp_grab) && shield_pressed{
+            with pHitBox if attack == AT_FSPECIAL && hbox_num == 5 && player_id == other hitbox_timer = 25;
+            window = 13;
+            window_timer = 0;
+        }
         if instance_exists(fsp_grab) && window_timer == 12 && window == 14{
             var n = instance_create(fsp_grab.x + 30, fsp_grab.y - fsp_grab.char_height/2,"obj_article1");
             n.type = 1;

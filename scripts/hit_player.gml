@@ -168,10 +168,18 @@ switch form{
             else if my_hitboxID.deck == 1{
                 if !hit_player_obj.frostbite{
                     sound_play(asset_get("sfx_abyss_explosion_start"));
-                    sound_play(asset_get("sfx_abyss_hazard_burst"));
                 }
                 hit_player_obj.frostbite = 1;
             }
+        }
+    }
+    if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 4{
+        if my_hitboxID.deck == 1{
+            if !hit_player_obj.frostbite{
+                sound_play(asset_get("sfx_abyss_explosion_start"));
+                sound_play(asset_get("sfx_abyss_hazard_burst"));
+            }
+            hit_player_obj.frostbite = 1;
         }
     }
     break;

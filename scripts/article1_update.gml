@@ -35,6 +35,27 @@ if inited{
 		image_yscale = 2;
 		image_xscale = 2;
 		hbox = noone;
+		colp = noone;
+		lifetime = 600;
+		if player_id.enhance && !instance_exists(player_id.fsp_grab){
+			player_id.deck_change = 1
+			player_id.deck_antimer = 0;
+			player_id.deck_val = (player_id.deck_val+1)%3
+		}
+		break;
+		
+		case 2:
+		sound_play(sound_get("ragnarok_summon"));
+		sprite_index = sprite_get("wis_trap_article");
+		depth = player_id.depth - 2;
+		state = 0;
+		timer = 0;
+		deck = (player_id.enhance? player_id.deck_val: 3);
+		uses_shader = 0;
+		image_yscale = 2;
+		image_xscale = 2;
+		hbox = noone;
+		trigger = 0;
 		lifetime = 900;
 		if player_id.enhance && !instance_exists(player_id.fsp_grab){
 			player_id.deck_change = 1
@@ -122,6 +143,7 @@ break;
 
 //wisdom keyblade
 case 1:
+colp = collision_ellipse(x, y + 20, x + 60*spr_dir, y - 40, oPlayer, 1, 1);
 timer++;
 lifetime--;
 switch state{
@@ -134,12 +156,14 @@ switch state{
 	break;
 	case 1: //idle
 	image_index = (timer/4)%6 + 5 + 17*deck + 6*(deck>0);
-	if !lifetime || (instance_exists(collision_rectangle(x, y + 20, x + 60*spr_dir, y - 40, oPlayer, 1, 1)) && collision_rectangle(x, y + 20, x + 60*spr_dir, y - 40, oPlayer, 1, 1) != player_id){
+	if !lifetime || (instance_exists(colp) && colp != player_id){
 		state = 2;
 		timer = 2;
+		if instance_exists(colp) && colp.hitstun colp.hitstop = 99;
 	}
 	break;
 	case 2: //attack
+	if instance_exists(colp) && timer < 16 && colp != player_id && (colp.state == PS_HITSTUN || colp.state == PS_HITSTUN_LAND) colp.hitstop = 99;
 	image_index = (timer/4) + 11 + 17*deck + 6*(deck>0);
 	if timer == 14 sound_play(asset_get("sfx_swipe_medium2"))
 	if timer == 16{
@@ -182,6 +206,61 @@ switch state{
 if !lifetime && state < 2{
 	state = 2;
 	timer = 0;
+}
+break;
+
+//wisom trap
+case 2:
+timer++;
+lifetime--;
+switch state{
+	case 0://spawn
+	image_index = timer/4;
+	if timer == 31{
+		state = 1;
+		timer = 0;
+	}
+	break;
+	
+	case 1://idle
+	image_index = (timer/4)%6 + 8 + 12*deck;
+	if !lifetime || trigger{
+		state = 2;
+		timer = 0;
+		hbox = create_hitbox(AT_NSPECIAL, 4, x - 1 *spr_dir, y);
+		with hbox if "deck" not in self deck = other.deck;
+		switch deck{
+			case 0:
+			hbox.effect = 1;
+			hbox.hit_effect = 253;
+			sound_play(asset_get("sfx_forsburn_reappear_hit"));
+			sound_play(sound_get("ragnarok_explode"), 0, noone, 0.2);
+			break;
+			case 1:
+			hbox.hit_effect = 199;
+            sound_play(asset_get("sfx_abyss_hazard_burst"));
+			sound_play(sound_get("ragnarok_explode"), 0, noone, 0.2);
+			break;
+			case 2:
+			hbox.extra_hitpause = 40;
+			hbox.hit_effect = 157;
+			sound_play(asset_get("sfx_absa_kickhit"));
+			sound_play(sound_get("ragnarok_explode"), 0, noone, 0.2);
+			break;
+			case 3:
+			sound_play(sound_get("ragnarok_explode"));
+			break;
+		}
+	}
+	break;
+	
+	case 2://explode and die
+	image_index = timer/4 + 14 + 12*deck;
+	if timer == 24{
+		instance_destroy(self);
+		exit;
+	}
+	break;
 }
 break;
 }

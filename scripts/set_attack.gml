@@ -522,9 +522,13 @@ switch form{
         if mp && !mp_recharge && !move_cooldown[AT_FSPECIAL]{
             mp -= (deck_val? (deck_val == 1? 100: 250): 150);
             enhance = 1;
-            cur_val = deck_val;
-        }else{
-            cur_val = -1;
+        }
+        break;
+        case AT_NSPECIAL:
+        enhance = 0;
+        if mp && !mp_recharge && !move_cooldown[AT_NSPECIAL] && !instance_exists(wis_trap){
+            mp -= (deck_val? (deck_val == 1? 100: 250): 150);
+            enhance = 1;
         }
         break;
     }

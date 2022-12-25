@@ -482,7 +482,7 @@ attack_frameskip = [
     [8, 11, 15, 0],//fspecial,
     [6, 8, 10, 0],//dspecial,
     [4, 9, 12, 0],//uspecial,
-    [7, 9, 0, 0],//nspecial,
+    [7, 9, 10, 0],//nspecial,
     [0, 0, 0, 0],//FSTRONG_2,
     [0, 0, 0, 0],//DSTRONG_2,
     [0, 0, 0, 0],//USTRONG_2,
@@ -530,6 +530,7 @@ ragnarok_lv = 0;
 charged_ver = 1;
 valor_cool = 0;
 afterimage = 0;
+wis_trap = noone;
 
 //dspecial
 form_sel = -1;
@@ -544,7 +545,6 @@ def_coll = mask_index;
 fsp_grab = noone;
 proj_pos = [];
 power_up = 0;
-cur_val = 0;
 //#endregion
 
 //#region sfx

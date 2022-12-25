@@ -1,7 +1,7 @@
 set_attack_value(AT_NSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_NSPECIAL, AG_SPRITE, sprite_get("nspecial"));
 set_attack_value(AT_NSPECIAL, AG_HURTBOX_SPRITE, sprite_get("nspecial_hurt"));
-set_attack_value(AT_NSPECIAL, AG_NUM_WINDOWS, 8);
+set_attack_value(AT_NSPECIAL, AG_NUM_WINDOWS, 9);
 set_attack_value(AT_NSPECIAL, AG_OFF_LEDGE, 1);
 
 //Base
@@ -48,7 +48,6 @@ set_window_value(AT_NSPECIAL, 6, AG_WINDOW_ANIM_FRAME_START, 31);
 set_window_value(AT_NSPECIAL, 6, AG_WINDOW_GOTO, 20);
 
 //Valor
-
 set_window_value(AT_NSPECIAL, 7, AG_WINDOW_LENGTH, 28);
 set_window_value(AT_NSPECIAL, 7, AG_WINDOW_ANIM_FRAMES, 7);
 set_window_value(AT_NSPECIAL, 7, AG_WINDOW_ANIM_FRAME_START, 1);
@@ -63,8 +62,16 @@ set_window_value(AT_NSPECIAL, 8, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_NSPECIAL, 8, AG_WINDOW_ANIM_FRAME_START, 8);
 set_window_value(AT_NSPECIAL, 8, AG_WINDOW_HAS_WHIFFLAG, 1);
 
+//wisdom
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_LENGTH, 36);
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_ANIM_FRAMES, 9);
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_SFX_FRAME, 10);
+set_window_value(AT_NSPECIAL, 9, AG_WINDOW_SFX, asset_get("sfx_swipe_medium2"));
 
-set_num_hitboxes(AT_NSPECIAL, 3);
+
+set_num_hitboxes(AT_NSPECIAL, 4);
 
 //Base
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_TYPE, 2);
@@ -142,3 +149,32 @@ set_hitbox_value(AT_NSPECIAL, 3, HG_HITSTUN_MULTIPLIER, 1);
 set_hitbox_value(AT_NSPECIAL, 3, HG_DRIFT_MULTIPLIER, 1);
 set_hitbox_value(AT_NSPECIAL, 3, HG_HIT_SFX, sound_get("KB_hitheavy2"));
 
+//wisdom
+
+set_hitbox_value(AT_NSPECIAL, 4, HG_HITBOX_TYPE, 2);
+set_hitbox_value(AT_NSPECIAL, 4, HG_SHAPE, 0);
+set_hitbox_value(AT_NSPECIAL, 4, HG_WIDTH, 90);
+set_hitbox_value(AT_NSPECIAL, 4, HG_HEIGHT, 90);
+set_hitbox_value(AT_NSPECIAL, 4, HG_LIFETIME, 8);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PRIORITY, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_DAMAGE, 2);
+set_hitbox_value(AT_NSPECIAL, 4, HG_ANGLE, 45);
+set_hitbox_value(AT_NSPECIAL, 4, HG_ANGLE_FLIPPER, 3);
+set_hitbox_value(AT_NSPECIAL, 4, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_NSPECIAL, 4, HG_KNOCKBACK_SCALING, .6);
+set_hitbox_value(AT_NSPECIAL, 4, HG_BASE_HITPAUSE, 8);
+set_hitbox_value(AT_NSPECIAL, 4, HG_HITPAUSE_SCALING, .5);
+set_hitbox_value(AT_NSPECIAL, 4, HG_EXTRA_HITPAUSE, 0);
+set_hitbox_value(AT_NSPECIAL, 4, HG_HIT_SFX, sound_get("ragnarok_proj_hit"));
+set_hitbox_value(AT_NSPECIAL, 4, HG_EFFECT, 0);
+set_hitbox_value(AT_NSPECIAL, 4, HG_VISUAL_EFFECT, 0);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_SPRITE, sprite_get("empty"));
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_WALL_BEHAVIOR, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_UNBASHABLE, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_IS_TRANSCENDENT, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_DOES_NOT_REFLECT, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_PROJECTILE_PARRY_STUN, 1);
+set_hitbox_value(AT_NSPECIAL, 4, HG_EXTENDED_PARRY_STUN, 6);
