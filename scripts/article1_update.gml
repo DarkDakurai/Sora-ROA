@@ -156,10 +156,10 @@ switch state{
 	break;
 	case 1: //idle
 	image_index = (timer/4)%6 + 5 + 17*deck + 6*(deck>0);
-	if !lifetime || (instance_exists(colp) && colp != player_id){
+	if !lifetime || (instance_exists(colp) && colp != player_id && colp.hitstun){
 		state = 2;
 		timer = 2;
-		if instance_exists(colp) && colp.hitstun colp.hitstop = 99;
+		if instance_exists(colp) colp.hitstop = 99;
 	}
 	break;
 	case 2: //attack

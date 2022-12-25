@@ -550,11 +550,3 @@ power_up = 0;
 //#region sfx
 sfx_timer = 0;
 //#endregion
-
-
-
-
-
-//debug
-form = 2;
-gauge_val = 5000; //max 5000
