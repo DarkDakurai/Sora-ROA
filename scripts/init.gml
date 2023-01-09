@@ -545,6 +545,7 @@ def_coll = mask_index;
 fsp_grab = noone;
 proj_pos = [];
 power_up = 0;
+cancel = 0;
 //#endregion
 
 //#region sfx

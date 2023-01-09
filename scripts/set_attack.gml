@@ -105,10 +105,10 @@ switch form{
         if mp && !mp_recharge && !move_cooldown[AT_FSTRONG]{
             mp -= 100;
             enhance = 1;
-            set_window_value(AT_FSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 15);
-            set_window_value(AT_FSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 19);
-            set_window_value(AT_FSTRONG, 11, AG_WINDOW_ANIM_FRAME_START, 22);
-            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 25);
+            set_window_value(AT_FSTRONG, 9, AG_WINDOW_ANIM_FRAME_START, 14);
+            set_window_value(AT_FSTRONG, 10, AG_WINDOW_ANIM_FRAME_START, 18);
+            set_window_value(AT_FSTRONG, 11, AG_WINDOW_ANIM_FRAME_START, 21);
+            set_window_value(AT_FSTRONG, 12, AG_WINDOW_ANIM_FRAME_START, 24);
             
             set_hitbox_value(AT_FSTRONG, 5, HG_DAMAGE, 9);
             set_hitbox_value(AT_FSTRONG, 5, HG_BASE_KNOCKBACK, 8);
@@ -518,6 +518,7 @@ switch form{
         case AT_FSPECIAL:
         set_window_value(AT_FSPECIAL, 12, AG_WINDOW_GOTO, 13);
         fsp_grab = noone;
+        cancel = 0;
         enhance = 0;
         if mp && !mp_recharge && !move_cooldown[AT_FSPECIAL]{
             mp -= (deck_val? (deck_val == 1? 100: 250): 150);

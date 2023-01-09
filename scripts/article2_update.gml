@@ -14,6 +14,7 @@ if inited{
         sprite_index = sprite_get("ragnarok_projectile_after");
         break;
         case 4:
+        case 5:
         timer = 20;
         vsp = -3 - random_func_2(abs(floor(x%200)), 3, 0);
         hsp = 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0);
@@ -62,6 +63,8 @@ switch particle_type{
     }
     break;
     case 4:
+    case 5:
+    if particle_type == 5 depth = player_id.depth-2;
     image_alpha = timer/12;
     timer--;
     if !timer{

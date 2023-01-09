@@ -72,6 +72,18 @@ switch form{
         partc.particle_type = 4;
     }
     break;
+    case 2:
+    if get_gameplay_time()%3 == 0{
+        var partc = instance_create(x - 34 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, "obj_article2");
+        partc.particle_type = 5;
+        partc.random_sprite = random_func_2(abs(floor(x%200)), 2, 1);
+    }
+    if get_gameplay_time()%3 == 2{
+        var partc = instance_create(x - 6 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, "obj_article2");
+        partc.particle_type = 5;
+        partc.random_sprite = random_func_2(abs(floor((x + 1)%200)), 2, 1);
+    }
+    break;
 }
 
 //frostbite

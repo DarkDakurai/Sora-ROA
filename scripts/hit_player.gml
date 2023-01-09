@@ -154,7 +154,7 @@ switch form{
         }
     }
     if my_hitboxID.attack == AT_FSPECIAL{
-        if my_hitboxID.hbox_num == 5 && fsp_grab = noone && !hit_player_obj.custom_clone && !hit_player_obj.clone{
+        if my_hitboxID.hbox_num == 5 && fsp_grab = noone && !hit_player_obj.custom_clone && !hit_player_obj.clone && !cancel{
             set_window_value(AT_FSPECIAL, 12, AG_WINDOW_GOTO, 14);
             if window == 13{
                 window = 14;

@@ -5,6 +5,7 @@ particle_type = 0;
 2 = ragnarok projectile
 3 = general afterimage
 4 = valor particle
+5 = wisdom particle
 */
 inited = 1;
 uses_shader = 0;
@@ -17,3 +18,4 @@ part_x = 0;
 part_y = 0;
 hud_particle = 0;
 timer = 0;
+random_sprite = 0;

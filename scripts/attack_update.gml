@@ -514,9 +514,11 @@ switch(attack){
             break;
         }
         break;
+        
         case 2:
         move_cooldown[AT_FSPECIAL] = 150;
         if window == 12 && !instance_exists(fsp_grab) && shield_pressed{
+            cancel = 1;
             with pHitBox if attack == AT_FSPECIAL && hbox_num == 5 && player_id == other hitbox_timer = 25;
             window = 13;
             window_timer = 0;

@@ -5,7 +5,8 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = idle_anim_speed * state_timer;
         break;
         case PS_WALK:
-        image_index = walk_anim_speed * state_timer;
+        if form == 2 image_index = .2 * state_timer;
+        else image_index = walk_anim_speed * state_timer;
         switch form{
             case 0:
             if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 7) && !sfx_timer{
@@ -22,10 +23,12 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         }
         break;
         case PS_WALK_TURN:
-        image_index = state_timer * .45;
+        if form == 2 image_index = state_timer/5 * 3.9;
+        else image_index = state_timer * .45;
         break;
         case PS_DASH_TURN:
-        image_index = state_timer * .45
+        if form == 2 image_index = state_timer * .4
+        else image_index = state_timer * .45
         break;
         case PS_DASH:
         image_index = state_timer * dash_anim_speed;
@@ -54,13 +57,15 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = state_timer/2;
         break;
         case PS_FIRST_JUMP:
-        image_index = (state_timer * .6 + (!form?3:0) >= image_number - 1? image_number - 1: state_timer * .6 + (!form?3:0));
+        if form == 2 image_index = (state_timer * .25 >= image_number - 1? image_number - 1: state_timer * .25);
+        else image_index = (state_timer * .6 + (!form?3:0) >= image_number - 1? image_number - 1: state_timer * .6 + (!form?3:0));
         break;
         case PS_DOUBLE_JUMP:
         image_index = state_timer * 3/10;
         break;
         case PS_IDLE_AIR:
         sprite_index = sprite_get(string(form) + "PS_FIRST_JUMP");
+        if form == 2 sprite_index = sprite_get("0PS_FIRST_JUMP");
         image_index = ((state_timer + 5) * .7 >= image_number - 1? image_number - 1: (state_timer + 5) * .7);
         break;
         case PS_LAND:
@@ -77,6 +82,8 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_PARRY_START:
         sprite_index = sprite_get(string(form) + "PS_IDLE");
+        if form == 2 dodge_recovery_frames = 6;
+        else dodge_recovery_frames = 5;
         break;
         case PS_HITSTUN:
         sprite_index = sprite_get(string(form) + "HURT" + string(hurt_img));
@@ -103,6 +110,10 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_TECH_FORWARD:
         sprite_index = sprite_get(string(form) + "PS_ROLL_FORWARD");
+        break;
+        case PS_PRATFALL:
+        sprite_index = sprite_get(string(form) + "PS_PRATFALL");
+        image_index = state_timer * pratfall_anim_speed;
         break;
         case PS_PRATLAND:
         sprite_index = sprite_get(string(form) + "PS_LAND");
