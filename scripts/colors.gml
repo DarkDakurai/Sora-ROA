@@ -2,7 +2,7 @@
 
 // Hair
 set_color_profile_slot( 0, 0, 255, 129, 56 );
-set_color_profile_slot_range( 0, 2, 6, 64 );
+set_color_profile_slot_range( 0, 2, 27, 64 );
 
 // Shirt
 set_color_profile_slot( 0, 1, 102, 96, 96 );
@@ -314,6 +314,6 @@ set_color_profile_slot( 31, 6, 52, 115, 34 ); //Keyblade Handle
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
 === BEGIN JSON PALETTE ===
-{"formatversion":1,"data":[{"name":"Hair","colors":[{"r":"255","g":"129","b":"56","main":true},{"r":171,"g":83,"b":29},{"r":94,"g":47,"b":18}]},{"name":"Shirt","colors":[{"r":"102","g":"96","b":"96","main":true},{"r":66,"g":61,"b":61},{"r":36,"g":33,"b":33}]},{"name":"Pants","colors":[{"r":"121","g":"216","b":"79","main":true},{"r":77,"g":131,"b":53},{"r":50,"g":85,"b":34}]},{"name":"Pants Accents","colors":[{"r":"25","g":"148","b":"255","main":true},{"r":19,"g":97,"b":161}]},{"name":"Glove/Shoe Accents","colors":[{"r":"219","g":"57","b":"64","main":true},{"r":166,"g":38,"b":45}]},{"name":"Keyblade Blade","colors":[{"r":245,"g":113,"b":161},{"r":255,"g":150,"b":188},{"r":176,"g":39,"b":89,"main":true},{"r":125,"g":27,"b":63}]},{"name":"Keyblade Handle","colors":[{"r":"218","g":"137","b":"245","main":true},{"r":203,"g":50,"b":250},{"r":134,"g":32,"b":168}]}]}
+{"formatversion":1,"data":[{"name":"Hair","colors":[{"r":"255","g":"129","b":"56","main":true},{"r":171,"g":83,"b":29},{"r":94,"g":47,"b":18},{"r":238,"g":160,"b":114}]},{"name":"Shirt","colors":[{"r":"102","g":"96","b":"96","main":true},{"r":66,"g":61,"b":61},{"r":36,"g":33,"b":33}]},{"name":"Pants","colors":[{"r":"121","g":"216","b":"79","main":true},{"r":77,"g":131,"b":53},{"r":50,"g":85,"b":34}]},{"name":"Pants Accents","colors":[{"r":"25","g":"148","b":"255","main":true},{"r":19,"g":97,"b":161}]},{"name":"Glove/Shoe Accents","colors":[{"r":"219","g":"57","b":"64","main":true},{"r":166,"g":38,"b":45}]},{"name":"Keyblade Blade","colors":[{"r":245,"g":113,"b":161},{"r":255,"g":150,"b":188},{"r":176,"g":39,"b":89,"main":true},{"r":125,"g":27,"b":63}]},{"name":"Keyblade Handle","colors":[{"r":"218","g":"137","b":"245","main":true},{"r":203,"g":50,"b":250},{"r":134,"g":32,"b":168}]}]}
 === END JSON PALETTE ===
 */
