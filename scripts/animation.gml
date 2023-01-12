@@ -5,7 +5,8 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = idle_anim_speed * state_timer;
         break;
         case PS_WALK:
-        if form == 2 image_index = .2 * state_timer;
+        if form == 4 image_index = .2 * state_timer;
+        else if form == 2 image_index = .2 * state_timer;
         else image_index = walk_anim_speed * state_timer;
         switch form{
             case 0:
@@ -23,11 +24,13 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         }
         break;
         case PS_WALK_TURN:
-        if form == 2 image_index = state_timer/5 * 3.9;
+        if form == 4 image_index = state_timer/2;
+        else if form == 2 image_index = state_timer/5 * 3.9;
         else image_index = state_timer * .45;
         break;
         case PS_DASH_TURN:
-        if form == 2 image_index = state_timer * .4
+        if form == 4 image_index = state_timer * .3;
+        else if form == 2 image_index = state_timer * .4;
         else image_index = state_timer * .45
         break;
         case PS_DASH:
@@ -49,6 +52,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_DASH_START:
         image_index = state_timer / 2;
+        if form == 4 image_index = state_timer / 4;
         break;
         case PS_DASH_STOP:
         image_index = state_timer / 2;
@@ -57,16 +61,19 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = state_timer/2;
         break;
         case PS_FIRST_JUMP:
-        if form == 2 image_index = (state_timer * .25 >= image_number - 1? image_number - 1: state_timer * .25);
+        if form == 4 image_index = (state_timer * .32 >= image_number - 1? image_number - 1: state_timer * .32);
+        else if form == 2 image_index = (state_timer * .25 >= image_number - 1? image_number - 1: state_timer * .25);
         else image_index = (state_timer * .6 + (!form?3:0) >= image_number - 1? image_number - 1: state_timer * .6 + (!form?3:0));
         break;
         case PS_DOUBLE_JUMP:
         image_index = state_timer * 3/10;
+        if form == 4 image_index = state_timer * 7/20;
         break;
         case PS_IDLE_AIR:
         sprite_index = sprite_get(string(form) + "PS_FIRST_JUMP");
         if form == 2 sprite_index = sprite_get("0PS_FIRST_JUMP");
         image_index = ((state_timer + 5) * .7 >= image_number - 1? image_number - 1: (state_timer + 5) * .7);
+        if form == 4 image_index = image_number - 1;
         break;
         case PS_LAND:
         sprite_index = sprite_get(string(form) + "PS_CROUCH");
@@ -82,8 +89,14 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_PARRY_START:
         sprite_index = sprite_get(string(form) + "PS_IDLE");
-        if form == 2 dodge_recovery_frames = 6;
-        else dodge_recovery_frames = 5;
+        dodge_startup_frames    = 2;
+        dodge_active_frames     = 2;
+        dodge_recovery_frames   = 5;
+        if form == 4{
+            dodge_startup_frames    = 3;
+            dodge_active_frames     = 2;
+            dodge_recovery_frames   = 3;
+        }else if form == 2 dodge_recovery_frames = 6;
         break;
         case PS_HITSTUN:
         sprite_index = sprite_get(string(form) + "HURT" + string(hurt_img));
@@ -125,6 +138,24 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_WALL_JUMP:
         image_index = ((state_timer / 4) + 1 >= image_number? image_number - 1: (state_timer / 4) + 1);
+        break;
+        case PS_ROLL_FORWARD:
+        case PS_ROLL_BACKWARD:
+        if form == 4{
+            roll_forward_startup_frames     = 2;
+            roll_forward_active_frames      = 4;
+            roll_forward_recovery_frames    = 1;
+            roll_back_startup_frames        = 2;
+            roll_back_active_frames         = 4;
+            roll_back_recovery_frames       = 1;
+        }else{
+            roll_forward_startup_frames     = 2;
+            roll_forward_active_frames      = 2;
+            roll_forward_recovery_frames    = 4;
+            roll_back_startup_frames        = 1;
+            roll_back_active_frames         = 4;
+            roll_back_recovery_frames       = 2;
+        }
         break;
     }
 }else{
