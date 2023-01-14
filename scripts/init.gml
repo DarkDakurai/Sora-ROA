@@ -551,3 +551,7 @@ cancel = 0;
 //#region sfx
 sfx_timer = 0;
 //#endregion
+
+
+form = 3;
+gauge_val = 5000;

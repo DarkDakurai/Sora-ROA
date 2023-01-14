@@ -8,12 +8,14 @@ dash_turn_accel     = form = 1? 1.8: 1.5;
 dash_stop_percent   = form = 1? 0.5: 0.35;
 ground_friction     = form = 1? 0.6: 0.5;
 
-max_jump_hsp        = form = 2? 8: 6;
-air_max_speed       = form = 2? 8: 4;
+max_jump_hsp        = form = 2? 8: (form = 4? 5: 6);
+air_max_speed       = form = 2? 8: (form = 4? 5: 4);
 air_accel           = form = 2? 0.4: 0.3;
 prat_fall_accel     = form = 2? 0.95: 0.85;
 air_friction        = form = 2? 0.02: 0.04;
 fast_fall           = form = 2? 16: 14;
+gravity_speed       = form = 4? 0.4: 0.5;
+max_fall            = form = 4? 8: 10;
 
 //drive gauge
 if form && gauge_val gauge_val--;

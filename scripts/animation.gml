@@ -5,17 +5,27 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = idle_anim_speed * state_timer;
         break;
         case PS_WALK:
-        if form == 4 image_index = .2 * state_timer;
-        else if form == 2 image_index = .2 * state_timer;
-        else image_index = walk_anim_speed * state_timer;
         switch form{
             case 0:
+            image_index = walk_anim_speed * state_timer;
             if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 7) && !sfx_timer{
                 footstep();
                 sfx_timer = 10;
             }
             break;
             case 1:
+            image_index = walk_anim_speed * state_timer;
+            if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 6) && !sfx_timer{
+                footstep();
+                sfx_timer = 10;
+            }
+            break;
+            case 2:
+            case 4:
+            image_index = .2 * state_timer;
+            break;
+            case 3:
+            image_index = .22 * state_timer;
             if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 6) && !sfx_timer{
                 footstep();
                 sfx_timer = 10;
@@ -25,12 +35,13 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_WALK_TURN:
         if form == 4 image_index = state_timer/2;
+        else if form == 3 image_index = state_timer * 4 / 6;
         else if form == 2 image_index = state_timer/5 * 3.9;
         else image_index = state_timer * .45;
         break;
         case PS_DASH_TURN:
-        if form == 4 image_index = state_timer * .3;
-        else if form == 2 image_index = state_timer * .4;
+        if form == 4  image_index = state_timer * .3;
+        else if form == 2 || form == 3  image_index = state_timer * .4;
         else image_index = state_timer * .45
         break;
         case PS_DASH:
@@ -48,11 +59,17 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
                 sfx_timer = 10;
             }
             break;
+            case 3:
+            if (floor(image_index%image_number) == 1 || floor(image_index%image_number) == 5) && !sfx_timer{
+                footstep();
+                sfx_timer = 10;
+            }
+            break;
         }
         break;
         case PS_DASH_START:
         image_index = state_timer / 2;
-        if form == 4 image_index = state_timer / 4;
+        if form == 4 || form == 3 image_index = state_timer / 4;
         break;
         case PS_DASH_STOP:
         image_index = state_timer / 2;
@@ -67,7 +84,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         break;
         case PS_DOUBLE_JUMP:
         image_index = state_timer * 3/10;
-        if form == 4 image_index = state_timer * 7/20;
+        if form == 3 || form == 4 image_index = state_timer * 7/20;
         break;
         case PS_IDLE_AIR:
         sprite_index = sprite_get(string(form) + "PS_FIRST_JUMP");
@@ -94,6 +111,10 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         dodge_recovery_frames   = 5;
         if form == 4{
             dodge_startup_frames    = 3;
+            dodge_active_frames     = 2;
+            dodge_recovery_frames   = 3;
+        }else if form == 3{
+            dodge_startup_frames    = 2;
             dodge_active_frames     = 2;
             dodge_recovery_frames   = 3;
         }else if form == 2 dodge_recovery_frames = 6;
@@ -148,6 +169,13 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
             roll_back_startup_frames        = 2;
             roll_back_active_frames         = 4;
             roll_back_recovery_frames       = 1;
+        }else if form == 3{
+            roll_forward_startup_frames     = 2;
+            roll_forward_active_frames      = 3;
+            roll_forward_recovery_frames    = 3;
+            roll_back_startup_frames        = 2;
+            roll_back_active_frames         = 3;
+            roll_back_recovery_frames       = 3;
         }else{
             roll_forward_startup_frames     = 2;
             roll_forward_active_frames      = 2;
@@ -155,6 +183,17 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
             roll_back_startup_frames        = 1;
             roll_back_active_frames         = 4;
             roll_back_recovery_frames       = 2;
+        }
+        break;
+        case PS_AIR_DODGE:
+        if form == 4{
+            air_dodge_startup_frames    = 1;
+            air_dodge_active_frames     = 4;
+            air_dodge_recovery_frames   = 2;
+        }else{
+            air_dodge_startup_frames    = 1;
+            air_dodge_active_frames     = 3;
+            air_dodge_recovery_frames   = 2;
         }
         break;
     }
