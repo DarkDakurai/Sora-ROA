@@ -112,6 +112,7 @@ switch(attack){
         if window <= 20 && window_timer <= 12 hud_offset = floor(lerp(hud_offset, 60, 0.2));
         else if window <= 22 && window_timer <= 15 hud_offset = floor(lerp(hud_offset, 80, 0.2));
         else if window <= 23 && window_timer <= 13 hud_offset = floor(lerp(hud_offset, 110, 0.2));
+        if !hitstop && window == 23 && window_timer == 10 vsp = -8;
         break;
     }
     break;

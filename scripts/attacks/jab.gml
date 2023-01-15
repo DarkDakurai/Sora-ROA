@@ -1,6 +1,7 @@
 set_attack_value(AT_JAB, AG_SPRITE, sprite_get("jab"));
 set_attack_value(AT_JAB, AG_HURTBOX_SPRITE, sprite_get("jab_hurt"));
 set_attack_value(AT_JAB, AG_NUM_WINDOWS, 23);
+set_attack_value(AT_JAB, AG_CATEGORY, 2);
 
 //base jab
 set_window_value(AT_JAB, 1, AG_WINDOW_LENGTH, 9);
@@ -392,7 +393,7 @@ set_hitbox_value(AT_JAB, 13, HG_WIDTH, 80);
 set_hitbox_value(AT_JAB, 13, HG_HEIGHT, 100);
 set_hitbox_value(AT_JAB, 13, HG_PRIORITY, 1);
 set_hitbox_value(AT_JAB, 13, HG_DAMAGE, 6);
-set_hitbox_value(AT_JAB, 13, HG_ANGLE, 361);
+set_hitbox_value(AT_JAB, 13, HG_ANGLE, 80);
 set_hitbox_value(AT_JAB, 13, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_JAB, 13, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_JAB, 13, HG_BASE_HITPAUSE, 12);
