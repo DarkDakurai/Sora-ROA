@@ -23,6 +23,20 @@ switch(attack){
             iasa_script();
         }
         break;
+        case 3:
+        if window == 10 hud_offset = floor(lerp(hud_offset, 50, 0.2));
+        if window == 9 && window_timer >= 10 && window_timer <= 17 hsp = 7*spr_dir;
+        if window == 10 && window_timer == 10{
+             if hitstop{
+                old_hsp = 6*spr_dir;
+                old_vsp = -8;
+             }else{
+                hsp = 6*spr_dir;
+                vsp = -8;
+            }
+        }
+        if window == 11 && window_timer >= 5 && has_hit iasa_script();
+        break;
     }
     break;
     case AT_UTILT:
@@ -42,6 +56,10 @@ switch(attack){
         case 2:
         if (window == 7 && window_timer >= 10) || window == 8 hud_offset = floor(lerp(hud_offset, 120, 0.2));
         break;
+        case 3:
+        if !hitstop && (window == 11 && window_timer == 9) || (window == 10 && window_timer == 10) vsp -= 7;
+        if window <= 11 && (window == 10? window_timer >= 8: 1) hud_offset = floor(lerp(hud_offset, 130, 0.2));
+        break;
     }
     break;
     case AT_FTILT:
@@ -58,6 +76,14 @@ switch(attack){
         case 2:
         if enhance move_cooldown[AT_FTILT] = 20;
         if image_index <= 9 hud_offset = floor(lerp(hud_offset, 50, 0.2));
+        break;
+        case 3:
+        if window == 10 && window_timer == 9 hsp = 6*spr_dir;
+        if window == 11 && window_timer == 14{
+            hsp = 6*spr_dir;
+            vsp = -8;
+        }
+        if window == 12 && window_timer >= 5 && has_hit iasa_script();
         break;
     }
     break;
@@ -81,6 +107,11 @@ switch(attack){
         break;
         case 2:
         if (window_timer <= 12 && window == 18)|| window == 17 hud_offset = floor(lerp(hud_offset, 80, 0.2));
+        break;
+        case 3:
+        if window <= 20 && window_timer <= 12 hud_offset = floor(lerp(hud_offset, 60, 0.2));
+        else if window <= 22 && window_timer <= 15 hud_offset = floor(lerp(hud_offset, 80, 0.2));
+        else if window <= 23 && window_timer <= 13 hud_offset = floor(lerp(hud_offset, 110, 0.2));
         break;
     }
     break;
@@ -137,6 +168,11 @@ switch(attack){
         break;
         case 2:
         if enhance move_cooldown[AT_DATTACK] = 10;
+        break;
+        case 3:
+        hud_offset = floor(lerp(hud_offset, 70, 0.2));
+        if window == 12 && window_timer == 18 sound_play(asset_get("sfx_swipe_medium1"));
+        if window == 14 && has_hit iasa_script();
         break;
     }
     break;

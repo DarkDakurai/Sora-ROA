@@ -63,10 +63,18 @@ switch particle_type{
     }
     break;
     case 4:
-    case 5:
     if particle_type == 5 depth = player_id.depth-2;
     image_alpha = timer/12;
     timer--;
+    if !timer{
+        instance_destroy(self);
+        exit;
+    }
+    break;
+    case 5:
+    if particle_type == 5 depth = player_id.depth-2;
+    image_alpha = timer/12;
+    timer -= 1.5;
     if !timer{
         instance_destroy(self);
         exit;

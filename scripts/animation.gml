@@ -5,6 +5,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = idle_anim_speed * state_timer;
         break;
         case PS_WALK:
+        if state_timer <= 1 sfx_timer = 10;
         switch form{
             case 0:
             image_index = walk_anim_speed * state_timer;
@@ -45,6 +46,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         else image_index = state_timer * .45
         break;
         case PS_DASH:
+        if state_timer <= 1 sfx_timer = 10;
         image_index = state_timer * dash_anim_speed;
         switch form{
             case 0:
@@ -91,6 +93,7 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         if form == 2 sprite_index = sprite_get("0PS_FIRST_JUMP");
         image_index = ((state_timer + 5) * .7 >= image_number - 1? image_number - 1: (state_timer + 5) * .7);
         if form == 4 image_index = image_number - 1;
+        if prev_state == PS_ATTACK_AIR image_index = image_number -1;
         break;
         case PS_LAND:
         sprite_index = sprite_get(string(form) + "PS_CROUCH");
