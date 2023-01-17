@@ -129,6 +129,9 @@ switch(attack){
         case 2:
         if has_hit && window == 10 && enhance && window_timer >= 7 iasa_script();
         break;
+        case 3:
+        if window == 11 vsp = clamp(vsp, vsp, 2);
+        break;
     }
     break;
     case AT_USTRONG:
@@ -145,6 +148,11 @@ switch(attack){
         if window == 8 && window_timer == 10 sound_play(sound_get("wisdom_jab_finisher"));
         if window >= 8 hud_offset = floor(lerp(hud_offset, 260, 0.2));
         break;
+        case 3:
+        if window == 10 vsp = clamp(vsp, vsp, 2);
+        if window == 12 && window_timer == 13 sound_play(asset_get("sfx_swipe_heavy2"));
+        if window < 13 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        break;
     }
     break;
     case AT_FSTRONG:
@@ -155,6 +163,10 @@ switch(attack){
         break;
         case 2:
         if window >= 11 hud_offset = floor(lerp(hud_offset, 95, 0.2));
+        break;
+        case 3:
+        if window == 13 vsp = clamp(vsp, vsp, 2);
+        if window == 15 && window_timer = 13 sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 0.8);
         break;
     }
     break;
@@ -575,6 +587,7 @@ switch(attack){
 }
 
 #define spawn_base_dust
+/// spawn_base_dust(x, y, name, dir = 0, angle = 0, win = -10, win_time = 0)
 {
     // spawn_base_dust(x, y, name)
     // spawn_base_dust(x, y, name, ?dir, ?angle, ?window, ?window_timer)

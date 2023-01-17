@@ -8,6 +8,12 @@ if form{
     set_attack_value(AT_DSTRONG, AG_STRONG_CHARGE_WINDOW, 1);
     set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, 1);
 }
+set_attack_value(AT_FSTRONG, AG_CATEGORY, 2);
+set_attack_value(AT_USTRONG, AG_CATEGORY, 2);
+set_attack_value(AT_DSTRONG, AG_CATEGORY, 2);
+set_attack_value(AT_FSTRONG, AG_HAS_LANDING_LAG, 0);
+set_attack_value(AT_USTRONG, AG_HAS_LANDING_LAG, 0);
+set_attack_value(AT_DSTRONG, AG_HAS_LANDING_LAG, 0);
 
 switch form{
     case 1:
@@ -541,6 +547,41 @@ switch form{
     break;
     
     case 3:
+    switch attack{
+        case AT_FSTRONG:
+        if !free attack = AT_FTILT;
+        break;
+        case AT_DSTRONG:
+        if !free attack = AT_DTILT;
+        break;
+        case AT_USTRONG:
+        if !free attack = AT_UTILT;
+        break;
+        case AT_FAIR:
+        attack = AT_FSTRONG;
+        break;
+        case AT_DAIR:
+        attack = AT_DSTRONG;
+        break;
+        case AT_UAIR:
+        attack = AT_USTRONG;
+        break;
+        case AT_BAIR:
+        attack = AT_FSTRONG;
+        spr_dir*=-1;
+        break;
+    }
+    set_attack_value(AT_FSTRONG, AG_HAS_LANDING_LAG, 1);
+    set_attack_value(AT_USTRONG, AG_HAS_LANDING_LAG, 1);
+    set_attack_value(AT_DSTRONG, AG_HAS_LANDING_LAG, 1);
+    
+    set_attack_value(AT_FSTRONG, AG_CATEGORY, 1);
+    set_attack_value(AT_USTRONG, AG_CATEGORY, 1);
+    set_attack_value(AT_DSTRONG, AG_CATEGORY, 1);
+    window = attack_frameskip[attack][form - 1];
+    set_attack_value(AT_FSTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
+    set_attack_value(AT_DSTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
+    set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, attack_frameskip[attack][form - 1]);
     break;
     
     case 4:
@@ -566,6 +607,7 @@ if form == 1 && vl_point{
 }
 
 #define spawn_base_dust
+/// spawn_base_dust(x, y, name, dir = 0, angle = 0, win = -10, win_time = 0)
 {
     // spawn_base_dust(x, y, name)
     // spawn_base_dust(x, y, name, ?dir, ?angle, ?window, ?window_timer)

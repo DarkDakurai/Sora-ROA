@@ -185,6 +185,7 @@ switch form{
     break;
     
     case 3:
+    if attack == AT_FSTRONG && my_hitboxID.hbox_num = 7 sound_play(sound_get("OB_hitheavy2"))
     break;
     
     case 4:

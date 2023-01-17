@@ -116,6 +116,7 @@ with oPlayer if self != other && frostbite{
     }
 }
 
+
 //debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
 if down_down && taunt_down && gauge_val gauge_val -= 100;
