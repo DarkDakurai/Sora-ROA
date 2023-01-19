@@ -21,6 +21,11 @@ if inited{
         image_xscale = 2;
         image_yscale = 2;
         break;
+        case 6:
+        timer = 20;
+        image_xscale = 1;
+        image_yscale = 1;
+        break;
     }
 }
 
@@ -75,6 +80,16 @@ switch particle_type{
     if particle_type == 5 depth = player_id.depth-2;
     image_alpha = timer/12;
     timer -= 1.5;
+    if !timer{
+        instance_destroy(self);
+        exit;
+    }
+    break;
+    case 6:
+    image_xscale = (20 - timer)/15 + 1
+    image_yscale = (20 - timer)/15 + 1
+    image_alpha = timer/20;
+    timer--;
     if !timer{
         instance_destroy(self);
         exit;

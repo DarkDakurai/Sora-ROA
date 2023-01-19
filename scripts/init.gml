@@ -153,7 +153,7 @@ attack_names = [ //has the names of all the attacks
     "DTHROW",
     "NTHROW",
     "DSPECIAL_2",
-    "EXTRA_1",
+    "airdash",
     "DSPECIAL_AIR",
     "NSPECIAL_2",
     "FSPECIAL_AIR",
@@ -205,6 +205,10 @@ mp_gauge_alpha = 0;
 deck_val = 0;
 deck_antimer = 180;
 deck_change = 0;
+
+//airdashes
+dash_alpha = 0;
+fx_value = 0;
 
 //#endregion
 
@@ -479,10 +483,10 @@ attack_frameskip = [
     [3, 7, 11, 11],//dair,
     [3, 6, 9, 9],//uair,
     [4, 7, 10, 14],//nair,
-    [8, 11, 15, 0],//fspecial,
-    [6, 8, 10, 0],//dspecial,
-    [4, 9, 12, 0],//uspecial,
-    [7, 9, 10, 0],//nspecial,
+    [8, 11, 15, 18],//fspecial,
+    [6, 8, 10, 13],//dspecial,
+    [4, 9, 12, 14],//uspecial,
+    [7, 9, 10, 13],//nspecial,
     [0, 0, 0, 0],//FSTRONG_2,
     [0, 0, 0, 0],//DSTRONG_2,
     [0, 0, 0, 0],//USTRONG_2,
@@ -494,7 +498,7 @@ attack_frameskip = [
     [0, 0, 0, 0],//DTHROW,
     [0, 0, 0, 0],//NTHROW,
     [0, 0, 0, 0],//DSPECIAL_2,
-    [0, 0, 0, 0],//EXTRA_1,
+    [0, 0, 0, 0],//EXTRA_1 (airdash),
     [0, 0, 0, 0],//DSPECIAL_AIR,
     [0, 0, 0, 0],//NSPECIAL_2,
     [0, 0, 0, 0],//FSPECIAL_AIR,
@@ -546,6 +550,13 @@ fsp_grab = noone;
 proj_pos = [];
 power_up = 0;
 cancel = 0;
+
+//airdash
+dashes = 3;
+dash_cool = 0;
+dash_restore = 0;
+prev_dashes = dashes;
+
 //#endregion
 
 //#region sfx

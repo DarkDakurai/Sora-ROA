@@ -45,13 +45,14 @@ else if deck_change{
 }
 
 //revert to base
-if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR && state != PS_WRAPPED{
+if form_revert && form && state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR && state_cat != SC_HITSTUN && state_cat != SC_AIR_COMMITTED{
     set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("0dspecial"));
     set_attack_value(AT_DSPECIAL, AG_AIR_SPRITE, sprite_get("0dspecial_air"));
     set_attack_value(AT_DSPECIAL, AG_HURTBOX_SPRITE, sprite_get("0dspecial_hurt"));
     set_attack_value(AT_DSPECIAL, AG_HURTBOX_AIR_SPRITE, sprite_get("0dspecial_air_hurt"));
     state = (free? PS_ATTACK_AIR: PS_ATTACK_GROUND);
     state_timer = 0;
+    invincible = 0;
     attack = AT_DSPECIAL;
     window = 2;
     window_timer = 8;
@@ -64,7 +65,8 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIA
 else if mask_index != def_coll mask_index = def_coll;
 
 //special cooldowns
-if !form && move_cooldown[AT_FSPECIAL] && free move_cooldown[AT_FSPECIAL] = 2;
+if form == 3 && free && move_cooldown[AT_DSPECIAL] && free move_cooldown[AT_DSPECIAL] = 2;
+if form == 3 && free && move_cooldown[AT_FSPECIAL] && free move_cooldown[AT_FSPECIAL] = 2;
 
 //form particles
 switch form{
@@ -115,6 +117,33 @@ with oPlayer if self != other && frostbite{
         }
     }
 }
+
+//airdash
+if form == 3{
+    has_airdodge = 0;
+    if dash_alpha < 1 dash_alpha += 0.05;
+    if !free{
+        if dash_restore dash_restore--;
+        else if dashes < 3{
+            var partc = instance_create(0, 0, "obj_article2");
+            partc.particle_type = 6;
+            dashes++;
+            dash_restore = 60;
+        }
+        dash_cool = 0;
+    }
+    if dash_cool dash_cool--;
+    if shield_pressed && !dash_cool && dashes > 0 && free && !joy_pad_idle && (state_cat = SC_AIR_NEUTRAL || state == PS_WALL_JUMP){
+        dash_restore = 60;
+        hsp = dcos(floor(joy_dir/45)*45) * 12;
+        vsp = dsin(floor(joy_dir/45)*45) * -12 + (floor(joy_dir/45) == 0 || floor(joy_dir/45) == 4? -2: 0);
+        dashes--;
+        dash_cool = 20;
+        clear_button_buffer(PC_SHIELD_PRESSED);
+        sound_stop(air_dodge_sound);
+        set_attack(AT_EXTRA_1);
+    }
+}else if dash_alpha > 0 dash_alpha -= 0.05;
 
 
 //debug

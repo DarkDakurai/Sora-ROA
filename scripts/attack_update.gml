@@ -285,6 +285,11 @@ switch(attack){
         hud_offset = lerp(hud_offset, 120, 0.2);
         if window == 11 && window_timer == 12 && enhance deck_swap();
         break;
+        case 3:
+        if window == 13 && window_timer == 21 set_state(PS_PRATFALL);
+        if window <= 13 || (window == 13 && window_timer <= 6) hud_offset = floor(lerp(hud_offset, 110, 0.2));
+        if window == 12 && window_timer == 14 sound_play(sound_get("OB_swipemedium1"));
+        break;
     }
     break;
     case AT_DSPECIAL:
@@ -346,6 +351,32 @@ switch(attack){
         case 2:
         if window == 9 && window_timer == 15 && enhance deck_swap();
         if window == 8 hud_offset = lerp(hud_offset, 120, 0.2);
+        break;
+        case 3:
+        move_cooldown[AT_DSPECIAL] = 2;
+        can_fast_fall = 0;
+        can_move = 0;
+        if window == 10{
+            if window_timer == 1 spawn_base_dust(x, y, "djump");
+            if window_timer >= 33 && special_pressed{
+                window = 11;
+                window_timer = 0;
+                hsp = 3 * spr_dir;
+                vsp = -4;
+            }
+        }
+        if window == 11{
+            vsp = clamp(vsp, vsp, 3);
+            if window_timer == 32{
+                sound_play(sound_get("wisdom_jab_finisher"), 0, noone, 1, 0.8);
+                hsp = 6*spr_dir;
+                vsp = -4;
+            }
+        }
+        if window == 12 || !free{
+            spr_dir *= -1;
+        }
+        if !free && window >= 10 set_state(PS_LANDING_LAG);
         break;
     }
     
@@ -448,6 +479,17 @@ switch(attack){
                 wis_trap.spr_dir = spr_dir;
             }else if wis_trap.state != 2 && !wis_trap.trigger wis_trap.trigger = 1;
         }
+        break;
+        case 3:
+        if window == 10 && window_timer == 1 && !free vsp = -8;
+        if window <= 11 && window_timer < 28 hud_offset = floor(lerp(hud_offset, 110, 0.2));
+        can_fast_fall = 0;
+        if window == 12 && window_timer == 10 + 5*!has_hit set_state(has_hit? PS_IDLE_AIR: PS_PRATFALL);
+        if special_pressed && window == 11 && !hitstun{
+            clear_button_buffer(PC_SPECIAL_PRESSED);
+            vsp -= 5;
+        }
+        if window == 11 && window_timer == 28 && !hitstop vsp = -6;
         break;
     }
     break;
@@ -582,7 +624,25 @@ switch(attack){
         }
         if window == 14 && window_timer == 13 && enhance deck_swap();
         break;
+        
+        case 3:
+        move_cooldown[AT_FSPECIAL] = 2;
+        can_move = 0;
+        can_fast_fall = 0;
+        if has_hit && jump_pressed && can_djump && !hitstop{
+            free = 1;
+            set_state(PS_DOUBLE_JUMP);
+            hsp = 10*spr_dir;
+        }
+        if window == 17 && window_timer == 9 + 5 set_state(PS_IDLE_AIR);
+        break;
     }
+    break;
+    case AT_EXTRA_1:
+        if form == 3{
+            iasa_script();
+            if !free set_state(PS_WAVELAND);
+        }
     break;
 }
 

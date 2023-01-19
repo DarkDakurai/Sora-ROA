@@ -53,7 +53,7 @@ if form && form != 2{
     }
         draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
     }else if (attack == AT_DSPECIAL? window > 5: true){
-        draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? "_air": "") + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+        draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
     }
     
 }

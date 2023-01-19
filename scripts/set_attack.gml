@@ -592,8 +592,8 @@ set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, free - 1);
 
 set_attack_value(attack, AG_SPRITE, sprite_get(string(form) + attack_names[attack]));
 set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get(string(form) + attack_names[attack] + "_hurt"));
-if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + "_air_hurt"));
-if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + "_air"));
+if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "_hurt": "_air_hurt")));
+if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "": "_air")));
 
 got_gem = 0;
 charged_ver = 1;

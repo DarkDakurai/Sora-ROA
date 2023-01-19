@@ -185,7 +185,12 @@ switch form{
     break;
     
     case 3:
-    if attack == AT_FSTRONG && my_hitboxID.hbox_num = 7 sound_play(sound_get("OB_hitheavy2"))
+    if attack == AT_FSTRONG && my_hitboxID.hbox_num = 7 sound_play(sound_get("OB_hitheavy2"));
+    if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 5 my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    if my_hitboxID.attack == AT_USPECIAL{
+        if my_hitboxID.hbox_num == 14 sound_play(sound_get("OB_hitheavy1"));
+        else sound_play(sound_get("OB_hitmedium2"));
+    }
     break;
     
     case 4:

@@ -109,3 +109,7 @@ sprite_change_offset("frostbite_mark", 0, 9);
 //wisdom keyblade
 sprite_change_offset("wis_keyblade_article", 85, 66);
 sprite_change_offset("wis_trap_article", 87, 58);
+
+//dashes
+sprite_change_offset("master_dash", 10, 7);
+sprite_change_offset("master_dash_fx", 10, 7);
