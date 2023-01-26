@@ -141,3 +141,9 @@ if vl_alpha > 0 && vl_point for(var k = 1; k <= vl_point; k++){
 if form == 3 && (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][2] == 0: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][2] == 0){
     draw_sprite_ext(sprite_get("master_handfx"), get_gameplay_time()/4, x + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][0]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][0]) * spr_dir, y + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][1]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][1]), 2, 2, 0, c_white, 1);
 }
+
+//particles
+for(var i = 0; i < array_length(particles); i++){
+    var p = particles[i];
+    if !p[9] draw_sprite_ext(p[0], p[8], p[6], p[7], 2, 2, 0, p[5], p[1]);
+}

@@ -13,19 +13,6 @@ if inited{
         case 2:
         sprite_index = sprite_get("ragnarok_projectile_after");
         break;
-        case 4:
-        case 5:
-        timer = 20;
-        vsp = -3 - random_func_2(abs(floor(x%200)), 3, 0);
-        hsp = 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0);
-        image_xscale = 2;
-        image_yscale = 2;
-        break;
-        case 6:
-        timer = 20;
-        image_xscale = 1;
-        image_yscale = 1;
-        break;
     }
 }
 
@@ -61,34 +48,6 @@ switch particle_type{
     break;
     case 3:
     image_alpha = timer/15;
-    timer--;
-    if !timer{
-        instance_destroy(self);
-        exit;
-    }
-    break;
-    case 4:
-    if particle_type == 5 depth = player_id.depth-2;
-    image_alpha = timer/12;
-    timer--;
-    if !timer{
-        instance_destroy(self);
-        exit;
-    }
-    break;
-    case 5:
-    if particle_type == 5 depth = player_id.depth-2;
-    image_alpha = timer/12;
-    timer -= 1.5;
-    if !timer{
-        instance_destroy(self);
-        exit;
-    }
-    break;
-    case 6:
-    image_xscale = (20 - timer)/15 + 1
-    image_yscale = (20 - timer)/15 + 1
-    image_alpha = timer/20;
     timer--;
     if !timer{
         instance_destroy(self);

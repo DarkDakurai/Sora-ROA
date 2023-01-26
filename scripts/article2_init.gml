@@ -6,7 +6,6 @@ particle_type = 0;
 3 = general afterimage
 4 = valor particle
 5 = wisdom particle
-6 = dash fx
 */
 inited = 1;
 uses_shader = 0;

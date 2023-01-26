@@ -68,24 +68,39 @@ else if mask_index != def_coll mask_index = def_coll;
 if form == 3 && free && move_cooldown[AT_DSPECIAL] && free move_cooldown[AT_DSPECIAL] = 2;
 if form == 3 && free && move_cooldown[AT_FSPECIAL] && free move_cooldown[AT_FSPECIAL] = 2;
 
+//particle update
+for(var i = 0; i < array_length(particles); i++){
+    particles[@i][@1] -= particles[@i][@2];
+    particles[@i][@6] += particles[@i][@3];
+    particles[@i][@7] += particles[@i][@4];
+    if particles[i][1] <= 0{
+        var tpart = particles;
+        particles = [];
+        for(var h = 0; h < array_length(tpart); h++){
+            if h != i array_push(particles, tpart[h]);
+        }
+    }
+}
+
 //form particles
 switch form{
     case 1:
     if get_gameplay_time()%3 == 0{
-        var partc = instance_create(x, y - 40, "obj_article2");
-        partc.particle_type = 4;
+        var color = make_color_rgb(sora_alt[1][get_player_color(player)][1][0], sora_alt[1][get_player_color(player)][1][1], sora_alt[1][get_player_color(player)][1][2]);
+        var particle = [sprite_get("1particle"), 20/12, 1/12, 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0), -3 - random_func_2(abs(floor(x%200)), 3, 0), color, x, y - 40, 0, 1];
+        array_push(particles, particle);
     }
     break;
     case 2:
     if get_gameplay_time()%3 == 0{
-        var partc = instance_create(x - 34 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, "obj_article2");
-        partc.particle_type = 5;
-        partc.random_sprite = random_func_2(abs(floor(x%200)), 2, 1);
+        var color = make_color_rgb(sora_alt[2][get_player_color(player)][1][0], sora_alt[2][get_player_color(player)][1][1], sora_alt[2][get_player_color(player)][1][2]);
+        var particle = [sprite_get("2particle"), 20/12, 3/24, 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0), -3 - random_func_2(abs(floor(x%200)), 3, 0), color, x - 34 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, random_func_2(abs(floor(x%200)), 2, 1), -1];
+        array_push(particles, particle);
     }
     if get_gameplay_time()%3 == 2{
-        var partc = instance_create(x - 6 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, "obj_article2");
-        partc.particle_type = 5;
-        partc.random_sprite = random_func_2(abs(floor((x + 1)%200)), 2, 1);
+        var color = make_color_rgb(sora_alt[2][get_player_color(player)][1][0], sora_alt[2][get_player_color(player)][1][1], sora_alt[2][get_player_color(player)][1][2]);
+        var particle = [sprite_get("2particle"), 20/12, 3/24, 2 - random_func_2(abs(floor((x - 3)%200)), 4, 0), -3 - random_func_2(abs(floor(x%200)), 3, 0), color, x - 6 + random_func_2(abs(floor(x%200)), 28, 1), y - 6, random_func_2(abs(floor((x + 1)%200)), 2, 1), -1];
+        array_push(particles, particle);
     }
     break;
 }
@@ -163,7 +178,6 @@ if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
 if !taunt_pressed && prev_taunt_p && jump_down && form form--
 prev_taunt_p = taunt_pressed
 gauge_val = 5000;
-print(fps_real)
 /*hsp = 0;
 vsp = 0;
 x = room_width/2

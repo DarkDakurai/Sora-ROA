@@ -679,6 +679,9 @@ master_airdodge = 1;
 blade_angle = 0;
 prv_state = state;
 
+//particles
+particles = [];
+
 //#endregion
 
 //#region sfx
