@@ -20,9 +20,14 @@ switch form{
     break;
     
     case 1:
-    if my_hitboxID.attack == AT_JAB && my_hitboxID.hbox_num == 7 sound_play(sound_get("OK_hitheavy1"));
+    if my_hitboxID.attack == AT_JAB && my_hitboxID.hbox_num == 7{
+        sound_play(sound_get("OK_hitheavy1"));
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[0 + random_func(abs(floor(x%200)), 4, 1)]);
+    }
     
-    if my_hitboxID.attack == AT_USTRONG switch my_hitboxID.hbox_num{
+    if my_hitboxID.attack == AT_USTRONG{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[4 + random_func(abs(floor(x%200)), 4, 1)]);
+        switch my_hitboxID.hbox_num{
         case 3:
         sound_play(sound_get("OK_hitheavy3"));
         break;
@@ -35,23 +40,26 @@ switch form{
         case 6:
         sound_play(sound_get("OK_hitweak2"));
         break;
+        }
     }
     
     if my_hitboxID.attack == AT_DATTACK{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[4 + random_func(abs(floor(x%200)), 4, 1)]);
         if my_hitboxID.hbox_num == 3 sound_play(sound_get("OK_hitweak2"));
         else sound_play(sound_get("OK_hitmedium2"));
     }
     
     if my_hitboxID.attack == AT_NAIR && my_hitboxID.hbox_num == 1 my_hitboxID.can_hit[hit_player_obj.player] = 1;
     
-    if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 3 sound_play(sound_get("OK_hitheavy3"));
+    if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 3{
+        sound_play(sound_get("OK_hitheavy3"));
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[4 + random_func(abs(floor(x%200)), 4, 1)]);
+    }
     
     if my_hitboxID.attack == AT_DAIR{
-        if my_hitboxID.hbox_num == 4{
-            sound_play(sound_get("OK_hitmedium1"));
-        }else{
-            sound_play(sound_get("OK_hitmedium2"));
-        }
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[4 + random_func(abs(floor(x%200)), 4, 1)]);
+        if my_hitboxID.hbox_num == 4 sound_play(sound_get("OK_hitmedium1"));
+        else sound_play(sound_get("OK_hitmedium2"));
         if window == 4{
             move_cooldown[AT_DAIR] = 30;
             destroy_hitboxes();
@@ -185,9 +193,13 @@ switch form{
     break;
     
     case 3:
-    if attack == AT_FSTRONG && my_hitboxID.hbox_num = 7 sound_play(sound_get("OB_hitheavy2"));
+    if attack == AT_FSTRONG && my_hitboxID.hbox_num = 7{
+        sound_play(sound_get("OB_hitheavy2"));
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+    }
     if my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 5 my_hitboxID.can_hit[hit_player_obj.player] = 1;
     if my_hitboxID.attack == AT_USPECIAL{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
         if my_hitboxID.hbox_num == 14 sound_play(sound_get("OB_hitheavy1"));
         else sound_play(sound_get("OB_hitmedium2"));
     }
@@ -201,3 +213,7 @@ if(my_hitboxID.attack = AT_NSPECIAL && my_hitboxID.hbox_num = 1 && my_hitboxID.r
     my_hitboxID.rag_lv--;
     my_hitboxID.can_hit[hit_player_obj.player] = 1;
 }
+
+//hit fx fix
+with hit_fx_obj depth = player_id.hit_player_obj.depth-2;
+if array_find_index(hfx, my_hitboxID.hit_effect) >= 0 spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, 301);

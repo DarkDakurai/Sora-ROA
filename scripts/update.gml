@@ -120,9 +120,14 @@ with oPlayer if self != other && frostbite{
 
 //airdash
 if form == 3{
+    if (prv_state != PS_IDLE && prv_state != PS_WALK && prv_state != PS_DASH && prv_state != PS_SPAWN && prv_state != PS_RESPAWN) && (state == PS_IDLE || state == PS_WALK || state == PS_DASH || state == PS_SPAWN || state == PS_RESPAWN) blade_angle = 0;
+    prv_state = state;
+    if state == PS_IDLE || state == PS_WALK || state == PS_DASH || state == PS_SPAWN || state == PS_RESPAWN blade_angle -= (state == PS_DASH? 6 + 6*clamp(dsin(state_timer*2)*2, 0, 1): 5 + 5*clamp(dsin(state_timer*2)*2, 0, 1));
     has_airdodge = 0;
     if dash_alpha < 1 dash_alpha += 0.05;
+    if dash_cool dash_cool--;
     if !free{
+        master_airdodge = 1;
         if dash_restore dash_restore--;
         else if dashes < 3{
             var partc = instance_create(0, 0, "obj_article2");
@@ -132,19 +137,24 @@ if form == 3{
         }
         dash_cool = 0;
     }
-    if dash_cool dash_cool--;
-    if shield_pressed && !dash_cool && dashes > 0 && free && !joy_pad_idle && (state_cat = SC_AIR_NEUTRAL || state == PS_WALL_JUMP){
-        dash_restore = 60;
-        hsp = dcos(floor(joy_dir/45)*45) * 12;
-        vsp = dsin(floor(joy_dir/45)*45) * -12 + (floor(joy_dir/45) == 0 || floor(joy_dir/45) == 4? -2: 0);
-        dashes--;
-        dash_cool = 20;
-        clear_button_buffer(PC_SHIELD_PRESSED);
-        sound_stop(air_dodge_sound);
-        set_attack(AT_EXTRA_1);
+    if shield_pressed && free{
+        if joy_pad_idle && state != PS_ATTACK_AIR{
+            has_airdodge = 1;
+            if air_dodge_dir != 0 || !master_airdodge has_airdodge = 0;
+            else master_airdodge = 0;
+        }else if !joy_pad_idle && !dash_cool && dashes > 0 && (state_cat = SC_AIR_NEUTRAL || state == PS_WALL_JUMP || state == PS_AIR_DODGE){
+            dash_restore = 60;
+            dash_dir = floor(joy_dir/45);
+            dashes--;
+            dash_cool = 20;
+            if sign(dcos(dash_dir*45)) != 0 spr_dir = sign(dcos(dash_dir*45));
+            clear_button_buffer(PC_SHIELD_PRESSED);
+            sound_stop(air_dodge_sound);
+            set_attack_value(AT_EXTRA_1, AG_SPRITE, sprite_get("airdash" + string(dash_dir)));
+            set_attack(AT_EXTRA_1);
+        }
     }
 }else if dash_alpha > 0 dash_alpha -= 0.05;
-
 
 //debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
@@ -152,7 +162,9 @@ if down_down && taunt_down && gauge_val gauge_val -= 100;
 if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
 if !taunt_pressed && prev_taunt_p && jump_down && form form--
 prev_taunt_p = taunt_pressed
+gauge_val = 5000;
 /*hsp = 0;
 vsp = 0;
 x = room_width/2
 y = room_height/2
+print(fps_real)

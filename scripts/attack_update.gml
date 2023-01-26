@@ -373,7 +373,7 @@ switch(attack){
                 vsp = -4;
             }
         }
-        if window == 12 || !free{
+        if window == 12 || window >= 10 && !free{
             spr_dir *= -1;
         }
         if !free && window >= 10 set_state(PS_LANDING_LAG);
@@ -640,6 +640,14 @@ switch(attack){
     break;
     case AT_EXTRA_1:
         if form == 3{
+            if window == 1{
+                vsp = 0;
+                if window_timer == 6{
+                    spawn_base_dust(x, y, "djump", 1, dash_dir*45 - 90);
+                    hsp = dcos(dash_dir*45) * 12;
+                    vsp = dsin(dash_dir*45) * -12 + (dash_dir == 0 || dash_dir == 4? -2: 0);
+                }
+            }
             iasa_script();
             if !free set_state(PS_WAVELAND);
         }

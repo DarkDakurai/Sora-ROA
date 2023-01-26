@@ -1,3 +1,9 @@
+//hand vfx middle pos
+shader_end();
+if form == 3 && (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][2] == 1: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][2] == 1){
+    draw_sprite_ext(sprite_get("master_handfx"), get_gameplay_time()/4, x + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][0]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][0]) * spr_dir, y + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][1]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][1]), 2, 2, 0, c_white, 1);
+}
+
 //keyblades
 shader_start();
 if form && form != 2{
@@ -20,13 +26,13 @@ if form && form != 2{
         temp_state = "PS_IDLE";
         break;
         case PS_HITSTUN:
-        temp_state = "HURT" + string(hurt_img);
+        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
         break;
         case PS_HITSTUN_LAND:
-        temp_state = "HURT" + string(hurt_img);
+        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
         break;
         case PS_TUMBLE:
-        temp_state = "HURT" + string(hurt_img);
+        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
         break;
         case PS_WRAPPED:
         case PS_FROZEN:
@@ -51,9 +57,15 @@ if form && form != 2{
         temp_state = "PS_IDLE";
         break;
     }
-        draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+        if form == 3 && (state == PS_IDLE || state == PS_WALK || state == PS_DASH || state == PS_SPAWN || state == PS_RESPAWN){
+            for(var i = 1; i <= 9; i++){
+                draw_sprite_ext(sprite_get("3idle_fx_smear"), 0, x + 36*spr_dir, y - 44 + (state == PS_DASH? 14: 0), spr_dir, 1, (blade_angle + 8*i*clamp(dsin(state_timer*2)*2, 0, 1))*spr_dir, c_white, 0.9 * (1 - i/10));
+            }
+            draw_sprite_ext(sprite_get("3idle_fx"), 0, x + 36*spr_dir, y - 44 + (state == PS_DASH? 14: 0), spr_dir, 1, blade_angle*spr_dir, c_white, 1);
+        }else draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
     }else if (attack == AT_DSPECIAL? window > 5: true){
-        draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+        if form == 3 && attack == AT_EXTRA_1 draw_sprite_ext(sprite_get(attack_names[attack] + string(dash_dir) + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+        else draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x, y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
     }
     
 }
@@ -123,4 +135,9 @@ if form == 1{
 if vl_alpha > 0 && vl_point for(var k = 1; k <= vl_point; k++){
     var edd = k%2 * 2 - 1;
     draw_sprite_ext(sprite_get("hud_valor_gem"), 0, x + (k<3? 5: 23) * edd, y - (k<3? 80: 74) - hud_offset, edd * 2, 2, 0, c_white, vl_alpha);
+}
+
+//master vfx top pos
+if form == 3 && (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][2] == 0: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][2] == 0){
+    draw_sprite_ext(sprite_get("master_handfx"), get_gameplay_time()/4, x + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][0]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][0]) * spr_dir, y + (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_pos[attack + (attack = AT_EXTRA_1? dash_dir: 0)][image_index%image_number][1]: hand_state_pos[state][image_index%image_number + (state = PS_HITSTUN || state = PS_HITSTUN_LAND || state = PS_TUMBLE? hurt_img + (hurt_img > 4? 4: 0): 0)][1]), 2, 2, 0, c_white, 1);
 }

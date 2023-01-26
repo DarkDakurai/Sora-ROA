@@ -132,6 +132,7 @@ set_hitbox_value(AT_USPECIAL, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_USPECIAL, 1, HG_HIT_SFX, sound_get("KB_hitweak2"));
 set_hitbox_value(AT_USPECIAL, 1, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_USPECIAL, 1, HG_ANGLE_FLIPPER, 3);
+set_hitbox_value(AT_USPECIAL, 1, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 2, HG_WINDOW, 1);
@@ -149,6 +150,7 @@ set_hitbox_value(AT_USPECIAL, 2, HG_BASE_HITPAUSE, 4);
 set_hitbox_value(AT_USPECIAL, 2, HG_HIT_SFX, sound_get("KB_hitweak2"));
 set_hitbox_value(AT_USPECIAL, 2, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_USPECIAL, 2, HG_ANGLE_FLIPPER, 3);
+set_hitbox_value(AT_USPECIAL, 2, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 3, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 3, HG_WINDOW, 1);
@@ -166,6 +168,7 @@ set_hitbox_value(AT_USPECIAL, 3, HG_BASE_HITPAUSE, 4);
 set_hitbox_value(AT_USPECIAL, 3, HG_HIT_SFX, sound_get("KB_hitweak2"));
 set_hitbox_value(AT_USPECIAL, 3, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_USPECIAL, 3, HG_ANGLE_FLIPPER, 3);
+set_hitbox_value(AT_USPECIAL, 3, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 4, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 4, HG_WINDOW, 2);
@@ -184,6 +187,7 @@ set_hitbox_value(AT_USPECIAL, 4, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 4, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_USPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_USPECIAL, 4, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_USPECIAL, 4, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 5, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 5, HG_WINDOW, 2);
@@ -202,6 +206,7 @@ set_hitbox_value(AT_USPECIAL, 5, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 5, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_USPECIAL, 5, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_USPECIAL, 5, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_USPECIAL, 5, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 6, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 6, HG_WINDOW, 2);
@@ -220,6 +225,7 @@ set_hitbox_value(AT_USPECIAL, 6, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 6, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_USPECIAL, 6, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_USPECIAL, 6, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_USPECIAL, 6, HG_VISUAL_EFFECT, hfx[0]);
 
 
 //Valor
@@ -237,6 +243,7 @@ set_hitbox_value(AT_USPECIAL, 7, HG_BASE_KNOCKBACK, 13);
 set_hitbox_value(AT_USPECIAL, 7, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 7, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_USPECIAL, 7, HG_HITBOX_GROUP, 6);
+set_hitbox_value(AT_USPECIAL, 7, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 8, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 8, HG_WINDOW, 5);
@@ -252,6 +259,7 @@ set_hitbox_value(AT_USPECIAL, 8, HG_BASE_KNOCKBACK, 13);
 set_hitbox_value(AT_USPECIAL, 8, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_USPECIAL, 8, HG_HITBOX_GROUP, 6);
+set_hitbox_value(AT_USPECIAL, 8, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 9, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 9, HG_WINDOW, 7);
@@ -269,6 +277,7 @@ set_hitbox_value(AT_USPECIAL, 9, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USPECIAL, 9, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_USPECIAL, 9, HG_HIT_SFX, sound_get("OK_hitheavy3"));
 set_hitbox_value(AT_USPECIAL, 9, HG_HITBOX_GROUP, 3);
+set_hitbox_value(AT_USPECIAL, 9, HG_VISUAL_EFFECT, hfx[4]);
 
 
 //Wisdom
@@ -287,6 +296,7 @@ set_hitbox_value(AT_USPECIAL, 10, HG_BASE_HITPAUSE, 2);
 set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, sound_get("KB_hitweak2"));
 set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 0);
 set_hitbox_value(AT_USPECIAL, 10, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 11, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 11, HG_WINDOW, 10);
@@ -304,6 +314,7 @@ set_hitbox_value(AT_USPECIAL, 11, HG_BASE_HITPAUSE, 2);
 set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, sound_get("KB_hitweak1"));
 set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 0);
 set_hitbox_value(AT_USPECIAL, 11, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 12, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 12, HG_WINDOW, 10);
@@ -321,6 +332,7 @@ set_hitbox_value(AT_USPECIAL, 12, HG_BASE_HITPAUSE, 2);
 set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, sound_get("KB_hitweak2"));
 set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 0);
 set_hitbox_value(AT_USPECIAL, 12, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 13, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 13, HG_WINDOW, 11);
@@ -342,6 +354,7 @@ set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
 set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 0);
 set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
 set_hitbox_value(AT_USPECIAL, 13, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, hfx[0]);
 
 
 //master
@@ -360,6 +373,7 @@ set_hitbox_value(AT_USPECIAL, 14, HG_KNOCKBACK_SCALING, .7);
 set_hitbox_value(AT_USPECIAL, 14, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_USPECIAL, 14, HG_HITPAUSE_SCALING, .7);
 set_hitbox_value(AT_USPECIAL, 14, HG_HIT_SFX, sound_get("KB_hitheavy2"));
+set_hitbox_value(AT_USPECIAL, 14, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_USPECIAL, 15, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_USPECIAL, 15, HG_WINDOW, 13);
@@ -376,3 +390,4 @@ set_hitbox_value(AT_USPECIAL, 15, HG_KNOCKBACK_SCALING, .6);
 set_hitbox_value(AT_USPECIAL, 15, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_USPECIAL, 15, HG_HITPAUSE_SCALING, .6);
 set_hitbox_value(AT_USPECIAL, 15, HG_HIT_SFX, sound_get("KB_hitmedium2"));
+set_hitbox_value(AT_USPECIAL, 15, HG_VISUAL_EFFECT, hfx[0]);

@@ -8,12 +8,32 @@ if form{
     set_attack_value(AT_DSTRONG, AG_STRONG_CHARGE_WINDOW, 1);
     set_attack_value(AT_USTRONG, AG_STRONG_CHARGE_WINDOW, 1);
 }
-set_attack_value(AT_FSTRONG, AG_CATEGORY, 2);
-set_attack_value(AT_USTRONG, AG_CATEGORY, 2);
-set_attack_value(AT_DSTRONG, AG_CATEGORY, 2);
+
 set_attack_value(AT_FSTRONG, AG_HAS_LANDING_LAG, 0);
 set_attack_value(AT_USTRONG, AG_HAS_LANDING_LAG, 0);
 set_attack_value(AT_DSTRONG, AG_HAS_LANDING_LAG, 0);
+
+if form == 3{
+    set_attack_value(AT_FSTRONG, AG_CATEGORY, 2);
+    set_attack_value(AT_USTRONG, AG_CATEGORY, 2);
+    set_attack_value(AT_DSTRONG, AG_CATEGORY, 2);
+    
+    set_attack_value(AT_UTILT, AG_CATEGORY, 2);
+    set_attack_value(AT_JAB, AG_CATEGORY, 2);
+    set_attack_value(AT_FTILT, AG_CATEGORY, 2);
+    set_attack_value(AT_DTILT, AG_CATEGORY, 2);
+    set_attack_value(AT_DATTACK, AG_CATEGORY, 2);
+}else{
+    set_attack_value(AT_FSTRONG, AG_CATEGORY, 0);
+    set_attack_value(AT_USTRONG, AG_CATEGORY, 0);
+    set_attack_value(AT_DSTRONG, AG_CATEGORY, (form = 1? 2: 0));
+    
+    set_attack_value(AT_UTILT, AG_CATEGORY, 0);
+    set_attack_value(AT_JAB, AG_CATEGORY, 0);
+    set_attack_value(AT_FTILT, AG_CATEGORY, 0);
+    set_attack_value(AT_DTILT, AG_CATEGORY, 0);
+    set_attack_value(AT_DATTACK, AG_CATEGORY, 0);
+}
 
 switch form{
     case 1:
@@ -59,11 +79,11 @@ switch form{
             set_hitbox_value(AT_FTILT, 11, HG_EXTRA_HITPAUSE, 30);
             set_hitbox_value(AT_FTILT, 11, HG_DAMAGE, 6);
         }else{
-            set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_FTILT, 11, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FTILT, 7, HG_VISUAL_EFFECT, hfx[0]);
+            set_hitbox_value(AT_FTILT, 8, HG_VISUAL_EFFECT, hfx[0]);
+            set_hitbox_value(AT_FTILT, 9, HG_VISUAL_EFFECT, hfx[0]);
+            set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, hfx[0]);
+            set_hitbox_value(AT_FTILT, 11, HG_VISUAL_EFFECT, hfx[0]);
             
             set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, sound_get("KB_hitweak1"));
             set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, sound_get("KB_hitweak2"));
@@ -84,7 +104,7 @@ switch form{
             set_hitbox_value(AT_UTILT, 12, HG_VISUAL_EFFECT, 199);
         }else{
             set_hitbox_value(AT_UTILT, 12, HG_DAMAGE, 2);
-            set_hitbox_value(AT_UTILT, 12, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_UTILT, 12, HG_VISUAL_EFFECT, hfx[0]);
         }
         break;
         case AT_DATTACK:
@@ -103,7 +123,7 @@ switch form{
             set_hitbox_value(AT_DATTACK, 5, HG_KNOCKBACK_SCALING, 0.3);
             set_hitbox_value(AT_DATTACK, 5, HG_HITPAUSE_SCALING, 0.5);
             set_hitbox_value(AT_DATTACK, 5, HG_EFFECT, 0);
-            set_hitbox_value(AT_DATTACK, 5, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DATTACK, 5, HG_VISUAL_EFFECT, hfx[0]);
         }
         break;
         case AT_FSTRONG:
@@ -135,7 +155,7 @@ switch form{
             set_hitbox_value(AT_FSTRONG, 5, HG_KNOCKBACK_SCALING, 0.6);
             set_hitbox_value(AT_FSTRONG, 5, HG_BASE_HITPAUSE, 7);
             set_hitbox_value(AT_FSTRONG, 5, HG_HITPAUSE_SCALING, 0.7);
-            set_hitbox_value(AT_FSTRONG, 5, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_FSTRONG, 5, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_FSTRONG, 5, HG_HIT_SFX, sound_get("KB_hitheavy2"));
         }
         break;
@@ -244,7 +264,7 @@ switch form{
             set_hitbox_value(AT_DSTRONG, 7, HG_BASE_HITPAUSE, 8);
             set_hitbox_value(AT_DSTRONG, 7, HG_HITPAUSE_SCALING, 0.7);
             set_hitbox_value(AT_DSTRONG, 7, HG_HIT_SFX, sound_get("KB_hitheavy1"));
-            set_hitbox_value(AT_DSTRONG, 7, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSTRONG, 7, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSTRONG, 7, HG_TECHABLE, 0);
             
             set_hitbox_value(AT_DSTRONG, 8, HG_WINDOW_CREATION_FRAME, 6);
@@ -260,7 +280,7 @@ switch form{
             set_hitbox_value(AT_DSTRONG, 8, HG_BASE_HITPAUSE, 8);
             set_hitbox_value(AT_DSTRONG, 8, HG_HITPAUSE_SCALING, 0.7);
             set_hitbox_value(AT_DSTRONG, 8, HG_HIT_SFX, sound_get("KB_hitmedium2"));
-            set_hitbox_value(AT_DSTRONG, 8, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSTRONG, 8, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSTRONG, 8, HG_TECHABLE, 0);
             
             set_hitbox_value(AT_DSTRONG, 9, HG_WINDOW_CREATION_FRAME, 9);
@@ -276,7 +296,7 @@ switch form{
             set_hitbox_value(AT_DSTRONG, 9, HG_BASE_HITPAUSE, 8);
             set_hitbox_value(AT_DSTRONG, 9, HG_HITPAUSE_SCALING, 0.7);
             set_hitbox_value(AT_DSTRONG, 9, HG_HIT_SFX, sound_get("KB_hitheavy1"));
-            set_hitbox_value(AT_DSTRONG, 9, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSTRONG, 9, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSTRONG, 9, HG_TECHABLE, 0);
             
             set_hitbox_value(AT_DSTRONG, 10, HG_WINDOW_CREATION_FRAME, 15);
@@ -292,7 +312,7 @@ switch form{
             set_hitbox_value(AT_DSTRONG, 10, HG_BASE_HITPAUSE, 8);
             set_hitbox_value(AT_DSTRONG, 10, HG_HITPAUSE_SCALING, 0.7);
             set_hitbox_value(AT_DSTRONG, 10, HG_HIT_SFX, sound_get("KB_hitmedium2"));
-            set_hitbox_value(AT_DSTRONG, 10, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSTRONG, 10, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSTRONG, 10, HG_EFFECT, 0);
             
         }
@@ -318,7 +338,7 @@ switch form{
             
             set_hitbox_value(AT_USTRONG, 8, HG_DAMAGE, 7);
             set_hitbox_value(AT_USTRONG, 8, HG_EXTRA_HITPAUSE, 0);
-            set_hitbox_value(AT_USTRONG, 8, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USTRONG, 8, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_USTRONG, 8, HG_HIT_SFX, sound_get("OK_hitmedium1"));
         }
         break;
@@ -334,10 +354,10 @@ switch form{
             set_hitbox_value(AT_BAIR, 6, HG_VISUAL_EFFECT, 253);
             set_hitbox_value(AT_BAIR, 6, HG_EFFECT, 1);
         }else{
-            set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, 0);
-            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 4, HG_VISUAL_EFFECT, hfx[0]);
+            set_hitbox_value(AT_BAIR, 5, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_BAIR, 6, HG_DAMAGE, 5);
-            set_hitbox_value(AT_BAIR, 6, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_BAIR, 6, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_BAIR, 6, HG_EFFECT, 0);
         }
         break;
@@ -370,6 +390,7 @@ switch form{
             set_hitbox_value(AT_FAIR, 8, HG_WIDTH, 110);
             set_hitbox_value(AT_FAIR, 8, HG_HEIGHT, 80);
             set_hitbox_value(AT_FAIR, 8, HG_DAMAGE, 6);
+            set_hitbox_value(AT_FAIR, 8, HG_VISUAL_EFFECT, 0);
             set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, asset_get("sfx_icehit_medium1"));
         }else{
             set_window_value(AT_FAIR, 7, AG_WINDOW_LENGTH, 8);
@@ -395,6 +416,7 @@ switch form{
             set_hitbox_value(AT_FAIR, 8, HG_WIDTH, 80);
             set_hitbox_value(AT_FAIR, 8, HG_HEIGHT, 70);
             set_hitbox_value(AT_FAIR, 8, HG_DAMAGE, 6);
+            set_hitbox_value(AT_FAIR, 8, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));
         }
         break;
@@ -444,12 +466,12 @@ switch form{
                 break;
             }
         }else{
-            set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, sound_get("KB_hitmedium1"));
             
             set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 0);
             set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 0);
-            set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, sound_get("KB_hitheavy1"));
         }
         break;
@@ -507,17 +529,17 @@ switch form{
             }
         }else{
             set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, sound_get("KB_hitweak2"));
-            set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, hfx[0]);
             
             set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, sound_get("KB_hitweak1"));
-            set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, hfx[0]);
             
             set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, sound_get("KB_hitweak2"));
-            set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, hfx[0]);
             
             set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 0);
             set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("KB_hitheavy1"));
-            set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 0);
+            set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, hfx[0]);
             set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
         }
         break;
@@ -594,6 +616,15 @@ set_attack_value(attack, AG_SPRITE, sprite_get(string(form) + attack_names[attac
 set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get(string(form) + attack_names[attack] + "_hurt"));
 if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "_hurt": "_air_hurt")));
 if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "": "_air")));
+
+//hit_fx setting
+for(var b = 1; b <= get_num_hitboxes(attack); b++){
+    var fx = get_hitbox_value(attack, b, HG_VISUAL_EFFECT)
+    if array_find_index(hfx, fx) >= 0{
+        var fx_id = floor(array_find_index(hfx, fx)/4)*4 + random_func(abs(floor((get_gameplay_time()+b)%200)), 4, 1);
+        set_hitbox_value(attack, b, HG_VISUAL_EFFECT, hfx[fx_id]);
+    }
+}
 
 got_gem = 0;
 charged_ver = 1;

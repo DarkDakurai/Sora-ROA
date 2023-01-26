@@ -113,3 +113,40 @@ sprite_change_offset("wis_trap_article", 87, 58);
 //dashes
 sprite_change_offset("master_dash", 10, 7);
 sprite_change_offset("master_dash_fx", 10, 7);
+sprite_change_offset("airdash0", 81, 63);
+sprite_change_offset("airdash0_blade", 81, 63);
+sprite_change_offset("airdash1", 81, 63);
+sprite_change_offset("airdash1_blade", 81, 63);
+sprite_change_offset("airdash2", 81, 63);
+sprite_change_offset("airdash2_blade", 81, 63);
+sprite_change_offset("airdash3", 81, 63);
+sprite_change_offset("airdash3_blade", 81, 63);
+sprite_change_offset("airdash4", 81, 63);
+sprite_change_offset("airdash4_blade", 81, 63);
+sprite_change_offset("airdash5", 81, 63);
+sprite_change_offset("airdash5_blade", 81, 63);
+sprite_change_offset("airdash6", 81, 63);
+sprite_change_offset("airdash6_blade", 81, 63);
+sprite_change_offset("airdash7", 81, 63);
+sprite_change_offset("airdash7_blade", 81, 63);
+
+//hit fxs
+sprite_change_offset("kingdomkey_hfx", 64, 48);
+sprite_change_offset("kingdomkey_hfx1", 64, 48);
+sprite_change_offset("kingdomkey_hfx2", 64, 48);
+sprite_change_offset("kingdomkey_hfxsmall", 64, 48);
+
+sprite_change_offset("oathkeeper_hfx", 64, 48);
+sprite_change_offset("oathkeeper_hfx1", 64, 48);
+sprite_change_offset("oathkeeper_hfx2", 64, 48);
+sprite_change_offset("oathkeeper_hfxsmall", 64, 48);
+
+sprite_change_offset("oblivion_hfx", 64, 48);
+sprite_change_offset("oblivion_hfx1", 64, 48);
+sprite_change_offset("oblivion_hfx2", 64, 48);
+sprite_change_offset("oblivion_hfxsmall", 64, 48);
+
+//hand vfx
+sprite_change_offset("master_handfx", 16, 16);
+sprite_change_offset("3idle_fx", 11, 46);
+sprite_change_offset("3idle_fx_smear", 11, 46);
