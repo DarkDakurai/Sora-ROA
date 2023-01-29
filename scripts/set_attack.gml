@@ -14,9 +14,9 @@ set_attack_value(AT_USTRONG, AG_HAS_LANDING_LAG, 0);
 set_attack_value(AT_DSTRONG, AG_HAS_LANDING_LAG, 0);
 
 if form == 3{
-    set_attack_value(AT_FSTRONG, AG_CATEGORY, 2);
-    set_attack_value(AT_USTRONG, AG_CATEGORY, 2);
-    set_attack_value(AT_DSTRONG, AG_CATEGORY, 2);
+    set_attack_value(AT_FSTRONG, AG_CATEGORY, 1);
+    set_attack_value(AT_USTRONG, AG_CATEGORY, 1);
+    set_attack_value(AT_DSTRONG, AG_CATEGORY, 1);
     
     set_attack_value(AT_UTILT, AG_CATEGORY, 2);
     set_attack_value(AT_JAB, AG_CATEGORY, 2);

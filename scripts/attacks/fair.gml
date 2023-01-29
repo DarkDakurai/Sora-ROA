@@ -1,7 +1,7 @@
 set_attack_value(AT_FAIR, AG_CATEGORY, 1);
 set_attack_value(AT_FAIR, AG_HAS_LANDING_LAG, 1);
 set_attack_value(AT_FAIR, AG_LANDING_LAG, 8);
-set_attack_value(AT_FAIR, AG_NUM_WINDOWS, 9);
+set_attack_value(AT_FAIR, AG_NUM_WINDOWS, 13);
 
 //Base
 set_window_value(AT_FAIR, 1, AG_WINDOW_LENGTH, 15);
@@ -23,7 +23,7 @@ set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 12);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAME_START, 11);
 set_window_value(AT_FAIR, 3, AG_WINDOW_HAS_WHIFFLAG, 1);
-set_window_value(AT_FAIR, 3, AG_WINDOW_GOTO, 20);
+set_window_value(AT_FAIR, 3, AG_WINDOW_GOTO, 30);
 
 
 //valor
@@ -46,7 +46,7 @@ set_window_value(AT_FAIR, 6, AG_WINDOW_LENGTH, 6);
 set_window_value(AT_FAIR, 6, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FAIR, 6, AG_WINDOW_ANIM_FRAME_START, 9);
 set_window_value(AT_FAIR, 6, AG_WINDOW_HAS_WHIFFLAG, 1);
-set_window_value(AT_FAIR, 6, AG_WINDOW_GOTO, 20);
+set_window_value(AT_FAIR, 6, AG_WINDOW_GOTO, 30);
 
 
 //wisdom
@@ -67,10 +67,38 @@ set_window_value(AT_FAIR, 9, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_FAIR, 9, AG_WINDOW_ANIM_FRAME_START, 15);
 set_window_value(AT_FAIR, 9, AG_WINDOW_HAS_WHIFFLAG, 1);
-set_window_value(AT_FAIR, 9, AG_WINDOW_GOTO, 20);
+set_window_value(AT_FAIR, 9, AG_WINDOW_GOTO, 30);
+
+//final
+set_window_value(AT_FAIR, 10, AG_WINDOW_LENGTH, 12);
+set_window_value(AT_FAIR, 10, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_FAIR, 10, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_FAIR, 10, AG_WINDOW_VSPEED, -2);
+set_window_value(AT_FAIR, 10, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FAIR, 10, AG_WINDOW_SFX, sound_get("OB_swipeweak1"));
+set_window_value(AT_FAIR, 10, AG_WINDOW_SFX_FRAME, 10);
+
+set_window_value(AT_FAIR, 11, AG_WINDOW_LENGTH, 9);
+set_window_value(AT_FAIR, 11, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_FAIR, 11, AG_WINDOW_ANIM_FRAME_START, 5);
+set_window_value(AT_FAIR, 11, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FAIR, 11, AG_WINDOW_SFX, sound_get("OK_swipeweak2"));
+set_window_value(AT_FAIR, 11, AG_WINDOW_SFX_FRAME, 7);
+
+set_window_value(AT_FAIR, 12, AG_WINDOW_LENGTH, 12);
+set_window_value(AT_FAIR, 12, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_FAIR, 12, AG_WINDOW_ANIM_FRAME_START, 8);
+set_window_value(AT_FAIR, 12, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FAIR, 12, AG_WINDOW_SFX, sound_get("OB_swipeweak2"));
+set_window_value(AT_FAIR, 12, AG_WINDOW_SFX_FRAME, 4);
+
+set_window_value(AT_FAIR, 13, AG_WINDOW_LENGTH, 9);
+set_window_value(AT_FAIR, 13, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_FAIR, 13, AG_WINDOW_ANIM_FRAME_START, 12);
+set_window_value(AT_FAIR, 13, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 
-set_num_hitboxes(AT_FAIR, 8);
+set_num_hitboxes(AT_FAIR, 11);
 
 //Base
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_TYPE, 1);
@@ -223,3 +251,63 @@ set_hitbox_value(AT_FAIR, 8, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_FAIR, 8, HG_HITPAUSE_SCALING, .5);
 set_hitbox_value(AT_FAIR, 8, HG_HIT_SFX, sound_get("KB_hitmedium1"));
 set_hitbox_value(AT_FAIR, 8, HG_VISUAL_EFFECT, hfx[0]);
+
+
+
+//final
+set_hitbox_value(AT_FAIR, 9, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_FAIR, 9, HG_WINDOW, 11);
+set_hitbox_value(AT_FAIR, 9, HG_LIFETIME, 3);
+set_hitbox_value(AT_FAIR, 9, HG_HITBOX_X, 44);
+set_hitbox_value(AT_FAIR, 9, HG_HITBOX_Y, -15);
+set_hitbox_value(AT_FAIR, 9, HG_WIDTH, 70);
+set_hitbox_value(AT_FAIR, 9, HG_HEIGHT, 80);
+set_hitbox_value(AT_FAIR, 9, HG_PRIORITY, 6);
+set_hitbox_value(AT_FAIR, 9, HG_DAMAGE, 2);
+set_hitbox_value(AT_FAIR, 9, HG_SHAPE, 2);
+set_hitbox_value(AT_FAIR, 9, HG_ANGLE, 60);
+set_hitbox_value(AT_FAIR, 9, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_FAIR, 9, HG_BASE_HITPAUSE, 5);
+set_hitbox_value(AT_FAIR, 9, HG_EXTRA_HITPAUSE, 5);
+set_hitbox_value(AT_FAIR, 9, HG_HIT_SFX, sound_get("OK_hitweak1"));
+set_hitbox_value(AT_FAIR, 9, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FAIR, 9, HG_ANGLE_FLIPPER, 4);
+set_hitbox_value(AT_FAIR, 9, HG_VISUAL_EFFECT, hfx[4]);
+
+set_hitbox_value(AT_FAIR, 10, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_FAIR, 10, HG_WINDOW, 12);
+set_hitbox_value(AT_FAIR, 10, HG_LIFETIME, 3);
+set_hitbox_value(AT_FAIR, 10, HG_HITBOX_X, 54);
+set_hitbox_value(AT_FAIR, 10, HG_HITBOX_Y, -12);
+set_hitbox_value(AT_FAIR, 10, HG_WIDTH, 70);
+set_hitbox_value(AT_FAIR, 10, HG_HEIGHT, 80);
+set_hitbox_value(AT_FAIR, 10, HG_PRIORITY, 5);
+set_hitbox_value(AT_FAIR, 10, HG_DAMAGE, 2);
+set_hitbox_value(AT_FAIR, 10, HG_SHAPE, 2);
+set_hitbox_value(AT_FAIR, 10, HG_ANGLE, 60);
+set_hitbox_value(AT_FAIR, 10, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_FAIR, 10, HG_BASE_HITPAUSE, 5);
+set_hitbox_value(AT_FAIR, 10, HG_HIT_SFX, sound_get("OB_hitweak1"));
+set_hitbox_value(AT_FAIR, 10, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FAIR, 10, HG_ANGLE_FLIPPER, 4);
+set_hitbox_value(AT_FAIR, 10, HG_VISUAL_EFFECT, hfx[8]);
+
+set_hitbox_value(AT_FAIR, 11, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_FAIR, 11, HG_WINDOW, 12);
+set_hitbox_value(AT_FAIR, 11, HG_WINDOW_CREATION_FRAME, 6);
+set_hitbox_value(AT_FAIR, 11, HG_LIFETIME, 3);
+set_hitbox_value(AT_FAIR, 11, HG_HITBOX_X, 43);
+set_hitbox_value(AT_FAIR, 11, HG_HITBOX_Y, -20);
+set_hitbox_value(AT_FAIR, 11, HG_WIDTH, 80);
+set_hitbox_value(AT_FAIR, 11, HG_HEIGHT, 80);
+set_hitbox_value(AT_FAIR, 11, HG_PRIORITY, 9);
+set_hitbox_value(AT_FAIR, 11, HG_DAMAGE, 5);
+set_hitbox_value(AT_FAIR, 11, HG_SHAPE, 2);
+set_hitbox_value(AT_FAIR, 11, HG_ANGLE, 361);
+set_hitbox_value(AT_FAIR, 11, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_FAIR, 11, HG_KNOCKBACK_SCALING, 0.5);
+set_hitbox_value(AT_FAIR, 11, HG_BASE_HITPAUSE, 7);
+set_hitbox_value(AT_FAIR, 11, HG_HITPAUSE_SCALING, 0.4);
+set_hitbox_value(AT_FAIR, 11, HG_HIT_SFX, sound_get("OK_hitmedium1"));
+set_hitbox_value(AT_FAIR, 11, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FAIR, 11, HG_VISUAL_EFFECT, hfx[4]);

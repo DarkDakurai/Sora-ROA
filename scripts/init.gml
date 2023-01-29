@@ -473,7 +473,7 @@ attack_frameskip = [
     [0, 0, 0, 0],//3,
     [4, 7, 10, 13],//ftilt,
     [3, 6, 9, 12],//dtilt,
-    [4, 7, 10, 12],//utilt,
+    [4, 7, 10, 13],//utilt,
     [5, 9, 13, 17],//fstrong,
     [4, 7, 11, 15],//dstrong,
     [4, 7, 10, 14],//ustrong,
@@ -502,7 +502,7 @@ attack_frameskip = [
     [0, 0, 0, 0],//DSPECIAL_AIR,
     [0, 0, 0, 0],//NSPECIAL_2,
     [0, 0, 0, 0],//FSPECIAL_AIR,
-    [0, 0, 0, 0],//taunt,
+    [2, 3, 4, 5],//taunt,
     [0, 0, 0, 0],//TAUNT_2,
     [0, 0, 0, 0],//EXTRA_2,
     [0, 0, 0, 0],//EXTRA_3,
@@ -531,7 +531,7 @@ hand_state_pos = [ //[x, y, layer (0 = front, 1 = between sora and oblivion, 2 =
     [],
     [[24, -32, 2], [10, -30, 2], [26, -28, 1], [48, -24, 1], [30, -40, 2], [16, 40, 2], [18, 24, 2], [24, 28, 2], [34, 26, 1], [34, 44, 1]],//PS_HITSTUN_LAND
     [[4, -24, 2], [-28, -26, 1], [-20, -24, 1], [-20, -24, 1], [12, -30, 0], [18, -32, 2]],//PS_AIR_DODGE
-    [[-2, -22, 1], [-2, -22, 1], [34, 34, 0], [36, 34, 1], [30, -26, 1], [24, -20, 1], [28, -22, 1]],//PS_PARRY
+    [[-2, -22, 1], [-2, -22, 1], [34, -34, 0], [36, -34, 1], [30, -26, 1], [24, -20, 1], [28, -22, 1]],//PS_PARRY
     [[14, -24, 1]],//PS_PRATFALL
     [[10, -32, 2], [20, -20, 2]],//PS_PRATLAND
     [[24, -32, 2], [10, -30, 2], [26, -28, 1], [48, -24, 1], [30, -40, 2], [16, 40, 2], [18, 24, 2], [24, 28, 2], [34, 26, 1], [34, 44, 1]],//PS_HITSTUN
@@ -606,7 +606,7 @@ hand_attack_pos = [ //[x, y, layer (0 = front, 1 = between sora and oblivion, 2 
     [[8, -28, 2], [14, -20, 2], [14, -20, 2], [14, -28, 2], [18, -26, 2], [16, -24, 2], [24, -32, 1], [14, -34, 2]],//(airdash5),
     [[8, -28, 2], [14, -20, 2], [14, -20, 2], [14, -28, 2], [12, -38, 1], [10, -40, 1], [16, -22, 2], [14, -34, 2]],//(airdash6),
     [[8, -28, 2], [14, -20, 2], [14, -20, 2], [14, -28, 2], [18, -26, 2], [16, -24, 2], [24, -32, 1], [14, -34, 2]],//(airdash7),
-    [[0, 0, 0], ],//39,
+    [[30, -28, 1], [32, -30, 1], [32, -32, 1], [34, -36, 1], [34, -44, 1], [24, -54, 2], [30, -52, 1], [30, -46, 1], [28, -34, 0], [22, -28, 2], [12, -24, 2], [12, -20, 2], [12, -20, 2], [26, -20, 1], [30, -24, 1]],//taunt,
     [[0, 0, 0], ],//40,
     [[0, 0, 0], ],//NSPECIAL_AIR,
     [[0, 0, 0], ],//42,
@@ -623,20 +623,22 @@ hand_attack_pos = [ //[x, y, layer (0 = front, 1 = between sora and oblivion, 2 
 //#region attack variables
 
 //hit fxs
-hfx = [ hit_fx_create(sprite_get("kingdomkey_hfx"), 21),
-        hit_fx_create(sprite_get("kingdomkey_hfx1"), 21), 
-        hit_fx_create(sprite_get("kingdomkey_hfx2"), 21),
-        hit_fx_create(sprite_get("kingdomkey_hfxsmall"), 21),
-        
-        hit_fx_create(sprite_get("oathkeeper_hfx"), 21),
-        hit_fx_create(sprite_get("oathkeeper_hfx1"), 21),
-        hit_fx_create(sprite_get("oathkeeper_hfx2"), 21),
-        hit_fx_create(sprite_get("oathkeeper_hfxsmall"), 21),
-        
-        hit_fx_create(sprite_get("oblivion_hfx"), 21),
-        hit_fx_create(sprite_get("oblivion_hfx1"), 21),
-        hit_fx_create(sprite_get("oblivion_hfx2"), 21),
-        hit_fx_create(sprite_get("oblivion_hfxsmall"), 15),];
+hfx = [
+    hit_fx_create(sprite_get("kingdomkey_hfx"), 21),
+    hit_fx_create(sprite_get("kingdomkey_hfx1"), 21), 
+    hit_fx_create(sprite_get("kingdomkey_hfx2"), 21),
+    hit_fx_create(sprite_get("kingdomkey_hfxsmall"), 21),
+    
+    hit_fx_create(sprite_get("oathkeeper_hfx"), 21),
+    hit_fx_create(sprite_get("oathkeeper_hfx1"), 21),
+    hit_fx_create(sprite_get("oathkeeper_hfx2"), 21),
+    hit_fx_create(sprite_get("oathkeeper_hfxsmall"), 21),
+    
+    hit_fx_create(sprite_get("oblivion_hfx"), 21),
+    hit_fx_create(sprite_get("oblivion_hfx1"), 21),
+    hit_fx_create(sprite_get("oblivion_hfx2"), 21),
+    hit_fx_create(sprite_get("oblivion_hfxsmall"), 15)
+];
 
 //tilts
 enhance = 0;
@@ -682,6 +684,12 @@ prv_state = state;
 //particles
 particles = [];
 
+//float
+float_time = 150;
+can_float = 1;
+is_floating = 0;
+float_hud = -18;
+
 //#endregion
 
 //#region sfx
@@ -690,5 +698,5 @@ sfx_timer = 0;
 
 
 //debug
-form = 1;
+form = 4;
 gauge_val = 5000;

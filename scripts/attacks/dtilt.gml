@@ -1,6 +1,6 @@
 set_attack_value(AT_DTILT, AG_SPRITE, sprite_get("dtilt"));
 set_attack_value(AT_DTILT, AG_HURTBOX_SPRITE, sprite_get("dtilt_hurt"));
-set_attack_value(AT_DTILT, AG_NUM_WINDOWS, 11);
+set_attack_value(AT_DTILT, AG_NUM_WINDOWS, 13);
 set_attack_value(AT_DTILT, AG_CATEGORY, 2);
 
 //base
@@ -78,10 +78,20 @@ set_window_value(AT_DTILT, 11, AG_WINDOW_HAS_WHIFFLAG, 1);
 set_window_value(AT_DTILT, 11, AG_WINDOW_GOTO, 30);
 
 //final
+set_window_value(AT_DTILT, 12, AG_WINDOW_LENGTH, 17);
+set_window_value(AT_DTILT, 12, AG_WINDOW_ANIM_FRAMES, 5);
+set_window_value(AT_DTILT, 12, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_DTILT, 12, AG_WINDOW_SFX, sound_get("OK_swipeweak2"));
+set_window_value(AT_DTILT, 12, AG_WINDOW_SFX_FRAME, 9);
+set_window_value(AT_DTILT, 12, AG_WINDOW_ANIM_FRAME_START, 1);
+
+set_window_value(AT_DTILT, 13, AG_WINDOW_LENGTH, 14);
+set_window_value(AT_DTILT, 13, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_DTILT, 13, AG_WINDOW_ANIM_FRAME_START, 6);
+set_window_value(AT_DTILT, 13, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 
-
-set_num_hitboxes(AT_DTILT, 10);
+set_num_hitboxes(AT_DTILT, 11);
 
 //base
 set_hitbox_value(AT_DTILT, 1, HG_HITBOX_TYPE, 1);
@@ -282,3 +292,21 @@ set_hitbox_value(AT_DTILT, 10, HG_VISUAL_EFFECT, hfx[0]);
 
 
 //final
+set_hitbox_value(AT_DTILT, 11, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_DTILT, 11, HG_WINDOW, 12);
+set_hitbox_value(AT_DTILT, 11, HG_WINDOW_CREATION_FRAME, 11);
+set_hitbox_value(AT_DTILT, 11, HG_LIFETIME, 3);
+set_hitbox_value(AT_DTILT, 11, HG_HITBOX_X, 80);
+set_hitbox_value(AT_DTILT, 11, HG_HITBOX_Y, -15);
+set_hitbox_value(AT_DTILT, 11, HG_WIDTH, 90);
+set_hitbox_value(AT_DTILT, 11, HG_HEIGHT, 32);
+set_hitbox_value(AT_DTILT, 11, HG_SHAPE, 2);
+set_hitbox_value(AT_DTILT, 11, HG_PRIORITY, 6);
+set_hitbox_value(AT_DTILT, 11, HG_DAMAGE, 6);
+set_hitbox_value(AT_DTILT, 11, HG_ANGLE, 90);
+set_hitbox_value(AT_DTILT, 11, HG_BASE_KNOCKBACK, 8);
+set_hitbox_value(AT_DTILT, 11, HG_KNOCKBACK_SCALING, 0.2);
+set_hitbox_value(AT_DTILT, 11, HG_BASE_HITPAUSE, 7);
+set_hitbox_value(AT_DTILT, 11, HG_HITPAUSE_SCALING, 0.3);
+set_hitbox_value(AT_DTILT, 11, HG_HIT_SFX, sound_get("OK_hitmedium1"));
+set_hitbox_value(AT_DTILT, 11, HG_VISUAL_EFFECT, hfx[4]);

@@ -54,7 +54,7 @@ sprite_change_offset(string(j%5)+"uspecial"+(j >= 5? "_blade":""), 90, 59);//
 sprite_change_offset(string(j%5)+"uspecial_air"+(j >= 5? "_blade":""), 90, 59);//
 sprite_change_offset(string(j%5)+"dspecial"+(j >= 5? "_blade":""), 87, 78);//
 sprite_change_offset(string(j%5)+"dspecial_air"+(j >= 5? "_blade":""), 87, 78);//
-sprite_change_offset(string(j%5)+"taunt"+(j >= 5? "_blade":""), 85, 78);
+sprite_change_offset(string(j%5)+"taunt"+(j >= 5? "_blade":""), 78, 63);
 
 //hurtboxes
 sprite_change_offset(string(j%5)+"jab_hurt", 85 * 2, 78 * 2);//
@@ -78,7 +78,7 @@ sprite_change_offset(string(j%5)+"uspecial_hurt", 90 * 2, 59 * 2);//
 sprite_change_offset(string(j%5)+"uspecial_air_hurt", 90 * 2, 59 * 2);//
 sprite_change_offset(string(j%5)+"dspecial_hurt", 87 * 2, 78 * 2);//
 sprite_change_offset(string(j%5)+"dspecial_air_hurt", 87 * 2, 78 * 2);//
-sprite_change_offset(string(j%5)+"taunt_hurt", 85 * 2, 78 * 2);
+sprite_change_offset(string(j%5)+"taunt_hurt", 78 * 2, 63 * 2);
 }
 
 //plat
@@ -150,3 +150,10 @@ sprite_change_offset("oblivion_hfxsmall", 64, 48);
 sprite_change_offset("master_handfx", 16, 16);
 sprite_change_offset("3idle_fx", 11, 46);
 sprite_change_offset("3idle_fx_smear", 11, 46);
+
+//intro
+sprite_change_offset("intro", 81, 63);
+
+//float
+sprite_change_offset("glide", 84, 62);
+sprite_change_offset("glide_blade", 84, 62);

@@ -37,6 +37,10 @@ switch(attack){
         }
         if window == 11 && window_timer >= 5 && has_hit iasa_script();
         break;
+        case 4:
+        if window == 12 && window_timer == 9 sound_play(sound_get("OB_swipeweak2"));
+        if ((window == 12 && window_timer >= 14) || window == 13) && has_hit && jump_pressed iasa_script();
+        break;
     }
     break;
     case AT_UTILT:
@@ -59,6 +63,10 @@ switch(attack){
         case 3:
         if !hitstop && (window == 11 && window_timer == 9) || (window == 10 && window_timer == 10) vsp -= 7;
         if window <= 11 && (window == 10? window_timer >= 8: 1) hud_offset = floor(lerp(hud_offset, 130, 0.2));
+        break;
+        case 4:
+        hud_offset = floor(lerp(hud_offset, 220, 0.2));
+        if jump_pressed && has_hit && window == 15 iasa_script();
         break;
     }
     break;
@@ -84,6 +92,17 @@ switch(attack){
             vsp = -8;
         }
         if window == 12 && window_timer >= 5 && has_hit iasa_script();
+        break;
+        case 4:
+        if window == 13{
+            if window_timer == 6{
+                sound_play(sound_get("OK_swipeweak1"), 0, noone, 1, .9);
+                sound_play(sound_get("OB_swipeweak1"), 0, noone, 1, .8);
+            }
+            if window_timer == 15 sound_play(sound_get("OK_swipeweak2"), 0, noone, 1, .9);
+            if window_timer == 22 sound_play(sound_get("OB_swipeweak2"), 0, noone, 1, .8);
+            if window_timer == 28 sound_play(sound_get("OK_swipemedium1"), 0, noone, 1, .8);
+        }
         break;
     }
     break;
@@ -113,6 +132,12 @@ switch(attack){
         else if window <= 22 && window_timer <= 15 hud_offset = floor(lerp(hud_offset, 80, 0.2));
         else if window <= 23 && window_timer <= 13 hud_offset = floor(lerp(hud_offset, 110, 0.2));
         if !hitstop && window == 23 && window_timer == 10 vsp = -8;
+        break;
+        case 4:
+        move_cooldown[AT_JAB] = 17;
+        hud_offset = floor(lerp(hud_offset, 100, 0.2));
+        if ((window == 24 && window_timer >= 11) || window >= 25 || (window == 28 && window_timer < 8)) && !hitstop hsp = 2.5*spr_dir;
+        if window == 28 && window_timer >= 10 hsp *= 0.7;
         break;
     }
     break;
@@ -153,6 +178,13 @@ switch(attack){
         if window == 12 && window_timer == 13 sound_play(asset_get("sfx_swipe_heavy2"));
         if window < 13 hud_offset = floor(lerp(hud_offset, 120, 0.2));
         break;
+        case 4:
+        if window == 15 hud_offset = floor(lerp(hud_offset, 150, 0.2));
+        if window == 15 && window_timer == 2{
+            sound_play(sound_get("OK_swipemedium1"), 0, noone, 1, 0.95);
+            sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 0.95);
+        }
+        break;
     }
     break;
     case AT_FSTRONG:
@@ -167,6 +199,10 @@ switch(attack){
         case 3:
         if window == 13 vsp = clamp(vsp, vsp, 2);
         if window == 15 && window_timer = 13 sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 0.8);
+        break;
+        case 4:
+        if window <= 17 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        else hud_offset = floor(lerp(hud_offset, 40, 0.2));
         break;
     }
     break;
@@ -200,6 +236,15 @@ switch(attack){
         }
         if window < 5 hud_offset = floor(lerp(hud_offset, 90, 0.2));
         break;
+        case 3:
+        move_cooldown[AT_NAIR] = 5;
+        break;
+        case 4:
+        if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
+        if window == 15 vsp = clamp(vsp, vsp, 2);
+        if window == 15 && window_timer == 32 sound_play(sound_get("OB_swipemedium1"));
+        if window >= 15 || (window == 15 && window_timer >= 30) hud_offset = floor(lerp(hud_offset, 90, 0.2));
+        break;
     }
     break;
     case AT_FAIR:
@@ -213,6 +258,11 @@ switch(attack){
         }
         hud_offset = floor(lerp(hud_offset, 100, 0.2));
         break;
+        case 4:
+        if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
+        if window <= 12 vsp = clamp(vsp, vsp, 2);
+        if window <= 12 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+        break;
     }
     break;
     case AT_BAIR:
@@ -221,6 +271,10 @@ switch(attack){
         if has_hit && window == 5 && (jump_pressed || attack_pressed || special_pressed){
             iasa_script();
         }
+        break;
+        case 4:
+        if window == 9 && window_timer == 11 sound_play(sound_get("OB_swipemedium1"));
+        if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
         break;
     }
     break;
@@ -237,6 +291,9 @@ switch(attack){
         break;
         case 2:
         hud_offset = floor(lerp(hud_offset, (window <= 7 && window_timer <= 16? 130: 200), 0.25));
+        break;
+        case 4:
+        if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
         break;
     }
     break;
@@ -265,6 +322,17 @@ switch(attack){
         if window == 9 && window_timer == 2{
             old_vsp = -6;
             vsp = -6;
+        }
+        break;
+        case 4:
+        if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
+        if window == 12{
+            if window_timer == 5 vsp = -3;
+            if window_timer == 16 sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 0.95);
+            if window_timer == 17{
+                vsp = -3;
+                sound_play(sound_get("OK_swipemedium1"), 0, noone, 1, 0.95);
+            }
         }
         break;
     }
@@ -651,6 +719,31 @@ switch(attack){
             iasa_script();
             if !free set_state(PS_WAVELAND);
         }
+    break;
+    case AT_TAUNT:
+    switch form{
+        case 0:
+        if window_timer <= 28 && window_timer >= 12 hud_offset = floor(lerp(hud_offset, 100, 0.2));
+        break;
+        case 1:
+        if window_timer <= 25 && window_timer >= 14 hud_offset = floor(lerp(hud_offset, 70, 0.2));
+        if window_timer == 19 sound_play(sound_get("KB_swipeweak1"));
+        if window_timer == 20 sound_play(sound_get("OK_swipemedium1"));
+        break;
+        case 2:
+        hud_offset = floor(lerp(hud_offset, 70, 0.2));
+        if window_timer == 7 sound_play(sound_get("wisdom_taunt"));
+        break;
+        case 3:
+        if window_timer == 2 sound_play(asset_get("sfx_spin"));
+        if window_timer >= 37 && window_timer <= 43 && taunt_down window_timer = 41;
+        if window_timer <= 22 && window_timer >= 10 hud_offset = floor(lerp(hud_offset, 80, 0.2));
+        break;
+        case 4:
+        hud_offset = floor(lerp(hud_offset, 40, 0.2));
+        if window_timer == 10 sound_play(asset_get("sfx_spin"));
+        break;
+    }
     break;
 }
 

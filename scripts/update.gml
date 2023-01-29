@@ -6,7 +6,7 @@ initial_dash_speed  = form = 1? 9: 8;
 dash_speed          = form = 1? 8: 7;
 dash_turn_accel     = form = 1? 1.8: 1.5;
 dash_stop_percent   = form = 1? 0.5: 0.35;
-ground_friction     = form = 1? 0.6: 0.5;
+ground_friction     = form = 1? 0.6: (form = 4? (down_down? 0.4: 0.1): 0.5);
 
 max_jump_hsp        = form = 2? 8: (form = 4? 5: 6);
 air_max_speed       = form = 2? 8: (form = 4? 5: 4);
@@ -170,6 +170,38 @@ if form == 3{
         }
     }
 }else if dash_alpha > 0 dash_alpha -= 0.05;
+
+//peach float
+if form == 4{
+    if !free{
+        float_time = 150;
+        can_float = 1;
+    }
+    if (state == PS_IDLE_AIR || (state == PS_FIRST_JUMP && (vsp > 0 || down_down)) || (state == PS_DOUBLE_JUMP && down_down)) && jump_down && can_float && !is_floating{
+        is_floating = 1;
+        y -= 2;
+        clear_button_buffer(PC_JUMP_PRESSED);
+        set_state(PS_IDLE_AIR);
+        sound_stop(jump_sound);
+    }else if (!jump_down && float_time < 150) || ((state == PS_AIR_DODGE || state == PS_ROLL_FORWARD || state == PS_ROLL_BACKWARD) && is_floating){
+        can_float = 0;
+        is_floating = 0;
+    }
+    if is_floating{
+        float_time--;
+        vsp = 0;
+        can_fast_fall = 0;
+        if float_time <= 0 && state != PS_ATTACK_AIR{
+            can_float = 0;
+            is_floating = 0;
+        }
+    }
+}
+
+//form 4 float hud
+if state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN float_hud++;
+else float_hud = 20;
+if form == 4 && (state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN) hud_offset = lerp(hud_offset, -floor(dsin(float_hud*4.5) * 3) + 7, (hud_offset > 12? 0.1: 1));
 
 //debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;

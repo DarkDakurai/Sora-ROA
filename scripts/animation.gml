@@ -157,10 +157,15 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
         break;
         case PS_SPAWN:
-        sprite_index = sprite_get(string(form) + "PS_IDLE");
-        image_index = state_timer * idle_anim_speed;
+        if state_timer < 78 hud_offset = 80;
+        if state_timer == 26 sound_play(asset_get("sfx_infinidagger"), 0, noone, 1, 1.25);
+        if state_timer == 58 sound_play(land_sound);
+        sprite_index = (state_timer < 78? sprite_get("intro"): sprite_get(string(form) + "PS_IDLE"));
+        image_index = (state_timer <= 10? 0: (state_timer < 78? (state_timer - 10)/4: state_timer *idle_anim_speed));
         break;
         case PS_WALL_JUMP:
+        case PS_WALL_TECH:
+        sprite_index = sprite_get(string(form) + "PS_WALL_JUMP");
         image_index = ((state_timer / 4) + 1 >= image_number? image_number - 1: (state_timer / 4) + 1);
         break;
         case PS_ROLL_FORWARD:
@@ -199,6 +204,13 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
             air_dodge_recovery_frames   = 2;
         }
         break;
+    }
+    if form == 4{
+        if state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN draw_y = dsin(float_hud*4.5) * 2 - 2;
+        if is_floating && state != PS_AIR_DODGE{
+            sprite_index = sprite_get("glide");
+            image_index = (get_gameplay_time()/5)%7 + ((spr_dir && right_down) || (!spr_dir && left_down) = spr_dir? 7: 0);
+        }
     }
 }else{
     if attack == AT_DSTRONG && !form && window == 1{

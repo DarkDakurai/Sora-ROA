@@ -206,6 +206,68 @@ switch form{
     break;
     
     case 4:
+    if my_hitboxID.attack == AT_FTILT && my_hitboxID.hbox_num == 14{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitweak1"));
+    }
+    
+    if my_hitboxID.attack == AT_DTILT && my_hitboxID.hbox_num == 11{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium1"));
+    }
+    
+    if my_hitboxID.attack == AT_DATTACK if my_hitboxID.hbox_num == 8{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitweak2"));
+        my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    }else{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }
+    
+    if my_hitboxID.attack == AT_FSTRONG if my_hitboxID.hbox_num == 8{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitheavy1"));
+        my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    }else sound_play(asset_get("sfx_infinidagger"), 0, noone, 1, .95);
+    
+    if my_hitboxID.attack == AT_USTRONG if my_hitboxID.hbox_num <= 13{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitheavy2"));
+    }else{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }
+    
+    if my_hitboxID.attack == AT_NAIR if my_hitboxID.hbox_num <= 12{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitweak2"));
+        my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    }else{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }
+    
+    if my_hitboxID.attack == AT_BAIR if my_hitboxID.hbox_num <= 7{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }else{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitheavy2"));
+    }
+    
+    if my_hitboxID.attack == AT_DAIR && my_hitboxID.hbox_num == 11{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitheavy1"));
+    }
+    
+    if my_hitboxID.attack == AT_UAIR if my_hitboxID.hbox_num <= 14{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium1"));
+    }else{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }
     break;
 }
 
@@ -215,5 +277,5 @@ if(my_hitboxID.attack = AT_NSPECIAL && my_hitboxID.hbox_num = 1 && my_hitboxID.r
 }
 
 //hit fx fix
-with hit_fx_obj depth = player_id.hit_player_obj.depth-2;
+with hit_fx_obj depth = player_id.depth-2;
 if array_find_index(hfx, my_hitboxID.hit_effect) >= 0 spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, 301);
