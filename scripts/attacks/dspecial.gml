@@ -1,7 +1,7 @@
 set_attack_value(AT_DSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("dspecial"));
 set_attack_value(AT_DSPECIAL, AG_HURTBOX_SPRITE, sprite_get("dspecial_hurt"));
-set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 12);
+set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 15);
 set_attack_value(AT_DSPECIAL, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_DSPECIAL, AG_OFF_LEDGE, 1);
 
@@ -92,6 +92,19 @@ set_window_value(AT_DSPECIAL, 12, AG_WINDOW_LENGTH, 1);
 set_window_value(AT_DSPECIAL, 12, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_DSPECIAL, 12, AG_WINDOW_ANIM_FRAME_START, 31);
 set_window_value(AT_DSPECIAL, 12, AG_WINDOW_GOTO, 30);
+
+//final
+set_window_value(AT_DSPECIAL, 13, AG_WINDOW_LENGTH, 9);
+set_window_value(AT_DSPECIAL, 13, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_DSPECIAL, 13, AG_WINDOW_ANIM_FRAME_START, 1);
+
+set_window_value(AT_DSPECIAL, 14, AG_WINDOW_LENGTH, 10);
+set_window_value(AT_DSPECIAL, 14, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_DSPECIAL, 14, AG_WINDOW_ANIM_FRAME_START, 4);
+
+set_window_value(AT_DSPECIAL, 15, AG_WINDOW_LENGTH, 7);
+set_window_value(AT_DSPECIAL, 15, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_DSPECIAL, 15, AG_WINDOW_ANIM_FRAME_START, 6);
 
 set_num_hitboxes(AT_DSPECIAL, 6);
 

@@ -25,3 +25,8 @@ for(var i = 0; i < array_length(particles); i++){
     var p = particles[i];
     if p[9] draw_sprite_ext(p[0], p[8], p[6], p[7], 2, 2, 0, p[5], p[1]);
 }
+
+with obj_article2 if player_id = other && particle_type == 4 && sprite != 0 for(var k = player_id.final_partc_amount; k > 0; k--){
+    var color = make_color_rgb(player_id.sora_alt[4][get_player_color(player)][1][0], player_id.sora_alt[4][get_player_color(player)][1][1], player_id.sora_alt[4][get_player_color(player)][1][2]);
+    if dsin((timer - k)*5)*4 <= 0 draw_sprite_ext(sprite, 0, player_id.x - part_spd[0]*k/2 - 2 + 50*dcos((timer - k)*5), player_id.y - part_spd[1]*k/2 + 18 - player_id.char_height - y_displ*dsin((y_timer - k)*5), 2, 2, 0, color, image_alpha - k/player_id.final_partc_amount);
+}

@@ -142,7 +142,7 @@ attack_names = [ //has the names of all the attacks
     "dspecial",
     "uspecial",
     "nspecial",
-    "FSTRONG_2 (hadoken)",
+    "FSTRONG_2",
     "DSTRONG_2",
     "USTRONG_2",
     "USPECIAL_GROUND",
@@ -159,7 +159,7 @@ attack_names = [ //has the names of all the attacks
     "FSPECIAL_AIR",
     "taunt",
     "TAUNT_2",
-    "EXTRA_2",
+    "flowmotion",
     "EXTRA_3",
     "39",
     "40 (munophone default)",
@@ -504,7 +504,7 @@ attack_frameskip = [
     [0, 0, 0, 0],//FSPECIAL_AIR,
     [2, 3, 4, 5],//taunt,
     [0, 0, 0, 0],//TAUNT_2,
-    [0, 0, 0, 0],//EXTRA_2,
+    [0, 0, 0, 0],//EXTRA_2 (flowmotion),
     [0, 0, 0, 0],//EXTRA_3,
     [0, 0, 0, 0],//39,
     [0, 0, 0, 0],//40,
@@ -683,20 +683,21 @@ prv_state = state;
 
 //particles
 particles = [];
+final_partc_amount = 10;
 
 //float
 float_time = 150;
 can_float = 1;
 is_floating = 0;
 float_hud = -18;
+ffall = 0;
 
-//#endregion
+//final dspecial
+final_blades = [noone, noone, noone];
+flow_blade = noone;
+spin_timer = 0;
+spin_sfx = noone;
 
-//#region sfx
+//sfx
 sfx_timer = 0;
 //#endregion
-
-
-//debug
-form = 4;
-gauge_val = 5000;

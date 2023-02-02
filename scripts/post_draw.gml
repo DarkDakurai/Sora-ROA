@@ -26,13 +26,13 @@ if form && form != 2{
         temp_state = "PS_IDLE";
         break;
         case PS_HITSTUN:
-        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
+        temp_state = "HURT" + string(hurt_img);
         break;
         case PS_HITSTUN_LAND:
-        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
+        temp_state = "HURT" + string(hurt_img);
         break;
         case PS_TUMBLE:
-        temp_state = "HURT" + string(hurt_img + (hurt_img > 4? 4: 0));
+        temp_state = "HURT" + string(hurt_img);
         break;
         case PS_WRAPPED:
         case PS_FROZEN:
@@ -151,4 +151,16 @@ if form == 3 && (state = PS_ATTACK_GROUND || state = PS_ATTACK_AIR? hand_attack_
 for(var i = 0; i < array_length(particles); i++){
     var p = particles[i];
     if !p[9] draw_sprite_ext(p[0], p[8], p[6], p[7], 2, 2, 0, p[5], p[1]);
+}
+
+with obj_article2 if player_id = other && particle_type == 4 && sprite != 0 for(var k = player_id.final_partc_amount; k > 0; k--){
+    var color = make_color_rgb(player_id.sora_alt[4][get_player_color(player)][1][0], player_id.sora_alt[4][get_player_color(player)][1][1], player_id.sora_alt[4][get_player_color(player)][1][2]);
+    if dsin((timer - k)*5)*4 > 0 draw_sprite_ext(sprite, 0, player_id.x - part_spd[0]*k/2 - 2 + 50*dcos((timer - k)*5), player_id.y - part_spd[1]*k/2 + 18 - player_id.char_height - y_displ*dsin((y_timer - k)*5), 2, 2, 0, color, image_alpha - k/player_id.final_partc_amount);
+}
+
+//flowmotion blade
+if (state == PS_ATTACK_AIR || state == PS_ATTACK_AIR) && attack == AT_EXTRA_2 && window == 1{
+    with flow_blade draw_sprite_ext(sprite_get("hud_arrow"), 0, x, y - 60, 1, 1, 0, get_player_hud_color(player), 1);
+    var arr_pos = (joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45 - 20*sign(dcos((joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45))*sign(dsin((joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45));
+    draw_sprite_ext(sprite_get("hud_arrow"), 0, x + 60 * dcos(arr_pos), y - 60 * dsin(arr_pos) - 40 + 12*sign(dcos(floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45)*sign(dcos(floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45)*sign(dsin(floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45), 1, 1, (joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45 + 90 - 20*sign(dcos((joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45))*sign(dsin((joy_pad_idle? 2: floor(floor((joy_dir/22.5)%16)/2 + .5)%8)*45)), get_player_hud_color(player), 1);
 }

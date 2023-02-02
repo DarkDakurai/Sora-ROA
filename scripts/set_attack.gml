@@ -372,7 +372,7 @@ switch form{
             set_window_value(AT_FAIR, 7, AG_WINDOW_ANIM_FRAME_START, 1);
             set_window_value(AT_FAIR, 7, AG_WINDOW_VSPEED, -2);
             set_window_value(AT_FAIR, 7, AG_WINDOW_HAS_SFX, 1);
-            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX, sound_get("wisdom_jab_finisher"));
+            set_window_value(AT_FAIR, 7, AG_WINDOW_SFX, sound_get("wisdom_fair"));
             set_window_value(AT_FAIR, 7, AG_WINDOW_SFX_FRAME, 10);
             
             set_window_value(AT_FAIR, 8, AG_WINDOW_LENGTH, 3);
@@ -607,6 +607,48 @@ switch form{
     break;
     
     case 4:
+    if attack == AT_NSPECIAL && !move_cooldown[AT_NSPECIAL]{
+        var blade = collision_rectangle(x - 40, y + 10, x + 40, y - 70, obj_article1, 1, 1);
+        if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1{
+            blade.state = 4;
+            blade.timer = 0;
+            sound_play(sound_get("final_absorb"));
+            set_window_value(AT_NSPECIAL, 13, AG_WINDOW_GOTO, 15);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_DAMAGE, 1);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_ANGLE_FLIPPER, 0);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_KNOCKBACK_SCALING, 0);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_HITPAUSE_SCALING, 0);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_ANGLE, 90);
+        }else{
+            set_window_value(AT_NSPECIAL, 13, AG_WINDOW_GOTO, 14);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_DAMAGE, 2);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_ANGLE_FLIPPER, 3);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_KNOCKBACK_SCALING, .5);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_HITPAUSE_SCALING, .5);
+            set_hitbox_value(AT_NSPECIAL, 9, HG_ANGLE, 50);
+        }
+    }
+    if attack == AT_FSPECIAL{
+        set_window_value(AT_FSPECIAL, 21, AG_WINDOW_TYPE, 7);
+    }
+    if attack == AT_DSPECIAL for(var h = 0; h < 3; h++){
+        if final_blades[h] == noone{
+            break;
+        }else if h = 2{
+            var longest = 0;
+            var longest_comp = -1;
+            for(var j = 0; j < 3; j++){
+                if longest_comp = -1 && final_blades[j].state != 3{
+                    longest_comp = final_blades[j].alive_time;
+                }else if final_blades[j].alive_time > longest_comp && final_blades[j].state != 3{
+                    longest_comp = final_blades[j].alive_time;
+                    longest = j;
+                }
+            }
+            if longest_comp = -1 move_cooldown[AT_DSPECIAL] = 5;
+            else final_blades[@longest].force_death = 1;
+        }
+    }
     break;
 }
 
@@ -636,6 +678,8 @@ power_up = 0;
 if form == 1 && vl_point{
     power_up = 1;
 }
+
+ffall = 0;
 
 #define spawn_base_dust
 /// spawn_base_dust(x, y, name, dir = 0, angle = 0, win = -10, win_time = 0)

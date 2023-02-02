@@ -63,6 +63,24 @@ if inited{
 			player_id.deck_val = (player_id.deck_val+1)%3
 		}
 		break;
+		
+		case 3:
+		sound_play(asset_get("sfx_oly_dspecial_focus"), 0, noone, 1, 1.2);
+		sprite_index = sprite_get("final_blade" + string(final_blade_sprite));
+		mask_index = sprite_get("final_blade_collision");
+		depth = player_id.depth - 2;
+		state = 0;
+		timer = 0;
+		cooldown = 120;
+		colp = noone;
+		uses_shader = 0;
+		force_death = 0;
+		alive_time = 0;
+		image_yscale = 2;
+		image_xscale = 2;
+		spinbox = noone;
+		force_cd = 0;
+		break;
 	}
 }
 
@@ -148,22 +166,22 @@ timer++;
 lifetime--;
 switch state{
 	case 0: //spawn
-	image_index = timer/4;
+	image_index = timer/5;
 	if timer == 15{
 		state = (instance_exists(player_id.fsp_grab)? 2: 1);
 		timer = 0;
 	}
 	break;
 	case 1: //idle
-	image_index = (timer/4)%6 + 5 + 17*deck + 6*(deck>0);
-	if !lifetime || (instance_exists(colp) && colp != player_id && colp.hitstun){
+	image_index = (timer/5)%6 + 5 + 17*deck + 6*(deck>0);
+	if !lifetime || (instance_exists(colp) && colp != player_id && colp.state_cat == SC_HITSTUN && !colp.hitstop){
 		state = 2;
 		timer = 2;
 		if instance_exists(colp) colp.hitstop = 99;
 	}
 	break;
 	case 2: //attack
-	if instance_exists(colp) && timer < 16 && colp != player_id && (colp.state == PS_HITSTUN || colp.state == PS_HITSTUN_LAND) colp.hitstop = 99;
+	if instance_exists(colp) && timer < 16 && colp != player_id && colp.state_cat == SC_HITSTUN && !colp.hitstop colp.hitstop = 99;
 	image_index = (timer/4) + 11 + 17*deck + 6*(deck>0);
 	if timer == 14 sound_play(asset_get("sfx_swipe_medium2"))
 	if timer == 16{
@@ -215,7 +233,7 @@ timer++;
 lifetime--;
 switch state{
 	case 0://spawn
-	image_index = timer/4;
+	image_index = timer/5;
 	if timer == 31{
 		state = 1;
 		timer = 0;
@@ -223,7 +241,7 @@ switch state{
 	break;
 	
 	case 1://idle
-	image_index = (timer/4)%6 + 8 + 12*deck;
+	image_index = (timer/5)%6 + 8 + 12*deck;
 	if !lifetime || trigger{
 		state = 2;
 		timer = 0;
@@ -262,5 +280,107 @@ switch state{
 	}
 	break;
 }
+break;
+
+//final keyblade
+case 3:
+colp = collision_ellipse(x, y + 20, x + 60*spr_dir, y - 40, oPlayer, 1, 1);
+timer++;
+hsp = lerp(hsp, 0, 0.05);
+alive_time++;
+switch(state){
+	case 0://spawn
+	image_index = timer/5;
+	if timer == 25{
+		state = (instance_exists(player_id.fsp_grab)? 2: 1);
+		timer = 0;
+	}
+	break;
+	case 1://idle
+	depth = player_id.depth - 2;
+	image_index = (timer/5)%10 + 5
+	if(instance_exists(colp) && colp != player_id && colp.state_cat == SC_HITSTUN && !colp.hitstop){
+		state = 2;
+		timer = 2;
+		if instance_exists(colp) colp.hitstop = 99;
+	}
+	if force_cd{
+		force_cd = 0;
+		state = 3;
+		timer = 0;
+	}
+	if player_id.form != 4 || force_death{
+		state = 4;
+		timer = 0;
+	}
+	break;
+	case 2://attack
+	if instance_exists(colp) && timer < 16 && colp != player_id && colp.state_cat == SC_HITSTUN && !colp.hitstop colp.hitstop = 99;
+	image_index = (timer/4)%14 + 15;
+	if timer == 14 sound_play(sound_get("blade" +  string(final_blade_sprite) + "_swipe"));
+	if timer == 20{
+		var blade = create_hitbox(AT_FSPECIAL, 6, x + 10*spr_dir, y - 14);
+		blade.sound_effect = sound_get("blade" +  string(final_blade_sprite) + "_hitmed" + string(get_gameplay_time()%2 + 1));
+		blade.damage = 4;
+		blade.hit_effect = player_id.hfx[random_func(abs(floor((get_gameplay_time())%200)), 4, 1)];
+	}
+	if timer >= 55{
+		state = 3;
+		timer = 0;
+	}
+	break;
+	case 3://cooldown
+	image_index = (timer/5)%10 + 5;
+	if timer >= cooldown{
+		state = 1;
+		cooldown = 120;
+	}
+	if force_cd{
+		force_cd = 0;
+		state = 3;
+		timer = 0;
+	}
+	if player_id.form != 4 || force_death{
+		state = 4;
+		timer = 0;
+	}
+	break;
+	case 4://despawn
+	image_index = (timer/4) + 44;
+	if timer = 1{
+		sound_play(asset_get("sfx_oly_flashstun"), 0, noone, 0.5, 1.2);
+		player_id.final_blades[@final_blade_sprite] = noone;
+	}
+	if timer == 31{
+		instance_destroy(self);
+		exit;
+	}
+	break;
+	case 5://flowmotion
+	image_index = 5;
+	break;
+	case 6: //spin
+	image_index = (timer/4)%15 + 29;
+	if timer == 1 sound_play(asset_get("sfx_spin"));
+	if (timer - 1)%8 == 0 && timer < 29{
+		spinbox = create_hitbox(AT_FSPECIAL, 6, x, y);
+		spinbox.sound_effect = sound_get("blade" +  string(final_blade_sprite) + "_hitweak");
+		spinbox.damage = 1;
+		spinbox.hit_flipper = 4;
+		spinbox.length = 8;
+		spinbox.kb_angle = 50;
+		spinbox.hit_effect = player_id.hfx[random_func(abs(floor((get_gameplay_time())%200)), 4, 1)];
+	}
+	if instance_exists(spinbox){
+		spinbox.x = x;
+		spinbox.y = y;
+	}
+	if timer >= 59{
+		state = 3;
+		timer = 0;
+	}
+	break;
+}
+
 break;
 }
