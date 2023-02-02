@@ -85,16 +85,18 @@ sprite_change_offset(string(j%5)+"taunt_hurt", 78 * 2, 63 * 2);
 sprite_change_offset("plat", 0, 0);
 
 //misc
+sprite_change_offset("hud_arrow", 7, 10);
 sprite_change_offset("hud_particle", 10, 10);
 sprite_change_offset("1particle", 15, 15);
+sprite_change_offset("4particle", 9, 9);
 
 //ragnarok
-sprite_change_offset("ragnarok_artc_1", 175, 116);
-sprite_change_offset("ragnarok_artc_mask1", 175, 116);
+sprite_change_offset("ragnarok_artc_1", 176, 116);
+sprite_change_offset("ragnarok_artc_mask1", 176, 116);
 sprite_change_offset("ragnarok_artc_2", 175, 117);
 sprite_change_offset("ragnarok_artc_mask2", 175, 117);
-sprite_change_offset("ragnarok_artc_3", 178, 118);
-sprite_change_offset("ragnarok_artc_mask3", 178, 118);
+sprite_change_offset("ragnarok_artc_3", 177, 118);
+sprite_change_offset("ragnarok_artc_mask3", 177, 118);
 sprite_change_offset("ragnarok_projectile", 6, 18);
 sprite_change_offset("ragnarok_projectile_after", 10, 18);
 sprite_change_offset("ragnarok_explosion", 89, 56);
@@ -157,3 +159,13 @@ sprite_change_offset("intro", 81, 63);
 //float
 sprite_change_offset("glide", 84, 62);
 sprite_change_offset("glide_blade", 84, 62);
+
+//flowmotion
+sprite_change_offset("4flowmotion", 87, 60);
+sprite_change_offset("4flowmotion_blade", 87, 60);
+sprite_change_offset("4flowmotion_hurt", 174, 120);
+
+sprite_change_offset("final_blade_collision", 8, 52);
+sprite_change_offset("final_blade0", 87, 66);
+sprite_change_offset("final_blade1", 87, 66);
+sprite_change_offset("final_blade2", 87, 66);

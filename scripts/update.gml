@@ -103,6 +103,15 @@ switch form{
         array_push(particles, particle);
     }
     break;
+    case 4:
+    if get_gameplay_time()%25 == 0{
+        var partc = instance_create(x, y, "obj_article2");
+        partc.particle_type = 4;
+        partc.y_displ = random_func_2(floor(abs(x%200)), 50, 0);
+        partc.timer = random_func_2(floor(abs(x%200)), 72, 1);
+        partc.Ytimer = random_func_2(floor(abs((x + 1)%200)), 72, 1);
+    }
+    break;
 }
 
 //frostbite
@@ -198,12 +207,56 @@ if form == 4{
     }
 }
 
+//spin sound reset
+if !((state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_EXTRA_2 && window == 1){
+    sound_stop(spin_sfx);
+    if instance_exists(flow_blade){
+        flow_blade.state = 3;
+        flow_blade.timer = 0;
+        flow_blade = noone;
+    }
+}
+
+//flowmotion manual trigger
+var blade = instance_place(x, y, obj_article1);
+if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1 && shield_pressed && (state == PS_HITSTUN || state == PS_HITSTUN_LAND) && !hitstop{
+    spr_angle = 0;
+    draw_y = 0;
+    blade.state = 5;
+    blade.timer = 0;
+    hsp = 0;
+    vsp = 0;
+    x = blade.x;
+    y = blade.y + 20;
+    set_attack(AT_EXTRA_2);
+    for(var b = 1; b <= get_num_hitboxes(attack); b++){
+        var fx = get_hitbox_value(attack, b, HG_VISUAL_EFFECT)
+        if array_find_index(hfx, fx) >= 0{
+            var fx_id = floor(array_find_index(hfx, fx)/4)*4 + random_func(abs(floor((get_gameplay_time()+b)%200)), 4, 1);
+            set_hitbox_value(attack, b, HG_VISUAL_EFFECT, hfx[fx_id]);
+        }
+    }
+    hurtboxID.sprite_index = sprite_get("4flowmotion_hurt");
+    flow_blade = blade;
+    spin_timer = 0;
+    clear_button_buffer(PC_SPECIAL_PRESSED);
+    spin_sfx = sound_play(sound_get("final_spin"), 1);
+    sound_play(sound_get("OB_hitweak3"));
+    sound_play(sound_get("OK_hitweak2"));
+    with obj_article2 if player_id = other && type = 3{
+        cooldown = 400;
+        force_cd = 1;
+        if state = 3 timer = 0;
+    }
+}
+
+
 //form 4 float hud
 if state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN float_hud++;
 else float_hud = 20;
 if form == 4 && (state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN) hud_offset = lerp(hud_offset, -floor(dsin(float_hud*4.5) * 3) + 7, (hud_offset > 12? 0.1: 1));
 
-//debug
+/*/debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
 if down_down && taunt_down && gauge_val gauge_val -= 100;
 if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
@@ -215,3 +268,4 @@ vsp = 0;
 x = room_width/2
 y = room_height/2
 print(fps_real)
+*/

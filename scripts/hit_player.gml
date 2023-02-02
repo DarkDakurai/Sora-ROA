@@ -268,6 +268,29 @@ switch form{
         spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
         sound_play(sound_get("OB_hitmedium2"));
     }
+    
+    if my_hitboxID.attack == AT_NSPECIAL if my_hitboxID.hbox_num == 7{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium1"));
+        my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    }else if my_hitboxID.hbox_num == 9{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }else if my_hitboxID.hbox_num == 8{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitheavy2"));
+    }
+    
+    if attack == AT_FSPECIAL if my_hitboxID.hbox_num == 9{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+        my_hitboxID.can_hit[hit_player_obj.player] = 1;
+    }else if my_hitboxID.hbox_num == 10 sound_play(asset_get("sfx_infinidagger"), 0, noone, 1, 1);
+    
+    if my_hitboxID.attack == AT_EXTRA_2{
+        spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, hfx[8 + random_func(abs(floor(x%200)), 4, 1)]);
+        sound_play(sound_get("OB_hitmedium2"));
+    }
     break;
 }
 
@@ -277,5 +300,5 @@ if(my_hitboxID.attack = AT_NSPECIAL && my_hitboxID.hbox_num = 1 && my_hitboxID.r
 }
 
 //hit fx fix
-with hit_fx_obj depth = player_id.depth-2;
+with hit_fx_obj depth = player_id.depth-4;
 if array_find_index(hfx, my_hitboxID.hit_effect) >= 0 spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, 301);

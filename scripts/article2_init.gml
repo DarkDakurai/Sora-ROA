@@ -4,8 +4,7 @@ particle_type = 0;
 1 = ragnarok held for too long
 2 = ragnarok projectile
 3 = general afterimage
-4 = valor particle
-5 = wisdom particle
+4 = final particle
 */
 inited = 1;
 uses_shader = 0;
@@ -19,3 +18,7 @@ part_y = 0;
 hud_particle = 0;
 timer = 0;
 random_sprite = 0;
+y_displ = 0;
+y_timer = 0;
+sprite = 0;
+part_spd = [0, 0];

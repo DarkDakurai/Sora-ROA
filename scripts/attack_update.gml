@@ -155,7 +155,8 @@ switch(attack){
         if has_hit && window == 10 && enhance && window_timer >= 7 iasa_script();
         break;
         case 3:
-        if window == 11 vsp = clamp(vsp, vsp, 2);
+        if vsp >= fast_fall ffall = 1;
+        if window == 11 vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
         break;
     }
     break;
@@ -174,7 +175,8 @@ switch(attack){
         if window >= 8 hud_offset = floor(lerp(hud_offset, 260, 0.2));
         break;
         case 3:
-        if window == 10 vsp = clamp(vsp, vsp, 2);
+        if vsp >= fast_fall ffall = 1;
+        if window == 10 vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
         if window == 12 && window_timer == 13 sound_play(asset_get("sfx_swipe_heavy2"));
         if window < 13 hud_offset = floor(lerp(hud_offset, 120, 0.2));
         break;
@@ -197,7 +199,8 @@ switch(attack){
         if window >= 11 hud_offset = floor(lerp(hud_offset, 95, 0.2));
         break;
         case 3:
-        if window == 13 vsp = clamp(vsp, vsp, 2);
+        if vsp >= fast_fall ffall = 1;
+        if window == 13 vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
         if window == 15 && window_timer = 13 sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 0.8);
         break;
         case 4:
@@ -241,7 +244,8 @@ switch(attack){
         break;
         case 4:
         if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
-        if window == 15 vsp = clamp(vsp, vsp, 2);
+        if vsp >= fast_fall ffall = 1;
+        if window == 15 vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
         if window == 15 && window_timer == 32 sound_play(sound_get("OB_swipemedium1"));
         if window >= 15 || (window == 15 && window_timer >= 30) hud_offset = floor(lerp(hud_offset, 90, 0.2));
         break;
@@ -260,7 +264,9 @@ switch(attack){
         break;
         case 4:
         if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
-        if window <= 12 vsp = clamp(vsp, vsp, 2);
+        if vsp >= fast_fall ffall = 1;
+        if vsp >= fast_fall ffall = 1;
+        if window <= 12 vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
         if window <= 12 hud_offset = floor(lerp(hud_offset, 120, 0.2));
         break;
     }
@@ -293,6 +299,7 @@ switch(attack){
         hud_offset = floor(lerp(hud_offset, (window <= 7 && window_timer <= 16? 130: 200), 0.25));
         break;
         case 4:
+        if window == 10  || (window == 9 && window_timer >= 9) hud_offset = floor(lerp(hud_offset, 190, 0.2));
         if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
         break;
     }
@@ -325,6 +332,8 @@ switch(attack){
         }
         break;
         case 4:
+        move_cooldown[AT_DAIR] = 10;
+        hud_offset = floor(lerp(hud_offset, 80, 0.2));
         if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
         if window == 12{
             if window_timer == 5 vsp = -3;
@@ -357,6 +366,80 @@ switch(attack){
         if window == 13 && window_timer == 21 set_state(PS_PRATFALL);
         if window <= 13 || (window == 13 && window_timer <= 6) hud_offset = floor(lerp(hud_offset, 110, 0.2));
         if window == 12 && window_timer == 14 sound_play(sound_get("OB_swipemedium1"));
+        break;
+        case 4:
+        can_fast_fall = 0;
+        switch window{
+            case 14:
+            if window_timer = 11{
+                window = (joy_pad_idle || dsin(joy_dir) < -0.38 || dsin(joy_dir) > 0.92? 15: (dsin(joy_dir) < 0.38? 17: 16));
+                spr_dir = sign(sign(dcos(joy_dir))*2 + spr_dir);
+                window_timer = 0;
+                if window = 16{
+                    spr_angle = 45*spr_dir;
+                    draw_y = -26;
+                }
+            }
+            break;
+            case 15:
+            case 16:
+            case 17:
+            var blade = instance_place(x, y, obj_article1);
+            if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1{
+                spr_angle = 0;
+                draw_y = 0;
+                blade.state = 5;
+                blade.timer = 0;
+                hsp = 0;
+                vsp = 0;
+                x = blade.x;
+                y = blade.y + 20;
+                set_attack(AT_EXTRA_2);
+                for(var b = 1; b <= get_num_hitboxes(attack); b++){
+                    var fx = get_hitbox_value(attack, b, HG_VISUAL_EFFECT)
+                    if array_find_index(hfx, fx) >= 0{
+                        var fx_id = floor(array_find_index(hfx, fx)/4)*4 + random_func(abs(floor((get_gameplay_time()+b)%200)), 4, 1);
+                        set_hitbox_value(attack, b, HG_VISUAL_EFFECT, hfx[fx_id]);
+                    }
+                }
+                hurtboxID.sprite_index = sprite_get("4flowmotion_hurt");
+                flow_blade = blade;
+                spin_timer = 0;
+                clear_button_buffer(PC_SPECIAL_PRESSED);
+                spin_sfx = sound_play(sound_get("final_spin"), 1);
+                sound_play(sound_get("OB_hitweak3"));
+                sound_play(sound_get("OK_hitweak2"));
+            }
+            break;
+            case 18:
+            spr_angle = 0;
+            draw_y = 0;
+            var blade = instance_place(x, y, obj_article1);
+            if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1{
+                blade.state = 5;
+                blade.timer = 0;
+                hsp = 0;
+                vsp = 0;
+                x = blade.x;
+                y = blade.y + 20;
+                set_attack(AT_EXTRA_2);
+                for(var b = 1; b <= get_num_hitboxes(attack); b++){
+                    var fx = get_hitbox_value(attack, b, HG_VISUAL_EFFECT)
+                    if array_find_index(hfx, fx) >= 0{
+                        var fx_id = floor(array_find_index(hfx, fx)/4)*4 + random_func(abs(floor((get_gameplay_time()+b)%200)), 4, 1);
+                        set_hitbox_value(attack, b, HG_VISUAL_EFFECT, hfx[fx_id]);
+                    }
+                }
+                hurtboxID.sprite_index = sprite_get("4flowmotion_hurt");
+                flow_blade = blade;
+                spin_timer = 0;
+                clear_button_buffer(PC_SPECIAL_PRESSED);
+                spin_sfx = sound_play(sound_get("final_spin"), 1);
+                sound_play(sound_get("OB_hitweak3"));
+                sound_play(sound_get("OK_hitweak2"));
+            }
+            break;
+        }
         break;
     }
     break;
@@ -410,16 +493,19 @@ switch(attack){
             hsp = 0;
         }
         break;
+        
         case 1:
         if window == 6 && window_timer == 1{
             sound_play(jump_sound);
         }
         if window == 6 && window_timer == 11 sound_play(sound_get("OK_swipemedium1"));
         break;
+        
         case 2:
         if window == 9 && window_timer == 15 && enhance deck_swap();
         if window == 8 hud_offset = lerp(hud_offset, 120, 0.2);
         break;
+        
         case 3:
         move_cooldown[AT_DSPECIAL] = 2;
         can_fast_fall = 0;
@@ -434,7 +520,8 @@ switch(attack){
             }
         }
         if window == 11{
-            vsp = clamp(vsp, vsp, 3);
+            if vsp >= fast_fall ffall = 1;
+            vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
             if window_timer == 32{
                 sound_play(sound_get("wisdom_jab_finisher"), 0, noone, 1, 0.8);
                 hsp = 6*spr_dir;
@@ -445,6 +532,21 @@ switch(attack){
             spr_dir *= -1;
         }
         if !free && window >= 10 set_state(PS_LANDING_LAG);
+        break;
+        
+        case 4:
+        if window = 13 && window_timer == 8{
+            sound_play(asset_get("sfx_swipe_weak2"), 0, noone, .7, 1.3);
+            for(var h = 0; h < 3; h++){
+                if final_blades[h] = noone{
+                    final_blades[@h] = instance_create(x + 60*spr_dir, y - 30, "obj_article1");
+                    final_blades[@h].type = 3;
+                    final_blades[@h].final_blade_sprite = h;
+                    final_blades[@h].spr_dir = spr_dir;
+                    break;
+                }
+            }
+        }
         break;
     }
     
@@ -558,6 +660,17 @@ switch(attack){
             vsp -= 5;
         }
         if window == 11 && window_timer == 28 && !hitstop vsp = -6;
+        break;
+        case 4:
+        can_fast_fall = 0;
+        if window != 14 vsp = clamp(vsp, vsp, (ffall? fast_fall: 3));
+        if window == 15 && window_timer == 11{
+            sound_play(sound_get("OK_swipemedium1"));
+            sound_play(sound_get("OB_swipemedium1"));
+        }
+        if window == 13 hud_offset = floor(lerp(hud_offset, 150, 0.2));
+        if window == 15 hud_offset = floor(lerp(hud_offset, 90, 0.2));
+        if window == 13 && window_timer == 16 sound_play(asset_get("sfx_spin"), 0, noone, 1, 0.8);
         break;
     }
     break;
@@ -683,10 +796,10 @@ switch(attack){
             window_timer = 0;
         }
         if instance_exists(fsp_grab) && window_timer == 12 && window == 14{
-            var n = instance_create(fsp_grab.x + 30, fsp_grab.y - fsp_grab.char_height/2,"obj_article1");
+            var n = instance_create(fsp_grab.x + 30, fsp_grab.y - floor(fsp_grab.char_height/2),"obj_article1");
             n.type = 1;
             n.spr_dir = -1;
-            var g = instance_create(fsp_grab.x - 30, fsp_grab.y - fsp_grab.char_height/2,"obj_article1");
+            var g = instance_create(fsp_grab.x - 30, fsp_grab.y - floor(fsp_grab.char_height/2),"obj_article1");
             g.type = 1;
             g.spr_dir = 1;
         }
@@ -704,6 +817,39 @@ switch(attack){
         }
         if window == 17 && window_timer == 9 + 5 set_state(PS_IDLE_AIR);
         break;
+        
+        case 4:
+        can_fast_fall = 0;
+        if has_hit set_window_value(AT_FSPECIAL, 21, AG_WINDOW_TYPE, 0);
+        switch window{
+            case 18:
+            if vsp >= fast_fall ffall = 1;
+            vsp = clamp(vsp, vsp, (ffall? fast_fall: 2));
+            if window_timer = 8 sound_play(asset_get("sfx_spin"), 0, noone, 1, 0.9);
+            break;
+            case 19:
+            var blade = collision_rectangle(x, y + 10, x + 60 * spr_dir, y - 70, obj_article1, 1, 1);
+            if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1 && !hitstop && window_timer < 21{
+                blade.hsp = 10*spr_dir;
+                window = 20;
+                window_timer = 0;
+                hsp = -4 * spr_dir;
+                blade.state = 6;
+                blade.timer = 0;
+                sound_play(sound_get("wisdom_jab_finisher"), 0, noone, 1, 0.8);
+                sound_play(asset_get("sfx_swipe_weak2"));
+                destroy_hitboxes();
+            }
+            if window_timer == 21{
+                sound_play(sound_get("wisdom_jab_finisher"), 0, noone, 1, 0.8);
+                sound_play(asset_get("sfx_swipe_weak2"));
+            }
+            break;
+            case 21:
+            if !has_hit && window_timer = 12 is_floating = 0;
+            break;
+        }
+        break;
     }
     break;
     case AT_EXTRA_1:
@@ -719,6 +865,51 @@ switch(attack){
             iasa_script();
             if !free set_state(PS_WAVELAND);
         }
+    break;
+    case AT_EXTRA_2:
+    if window == 1 hud_offset = floor(lerp(hud_offset, 120, 0.2));
+    if window < 8 can_move = 0;
+    else can_move = 1;
+    if window == 1{
+        x = flow_blade.x;
+        y = flow_blade.y + 20;
+        flow_blade.depth = depth + (window_timer >= 4 && window_timer < 11? 2: -2);
+        spin_timer++;
+        if spin_timer >= 120 || special_pressed{
+            clear_button_buffer(PC_SPECIAL_PRESSED);
+            spr_dir = sign(sign(dcos(joy_dir))*2 + spr_dir);
+            window = 2;
+            window_timer = 0;
+            flow_blade.state = 3;
+            flow_blade.timer = 0;
+            flow_blade.cooldown = 300;
+            set_window_value(AT_EXTRA_2, 2, AG_WINDOW_GOTO, (joy_pad_idle || dsin(joy_dir) > 0.92? 3: (dsin(joy_dir) < 0.38 && dsin(joy_dir) > -0.38? 5: (dsin(joy_dir) < -0.92? 7: (dsin(joy_dir) > 0? 4: 6)))));
+        }
+    }
+    if window == 2 && window_timer == 9{
+        sound_play(sound_get("OK_swipemedium1"));
+        sound_play(sound_get("OB_swipemedium1"));
+    }
+    if window >= 3 && !free set_state(PS_LAND);
+    if window >= 3 && window <= 7{
+        var blade = instance_place(x, y, obj_article1);
+        if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1 && !hitstop{
+            blade.state = 5;
+            blade.timer = 0;
+            hsp = 0;
+            vsp = 0;
+            x = blade.x;
+            y = blade.y + 20;
+            flow_blade = blade;
+            spin_timer = 0;
+            clear_button_buffer(PC_SPECIAL_PRESSED);
+            spin_sfx = sound_play(sound_get("final_spin"), 1);
+            sound_play(sound_get("OB_hitweak3"));
+            sound_play(sound_get("OK_hitweak2"));
+            window = 1;
+            window_timer = 0;
+        }
+    }
     break;
     case AT_TAUNT:
     switch form{
@@ -746,7 +937,6 @@ switch(attack){
     }
     break;
 }
-
 #define spawn_base_dust
 /// spawn_base_dust(x, y, name, dir = 0, angle = 0, win = -10, win_time = 0)
 {
