@@ -22,7 +22,7 @@ draw_debug_text(temp_x+mul*0, temp_y+mul*-1 - hud_dist, "y = " + string(y));
 draw_debug_text(temp_x+mul*5, temp_y+mul*-2 - hud_dist, "hsp = " + string(hsp));
 draw_debug_text(temp_x+mul*5, temp_y+mul*-1 - hud_dist, "vsp = " + string(vsp));
 draw_debug_text(temp_x+mul*0, temp_y+mul*0 - hud_dist, "image_index = " + string(image_index));
-*/
+//*/
 
 
 //form name
