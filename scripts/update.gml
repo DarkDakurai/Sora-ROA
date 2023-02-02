@@ -240,6 +240,7 @@ if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.
     flow_blade = blade;
     spin_timer = 0;
     clear_button_buffer(PC_SPECIAL_PRESSED);
+    clear_button_buffer(PC_ATTACK_PRESSED);
     spin_sfx = sound_play(sound_get("final_spin"), 1);
     sound_play(sound_get("OB_hitweak3"));
     sound_play(sound_get("OK_hitweak2"));

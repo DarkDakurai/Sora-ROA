@@ -406,6 +406,7 @@ switch(attack){
                 flow_blade = blade;
                 spin_timer = 0;
                 clear_button_buffer(PC_SPECIAL_PRESSED);
+                clear_button_buffer(PC_ATTACK_PRESSED);
                 spin_sfx = sound_play(sound_get("final_spin"), 1);
                 sound_play(sound_get("OB_hitweak3"));
                 sound_play(sound_get("OK_hitweak2"));
@@ -434,6 +435,7 @@ switch(attack){
                 flow_blade = blade;
                 spin_timer = 0;
                 clear_button_buffer(PC_SPECIAL_PRESSED);
+                clear_button_buffer(PC_ATTACK_PRESSED);
                 spin_sfx = sound_play(sound_get("final_spin"), 1);
                 sound_play(sound_get("OB_hitweak3"));
                 sound_play(sound_get("OK_hitweak2"));
@@ -875,8 +877,9 @@ switch(attack){
         y = flow_blade.y + 20;
         flow_blade.depth = depth + (window_timer >= 4 && window_timer < 11? 2: -2);
         spin_timer++;
-        if spin_timer >= 120 || special_pressed{
+        if spin_timer >= 120 || special_pressed || attack_pressed{
             clear_button_buffer(PC_SPECIAL_PRESSED);
+            clear_button_buffer(PC_ATTACK_PRESSED);
             spr_dir = sign(sign(dcos(joy_dir))*2 + spr_dir);
             window = 2;
             window_timer = 0;
@@ -891,7 +894,7 @@ switch(attack){
         sound_play(sound_get("OB_swipemedium1"));
     }
     if window >= 3 && !free set_state(PS_LAND);
-    if window >= 3 && window <= 7{
+    if (window >= 3 && window <= 7) || (window == 8 && window_timer <= 6){
         var blade = instance_place(x, y, obj_article1);
         if instance_exists(blade) && blade.player_id = self && blade.type == 3 && blade.state == 1 && !hitstop{
             blade.state = 5;
@@ -903,6 +906,7 @@ switch(attack){
             flow_blade = blade;
             spin_timer = 0;
             clear_button_buffer(PC_SPECIAL_PRESSED);
+            clear_button_buffer(PC_ATTACK_PRESSED);
             spin_sfx = sound_play(sound_get("final_spin"), 1);
             sound_play(sound_get("OB_hitweak3"));
             sound_play(sound_get("OK_hitweak2"));
