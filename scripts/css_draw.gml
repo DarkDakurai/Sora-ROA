@@ -55,7 +55,6 @@ alt_name = [
 "First Clause," + chr(10) + "Divide",
 "Workshop",
 "Pocket creatures",
-"VC Campers",
 "Warrior Of Light",
 "Brasil"
 ];

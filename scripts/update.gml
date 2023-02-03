@@ -257,14 +257,14 @@ if state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN float_hud++;
 else float_hud = 20;
 if form == 4 && (state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN) hud_offset = lerp(hud_offset, -floor(dsin(float_hud*4.5) * 3) + 7, (hud_offset > 12? 0.1: 1));
 
-/*/debug
+//debug
 if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
 if down_down && taunt_down && gauge_val gauge_val -= 100;
 if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
 if !taunt_pressed && prev_taunt_p && jump_down && form form--
 prev_taunt_p = taunt_pressed
-gauge_val = 5000;
 /*hsp = 0;
+gauge_val = 5000;
 vsp = 0;
 x = room_width/2
 y = room_height/2

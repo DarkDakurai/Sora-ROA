@@ -33,7 +33,7 @@ sprite_change_offset(string(j%5)+"HURT5"+(j >= 5? "_blade":""), 81, 63)
 sprite_change_offset(string(j%5)+"HURT6"+(j >= 5? "_blade":""), 81, 63)
 
 //attacks
-sprite_change_offset(string(j%5)+"jab"+(j >= 5? "_blade":""), 85, 78);//
+sprite_change_offset(string(j%5)+"jab"+(j >= 5? "_blade":""), 43, 55);//
 sprite_change_offset(string(j%5)+"dattack"+(j >= 5? "_blade":""), 90, 78);//
 sprite_change_offset(string(j%5)+"ftilt"+(j >= 5? "_blade":""), 73, 78);//
 sprite_change_offset(string(j%5)+"dtilt"+(j >= 5? "_blade":""), 73, 78);//
@@ -57,7 +57,7 @@ sprite_change_offset(string(j%5)+"dspecial_air"+(j >= 5? "_blade":""), 87, 78);/
 sprite_change_offset(string(j%5)+"taunt"+(j >= 5? "_blade":""), 78, 63);
 
 //hurtboxes
-sprite_change_offset(string(j%5)+"jab_hurt", 85 * 2, 78 * 2);//
+sprite_change_offset(string(j%5)+"jab_hurt", 43 * 2, 55 * 2);//
 sprite_change_offset(string(j%5)+"dattack_hurt", 90 * 2, 78 * 2);//
 sprite_change_offset(string(j%5)+"ftilt_hurt", 73 * 2, 78 * 2);//
 sprite_change_offset(string(j%5)+"dtilt_hurt", 73 * 2, 78 * 2);//
@@ -82,7 +82,7 @@ sprite_change_offset(string(j%5)+"taunt_hurt", 78 * 2, 63 * 2);
 }
 
 //plat
-sprite_change_offset("plat", 0, 0);
+sprite_change_offset("plat", 42, 0);
 
 //misc
 sprite_change_offset("hud_arrow", 7, 10);

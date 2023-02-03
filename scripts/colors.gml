@@ -30,7 +30,7 @@ set_color_profile_slot_range( 6, 2, 38, 31 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 32 );
+set_num_palettes( 31 );
 
 // Riku(Why did you join orochimaru)
 set_color_profile_slot( 1, 0, 168, 166, 196 ); //Hair
@@ -284,32 +284,23 @@ set_color_profile_slot( 28, 4, 246, 180, 65 ); //Glove/Shoe Accents
 set_color_profile_slot( 28, 5, 30, 66, 49 ); //Keyblade Blade
 set_color_profile_slot( 28, 6, 186, 188, 190 ); //Keyblade Handle
 
-// Lil Miku (VC Campers)
-set_color_profile_slot( 29, 0, 0, 204, 0 ); //Hair
-set_color_profile_slot( 29, 1, 0, 0, 0 ); //Shirt
-set_color_profile_slot( 29, 2, 0, 0, 0 ); //Pants
-set_color_profile_slot( 29, 3, 212, 0, 255 ); //Pants Accents
-set_color_profile_slot( 29, 4, 212, 0, 255 ); //Glove/Shoe Accents
-set_color_profile_slot( 29, 5, 214, 0, 0 ); //Keyblade Blade
-set_color_profile_slot( 29, 6, 161, 164, 171 ); //Keyblade Handle
-
 // Warrior
-set_color_profile_slot( 30, 0, 211, 203, 164 ); //Hair
-set_color_profile_slot( 30, 1, 85, 73, 92 ); //Shirt
-set_color_profile_slot( 30, 2, 45, 45, 54 ); //Pants
-set_color_profile_slot( 30, 3, 32, 29, 34 ); //Pants Accents
-set_color_profile_slot( 30, 4, 150, 150, 150 ); //Glove/Shoe Accents
-set_color_profile_slot( 30, 5, 71, 8, 4 ); //Keyblade Blade
-set_color_profile_slot( 30, 6, 79, 77, 76 ); //Keyblade Handle
+set_color_profile_slot( 29, 0, 211, 203, 164 ); //Hair
+set_color_profile_slot( 29, 1, 85, 73, 92 ); //Shirt
+set_color_profile_slot( 29, 2, 45, 45, 54 ); //Pants
+set_color_profile_slot( 29, 3, 32, 29, 34 ); //Pants Accents
+set_color_profile_slot( 29, 4, 150, 150, 150 ); //Glove/Shoe Accents
+set_color_profile_slot( 29, 5, 71, 8, 4 ); //Keyblade Blade
+set_color_profile_slot( 29, 6, 79, 77, 76 ); //Keyblade Handle
 
 // Brasil
-set_color_profile_slot( 31, 0, 251, 223, 0 ); //Hair
-set_color_profile_slot( 31, 1, 0, 56, 165 ); //Shirt
-set_color_profile_slot( 31, 2, 52, 115, 34 ); //Pants
-set_color_profile_slot( 31, 3, 255, 255, 255 ); //Pants Accents
-set_color_profile_slot( 31, 4, 252, 223, 0 ); //Glove/Shoe Accents
-set_color_profile_slot( 31, 5, 204, 202, 203 ); //Keyblade Blade
-set_color_profile_slot( 31, 6, 52, 115, 34 ); //Keyblade Handle
+set_color_profile_slot( 30, 0, 251, 223, 0 ); //Hair
+set_color_profile_slot( 30, 1, 0, 56, 165 ); //Shirt
+set_color_profile_slot( 30, 2, 52, 115, 34 ); //Pants
+set_color_profile_slot( 30, 3, 255, 255, 255 ); //Pants Accents
+set_color_profile_slot( 30, 4, 252, 223, 0 ); //Glove/Shoe Accents
+set_color_profile_slot( 30, 5, 204, 202, 203 ); //Keyblade Blade
+set_color_profile_slot( 30, 6, 52, 115, 34 ); //Keyblade Handle
 
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
