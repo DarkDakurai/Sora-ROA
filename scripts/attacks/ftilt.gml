@@ -113,7 +113,6 @@ set_hitbox_value(AT_FTILT, 1, HG_DAMAGE, 3);
 set_hitbox_value(AT_FTILT, 1, HG_ANGLE, 40);
 set_hitbox_value(AT_FTILT, 1, HG_BASE_KNOCKBACK, 7);
 set_hitbox_value(AT_FTILT, 1, HG_BASE_HITPAUSE, 5);
-set_hitbox_value(AT_FTILT, 1, HG_HITPAUSE_SCALING, 0.2);
 set_hitbox_value(AT_FTILT, 1, HG_HIT_SFX, sound_get("KB_hitweak1"));
 set_hitbox_value(AT_FTILT, 1, HG_ANGLE_FLIPPER, 9);
 set_hitbox_value(AT_FTILT, 1, HG_HITBOX_GROUP, 1);

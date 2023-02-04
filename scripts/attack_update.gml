@@ -921,6 +921,7 @@ switch(attack){
             window_timer = 0;
         }
     }
+    set_window_value(AT_EXTRA_2, 8, AG_WINDOW_TYPE, 7*!has_hit);
     break;
     case AT_TAUNT:
     switch form{

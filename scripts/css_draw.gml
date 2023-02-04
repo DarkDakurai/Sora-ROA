@@ -23,7 +23,7 @@ if (animation_timer == 1){
 //css names
 var temp_x = x;
 var temp_y = y;
-var alt_cur = get_player_color(player);
+var alt_cur = get_player_color("alt_fix" in self? alt_fix: player);
 
 alt_name = [
 "Sora",

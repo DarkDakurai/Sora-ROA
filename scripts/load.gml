@@ -36,7 +36,7 @@ sprite_change_offset(string(j%5)+"jab"+(j >= 5? "_blade":""), 43, 55);
 sprite_change_offset(string(j%5)+"dattack"+(j >= 5? "_blade":""), 38, 48);
 
 sprite_change_offset(string(j%5)+"ftilt"+(j >= 5? "_blade":""), 38, 52);
-sprite_change_offset(string(j%5)+"dtilt"+(j >= 5? "_blade":""), 73, 78);// to be changed
+sprite_change_offset(string(j%5)+"dtilt"+(j >= 5? "_blade":""), 38, 50);
 sprite_change_offset(string(j%5)+"utilt"+(j >= 5? "_blade":""), 50, 68);
 
 sprite_change_offset(string(j%5)+"nair"+(j >= 5? "_blade":""), 48, 47);
@@ -64,7 +64,7 @@ sprite_change_offset(string(j%5)+"jab_hurt", 43*2, 55*2);
 sprite_change_offset(string(j%5)+"dattack_hurt", 38*2, 48*2);
 
 sprite_change_offset(string(j%5)+"ftilt_hurt", 38*2, 52*2);
-sprite_change_offset(string(j%5)+"dtilt_hurt", 73*2, 78*2);
+sprite_change_offset(string(j%5)+"dtilt_hurt", 38*2, 50*2);
 sprite_change_offset(string(j%5)+"utilt_hurt", 50*2, 68*2);
 
 sprite_change_offset(string(j%5)+"nair_hurt", 48*2, 47*2);

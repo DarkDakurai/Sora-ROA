@@ -12,6 +12,7 @@ if form{
 set_attack_value(AT_FSTRONG, AG_HAS_LANDING_LAG, 0);
 set_attack_value(AT_USTRONG, AG_HAS_LANDING_LAG, 0);
 set_attack_value(AT_DSTRONG, AG_HAS_LANDING_LAG, 0);
+set_attack_value(AT_DAIR, AG_CATEGORY, 1);
 
 if form == 3{
     set_attack_value(AT_FSTRONG, AG_CATEGORY, 1);
