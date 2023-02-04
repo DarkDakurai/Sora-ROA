@@ -143,33 +143,10 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
         image_index = idle_anim_speed * state_timer;
         break;
         case PS_TECH_BACKWARD:
-        sprite_index = sprite_get(string(form) + "PS_ROLL_BACKWARD");
-        break;
         case PS_TECH_FORWARD:
-        sprite_index = sprite_get(string(form) + "PS_ROLL_FORWARD");
-        break;
-        case PS_PRATFALL:
-        sprite_index = sprite_get(string(form) + "PS_PRATFALL");
-        image_index = state_timer * pratfall_anim_speed;
-        break;
-        case PS_PRATLAND:
-        sprite_index = sprite_get(string(form) + "PS_LAND");
-        image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
-        break;
-        case PS_SPAWN:
-        if state_timer < 78 hud_offset = 80;
-        if state_timer == 26 sound_play(asset_get("sfx_infinidagger"), 0, noone, 1, 1.25);
-        if state_timer == 58 sound_play(land_sound);
-        sprite_index = (state_timer < 78? sprite_get("intro"): sprite_get(string(form) + "PS_IDLE"));
-        image_index = (state_timer <= 10? 0: (state_timer < 78? (state_timer - 10)/4: state_timer *idle_anim_speed));
-        break;
-        case PS_WALL_JUMP:
-        case PS_WALL_TECH:
-        sprite_index = sprite_get(string(form) + "PS_WALL_JUMP");
-        image_index = ((state_timer / 4) + 1 >= image_number? image_number - 1: (state_timer / 4) + 1);
-        break;
         case PS_ROLL_FORWARD:
         case PS_ROLL_BACKWARD:
+        sprite_index = sprite_get(string(form) + "PS_ROLL");
         if form == 4{
             roll_forward_startup_frames     = 2;
             roll_forward_active_frames      = 4;
@@ -192,6 +169,26 @@ if(state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR){
             roll_back_active_frames         = 4;
             roll_back_recovery_frames       = 2;
         }
+        break;
+        case PS_PRATFALL:
+        sprite_index = sprite_get(string(form) + "PS_PRATFALL");
+        image_index = state_timer * pratfall_anim_speed;
+        break;
+        case PS_PRATLAND:
+        sprite_index = sprite_get(string(form) + "PS_LAND");
+        image_index = (state_timer/2 >= image_number - 1? image_number - 1: state_timer/2);
+        break;
+        case PS_SPAWN:
+        if state_timer < 78 hud_offset = 80;
+        if state_timer == 26 sound_play(asset_get("sfx_infinidagger"), 0, noone, 1, 1.25);
+        if state_timer == 58 sound_play(land_sound);
+        sprite_index = (state_timer < 78? sprite_get("intro"): sprite_get(string(form) + "PS_IDLE"));
+        image_index = (state_timer <= 10? 0: (state_timer < 78? (state_timer - 10)/4: state_timer *idle_anim_speed));
+        break;
+        case PS_WALL_JUMP:
+        case PS_WALL_TECH:
+        sprite_index = sprite_get(string(form) + "PS_WALL_JUMP");
+        image_index = ((state_timer / 4) + 1 >= image_number? image_number - 1: (state_timer / 4) + 1);
         break;
         case PS_AIR_DODGE:
         if form == 4{

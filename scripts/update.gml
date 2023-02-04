@@ -155,7 +155,7 @@ if form == 3{
         if dash_restore dash_restore--;
         else if dashes < 3{
             var partc = instance_create(0, 0, "obj_article2");
-            partc.particle_type = 6;
+            partc.particle_type = 5;
             dashes++;
             dash_restore = 60;
         }

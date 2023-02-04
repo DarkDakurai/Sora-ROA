@@ -301,6 +301,13 @@ switch(attack){
         case 4:
         if window == 10  || (window == 9 && window_timer >= 9) hud_offset = floor(lerp(hud_offset, 190, 0.2));
         if float_time <= 0 && is_floating && window == get_attack_value(attack, AG_NUM_WINDOWS) && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH) + has_hit*5 is_floating = 0;
+        if window == 9 && window_timer == 11{
+            sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, .8);
+            sound_play(sound_get("OK_swipemedium1"), 0, noone, 1, .8);
+        }else if window == 10 && window_timer == 11{
+            sound_play(sound_get("OB_swipemedium1"), 0, noone, 1, 1);
+            sound_play(sound_get("OK_swipemedium1"), 0, noone, 1, 1);
+        }
         break;
     }
     break;

@@ -48,10 +48,10 @@ if form && form != 2{
         temp_state = "PS_WALL_JUMP";
         break;
         case PS_TECH_BACKWARD:
-        temp_state = "PS_ROLL_BACKWARD";
-        break;
         case PS_TECH_FORWARD:
-        temp_state = "PS_ROLL_FORWARD";
+        case PS_ROLL_BACKWARD:
+        case PS_ROLL_FORWARD:
+        temp_state = "PS_ROLL";
         break;
         case PS_PRATLAND:
         temp_state = "PS_LAND";
@@ -69,8 +69,25 @@ if form && form != 2{
             draw_sprite_ext(sprite_get("3idle_fx"), 0, x + draw_x + 36*spr_dir, y + draw_y - 44 + (state == PS_DASH? 14: 0), spr_dir, 1, blade_angle*spr_dir, c_white, 1);
         }else draw_sprite_ext(sprite_get(string(form) + (temp_state != 0? temp_state: get_state_name(state)) + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
     }else if (attack == AT_DSPECIAL? window > 5: true){
-        if form == 3 && attack == AT_EXTRA_1 draw_sprite_ext(sprite_get(attack_names[attack] + string(dash_dir) + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
-        else draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? (form = 3? "": "_air"): "") + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+        switch form{
+            case 0:
+            case 2:
+            draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && (attack == AT_NSPECIAL || attack == AT_DSPECIAL || attack == AT_FSPECIAL)? "_air": "") + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+            break;
+            
+            case 1:
+            draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + (free && attack == AT_NSPECIAL? "_air": "") + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+            break;
+            
+            case 3:
+            if attack == AT_EXTRA_1 draw_sprite_ext(sprite_get(attack_names[attack] + string(dash_dir) + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+            else draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+            break;
+            
+            case 4:
+            draw_sprite_ext(sprite_get(string(form) + attack_names[attack] + "_blade"), image_index, x + draw_x, y + draw_y, spr_dir * (1+small_sprites), 1+small_sprites, spr_angle, (state == PS_PRATFALL || state == PS_PRATLAND? c_gray: c_white), image_alpha);
+            break;
+        }
     }
     
 }

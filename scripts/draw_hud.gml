@@ -113,7 +113,7 @@ if dash_alpha > 0{
         if h = dashes - 1 draw_sprite_ext(sprite_get("master_dash_fx"), 0, temp_x + 24 * h + 14, temp_y - 29, 1, 1, 0, c_white, (dash_alpha/1) * dsin(get_gameplay_time()%60*6));
     }
     fx_value = h - 1;
-    with obj_article2 if player_id = other && "hud_particle" in self && particle_type == 6 draw_sprite_ext(sprite_get("master_dash"), 0, other.temp_x + 24 * other.fx_value + 14, other.temp_y - 29, image_xscale, image_yscale, 0, c_white, image_alpha * other.dash_alpha);
+    with obj_article2 if player_id = other && "hud_particle" in self && particle_type == 5 draw_sprite_ext(sprite_get("master_dash"), 0, other.temp_x + 24 * other.fx_value + 14, other.temp_y - 29, image_xscale, image_yscale, 0, c_white, image_alpha * other.dash_alpha);
     prev_dashes = dashes;
 }
 

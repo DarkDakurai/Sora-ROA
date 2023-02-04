@@ -70,11 +70,11 @@ switch form{
             set_hitbox_value(AT_FTILT, 10, HG_VISUAL_EFFECT, 21);
             set_hitbox_value(AT_FTILT, 11, HG_VISUAL_EFFECT, 157);
             
-            set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
-            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
-            set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
-            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
-            set_hitbox_value(AT_FTILT, 11, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+            set_hitbox_value(AT_FTILT, 7, HG_HIT_SFX, sound_get("sora_thunder4"));
+            set_hitbox_value(AT_FTILT, 8, HG_HIT_SFX, sound_get("sora_thunder4"));
+            set_hitbox_value(AT_FTILT, 9, HG_HIT_SFX, sound_get("sora_thunder4"));
+            set_hitbox_value(AT_FTILT, 10, HG_HIT_SFX, sound_get("sora_thunder4"));
+            set_hitbox_value(AT_FTILT, 11, HG_HIT_SFX, sound_get("sora_thunder3"));
             
             set_hitbox_value(AT_FTILT, 11, HG_EXTRA_HITPAUSE, 30);
             set_hitbox_value(AT_FTILT, 11, HG_DAMAGE, 6);
@@ -330,7 +330,7 @@ switch form{
             set_hitbox_value(AT_USTRONG, 8, HG_DAMAGE, 9);
             set_hitbox_value(AT_USTRONG, 8, HG_EXTRA_HITPAUSE, 40);
             set_hitbox_value(AT_USTRONG, 8, HG_VISUAL_EFFECT, 157);
-            set_hitbox_value(AT_USTRONG, 8, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+            set_hitbox_value(AT_USTRONG, 8, HG_HIT_SFX, sound_get("sora_thunder3"));
         }else{
             set_window_value(AT_USTRONG, 7, AG_WINDOW_ANIM_FRAME_START, 1);
             set_window_value(AT_USTRONG, 8, AG_WINDOW_ANIM_FRAME_START, 4);
@@ -457,12 +457,12 @@ switch form{
                 break;
                 case 2:
                 set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, 21);
-                set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, sound_get("sora_thunder4"));
                 
                 set_hitbox_value(AT_DSPECIAL, 4, HG_EXTRA_HITPAUSE, 40);
                 set_hitbox_value(AT_DSPECIAL, 4, HG_EFFECT, 0);
                 set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, 157);
-                set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+                set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, sound_get("sora_thunder3"));
                 break;
             }
         }else{
@@ -512,17 +512,17 @@ switch form{
                 set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
                 break;
                 case 2:
-                set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 10, HG_HIT_SFX, sound_get("sora_thunder4"));
                 set_hitbox_value(AT_USPECIAL, 10, HG_VISUAL_EFFECT, 21);
                 
-                set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 11, HG_HIT_SFX, sound_get("sora_thunder4"));
                 set_hitbox_value(AT_USPECIAL, 11, HG_VISUAL_EFFECT, 21);
                 
-                set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
+                set_hitbox_value(AT_USPECIAL, 12, HG_HIT_SFX, sound_get("sora_thunder4"));
                 set_hitbox_value(AT_USPECIAL, 12, HG_VISUAL_EFFECT, 21);
                 
                 set_hitbox_value(AT_USPECIAL, 13, HG_EXTRA_HITPAUSE, 40);
-                set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+                set_hitbox_value(AT_USPECIAL, 13, HG_HIT_SFX, sound_get("sora_thunder3"));
                 set_hitbox_value(AT_USPECIAL, 13, HG_VISUAL_EFFECT, 157);
                 set_hitbox_value(AT_USPECIAL, 13, HG_EFFECT, 0);
                 break;
@@ -656,8 +656,8 @@ set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, free - 1);
 
 set_attack_value(attack, AG_SPRITE, sprite_get(string(form) + attack_names[attack]));
 set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get(string(form) + attack_names[attack] + "_hurt"));
-if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "_hurt": "_air_hurt")));
-if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3? "": "_air")));
+if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_HURTBOX_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3 || form == 4 || (form == 1 && (attack == AT_DSPECIAL || attack == AT_FSPECIAL))? "_hurt": "_air_hurt")));
+if attack == AT_DSPECIAL || attack == AT_NSPECIAL || attack == AT_FSPECIAL set_attack_value(attack, AG_AIR_SPRITE, sprite_get(string(form) + attack_names[attack] + (form = 3 || form == 4 || (form == 1 && (attack == AT_DSPECIAL || attack == AT_FSPECIAL))? "": "_air")));
 
 //hit_fx setting
 for(var b = 1; b <= get_num_hitboxes(attack); b++){

@@ -279,10 +279,11 @@ set_hitbox_value(AT_NAIR, 8, HG_PRIORITY, 1);
 set_hitbox_value(AT_NAIR, 8, HG_DAMAGE, 2);
 set_hitbox_value(AT_NAIR, 8, HG_ANGLE, 45);
 set_hitbox_value(AT_NAIR, 8, HG_ANGLE_FLIPPER, 9);
-set_hitbox_value(AT_NAIR, 8, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_NAIR, 8, HG_BASE_KNOCKBACK, 6);
 set_hitbox_value(AT_NAIR, 8, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_NAIR, 8, HG_HIT_SFX, sound_get("KB_hitweak1"));
 set_hitbox_value(AT_NAIR, 8, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_NAIR, 8, HG_TECHABLE, 3);
 set_hitbox_value(AT_NAIR, 8, HG_VISUAL_EFFECT, hfx[0]);
 
 set_hitbox_value(AT_NAIR, 9, HG_HITBOX_TYPE, 1);

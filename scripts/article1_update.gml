@@ -65,7 +65,7 @@ if inited{
 		break;
 		
 		case 3:
-		sound_play(asset_get("sfx_oly_dspecial_focus"), 0, noone, 1, 1.2);
+		sound_play(sound_get("FF_Keybladesummon"));
 		sprite_index = sprite_get("final_blade" + string(final_blade_sprite));
 		mask_index = sprite_get("final_blade_collision");
 		depth = player_id.depth - 2;
@@ -200,7 +200,7 @@ switch state{
 			case 2:
 			hbox.extra_hitpause = 40;
 			hbox.hit_effect = 157;
-			hbox.sound_effect = asset_get("sfx_absa_kickhit");
+			hbox.sound_effect = sound_get("sora_thunder3");
 			break;
 			case 3:
 			hbox.sound_effect = sound_get("KB_hitmedium1");
@@ -251,7 +251,7 @@ switch state{
 			case 0:
 			hbox.effect = 1;
 			hbox.hit_effect = 253;
-			sound_play(asset_get("sfx_forsburn_reappear_hit"));
+			sound_play(sound_get("sora_fire2"));
 			sound_play(sound_get("ragnarok_explode"), 0, noone, 0.2);
 			break;
 			case 1:
@@ -262,7 +262,7 @@ switch state{
 			case 2:
 			hbox.extra_hitpause = 40;
 			hbox.hit_effect = 157;
-			sound_play(asset_get("sfx_absa_kickhit"));
+			sound_play(sound_get("sora_thunder3"));
 			sound_play(sound_get("ragnarok_explode"), 0, noone, 0.2);
 			break;
 			case 3:

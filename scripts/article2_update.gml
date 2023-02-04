@@ -21,6 +21,11 @@ if inited{
         image_xscale = 2;
         image_yscale = 2;
         break;
+        case 5:
+        timer = 20;
+        image_xscale = 1;
+        image_yscale = 1;
+        break;
     }
 }
 
@@ -71,6 +76,16 @@ switch particle_type{
     part_spd[@0] = lerp(part_spd[0], player_id.hsp, 0.3);
     part_spd[@1] = lerp(part_spd[1], player_id.vsp, 0.3);
     if timer >= limit{
+        instance_destroy(self);
+        exit;
+    }
+    break;
+    case 5:
+    image_xscale = (20 - timer)/15 + 1
+    image_yscale = (20 - timer)/15 + 1
+    image_alpha = timer/20;
+    timer--;
+    if !timer{
         instance_destroy(self);
         exit;
     }

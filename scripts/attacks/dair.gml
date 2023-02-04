@@ -256,7 +256,7 @@ set_hitbox_value(AT_DAIR, 8, HG_BASE_HITPAUSE, 15);
 set_hitbox_value(AT_DAIR, 8, HG_HITPAUSE_SCALING, 0.9);
 set_hitbox_value(AT_DAIR, 8, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_DAIR, 8, HG_VISUAL_EFFECT, 157);
-set_hitbox_value(AT_DAIR, 8, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
+set_hitbox_value(AT_DAIR, 8, HG_HIT_SFX, sound_get("sora_thunder3"));
 
 
 //final

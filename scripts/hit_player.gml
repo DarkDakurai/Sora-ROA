@@ -98,7 +98,7 @@ switch form{
     
     if my_hitboxID.attack == AT_DSTRONG && enhance{
         if my_hitboxID.hbox_num <= 3 sound_play(asset_get("sfx_forsburn_reappear_hit"));
-        else sound_play(asset_get("sfx_forsburn_combust"));
+        else sound_play(sound_get("sora_fire2"));
     }
     
     if my_hitboxID.attack == AT_NAIR && my_hitboxID.hbox_num == 6 my_hitboxID.can_hit[hit_player_obj.player] = 1;
@@ -108,7 +108,7 @@ switch form{
         if my_hitboxID.hbox_num <= 5 && enhance{
             sound_play(asset_get("sfx_forsburn_reappear_hit"));
             spawn_hit_fx(my_hitboxID.x, my_hitboxID.y, 252);
-        }else if my_hitboxID.hbox_num == 6 && enhance sound_play(asset_get("sfx_forsburn_combust"));
+        }else if my_hitboxID.hbox_num == 6 && enhance sound_play(sound_get("sora_fire2"));
     }
     
     if my_hitboxID.attack == AT_FAIR && enhance{
@@ -143,14 +143,14 @@ switch form{
             my_hitboxID.can_hit[hit_player_obj.player] = 1;
             if !deck_val && enhance{
                 spawn_hit_fx(hit_player_obj.x, hit_player_obj.y - hit_player_obj.char_height/2, 252);
-                sound_play(asset_get("sfx_forsburn_combust"));
+                sound_play(sound_get("sora_fire2"));
             }else if enhance && deck_val == 1{
                 spawn_hit_fx(hit_player_obj.x, hit_player_obj.y - hit_player_obj.char_height/2, 29);
             }
         }
     }
     if my_hitboxID.attack == AT_USPECIAL && enhance{
-        if my_hitboxID.hbox_num <= 12 && !deck_val sound_play(asset_get("sfx_forsburn_combust"));
+        if my_hitboxID.hbox_num <= 12 && !deck_val sound_play(sound_get("sora_fire2"));
         else if my_hitboxID.hbox_num == 13{
             if deck_val == 1{
                 if !hit_player_obj.frostbite{
@@ -188,6 +188,10 @@ switch form{
                 sound_play(asset_get("sfx_abyss_hazard_burst"));
             }
             hit_player_obj.frostbite = 1;
+        }else if my_hitboxID.deck == 0{
+            sound_play(sound_get("sora_fire2"));
+        }else if my_hitboxID.deck == 2{
+            sound_play(sound_get("sora_thunder3"));
         }
     }
     break;

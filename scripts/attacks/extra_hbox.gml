@@ -18,5 +18,5 @@ set_hitbox_value(AT_EXTRA_1, 1, HG_BASE_KNOCKBACK, 7);
 set_hitbox_value(AT_EXTRA_1, 1, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_EXTRA_1, 1, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_EXTRA_1, 1, HG_HITPAUSE_SCALING, 0.6);
-set_hitbox_value(AT_EXTRA_1, 1, HG_HIT_SFX, asset_get("sfx_oly_nspecial_flashbreak"));
+set_hitbox_value(AT_EXTRA_1, 1, HG_HIT_SFX, sound_get("sora_blizzard2"));
 set_hitbox_value(AT_EXTRA_1, 1, HG_VISUAL_EFFECT, 158);
