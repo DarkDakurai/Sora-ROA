@@ -9,6 +9,15 @@ for(var k = 0; k < 7; k++){
 }else if !alt_cur{
     set_ui_element(UI_HUD_ICON, sprite_get("unmapped_hud"))
 }
+if(alt_cur == 0){
+    set_character_color_slot(0, 181, 69, 5);
+    set_character_color_slot(1, 102, 100, 100);
+    set_character_color_slot(2, 102, 100, 100);
+    set_character_color_slot(3, 255, 153, 0);
+    set_character_color_slot(4, 212, 212, 212);
+    set_character_color_slot(5, 146, 137, 204);
+    set_character_color_slot(6, 255, 209, 74);
+}
 if "blade_alt" in self{
     if form && form != 2{
         //oblivion
