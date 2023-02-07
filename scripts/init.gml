@@ -177,7 +177,6 @@ attack_names = [ //has the names of all the attacks
 //#endregion
 
 //#region SORA VARIABLES
-prev_taunt_p = taunt_pressed
 
 //#region hud variables
 //Base gauge
@@ -693,4 +692,9 @@ spin_sfx = noone;
 
 //sfx
 sfx_timer = 0;
+
+//training
+training_cue = get_match_setting(SET_PRACTICE);
+training_alpha = 60;
+gauge_val_disable = -1;
 //#endregion

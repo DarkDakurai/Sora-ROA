@@ -18,7 +18,7 @@ gravity_speed       = form = 4? 0.4: 0.5;
 max_fall            = form = 4? 8: 10;
 
 //drive gauge
-if form && gauge_val gauge_val--;
+if form && gauge_val && !gauge_val_disable gauge_val--;
 if gauge_val < 0 gauge_val = 0;
 if !gauge_val && form && !form_revert form_revert = 1;
 
@@ -258,15 +258,30 @@ else float_hud = 20;
 if form == 4 && (state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN) hud_offset = lerp(hud_offset, -floor(dsin(float_hud*4.5) * 3) + 7, (hud_offset > 12? 0.1: 1));
 
 //debug
-if up_down && taunt_down && gauge_val < 5000 gauge_val += 100;
-if down_down && taunt_down && gauge_val gauge_val -= 100;
-if shield_down && !taunt_pressed && prev_taunt_p && form < 4 form++
-if !taunt_pressed && prev_taunt_p && jump_down && form form--
-prev_taunt_p = taunt_pressed
-/*hsp = 0;
-gauge_val = 5000;
-vsp = 0;
-x = room_width/2
-y = room_height/2
-print(fps_real)
-*/
+if get_match_setting(SET_PRACTICE) && taunt_down{
+    if !training_cue && training_alpha training_alpha -= 1;
+    if up_down && gauge_val < 5000{
+        gauge_val += 100;
+        training_cue = 0;
+    }
+    if down_down && gauge_val{
+        gauge_val -= 100;
+        training_cue = 0;
+    }
+    if shield_pressed && form < 4{
+        clear_button_buffer(PC_SHIELD_PRESSED);
+        form++;
+        training_cue = 0;
+    }
+    if jump_pressed && form{
+        clear_button_buffer(PC_JUMP_PRESSED);
+        form--;
+        training_cue = 0;
+    }
+    if taunt_down && special_pressed{
+        clear_button_buffer(PC_SPECIAL_PRESSED);
+        gauge_val_disable *= -1;
+        training_cue = 0;
+        
+    }
+}

@@ -117,6 +117,11 @@ if dash_alpha > 0{
     prev_dashes = dashes;
 }
 
+//training cue
+if get_match_setting(SET_PRACTICE) && training_alpha{
+    textDraw(temp_x - 10, temp_y - 97, "fName", c_white, 16, 300, 1, 1, training_alpha/60, "taunt + up/down: increase drive" + chr(10) + "taunt + parry: advance form" + chr(10) + "taunt + jump: regress form" + chr(10) + "taunt + special: disable drive decay", c_black, fa_left);
+}
+
 
 #define maskHeader()
 
@@ -140,3 +145,20 @@ gpu_set_alphatestenable(true);
 gpu_set_alphatestenable(false);
 gpu_set_blendmode(bm_normal);
 draw_set_alpha(1);
+
+#define textDraw(x, y, font, color, lineb, linew, scale, outline, alpha, string, outline_c, text_halign)
+
+draw_set_font(asset_get(argument[2]));
+draw_set_halign(argument[11]);
+
+if argument[7]{ //outline. doesn't work lol //now it does, you're welcome
+    draw_text_ext_transformed_color(argument[0] + argument[6]*2, argument[1], argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0] + argument[6]*2, argument[1] + argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0] + argument[6]*2, argument[1] - argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0], argument[1] - argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0] - argument[6]*2, argument[1] - argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0] - argument[6]*2, argument[1], argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0] - argument[6]*2, argument[1] + argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+    draw_text_ext_transformed_color(argument[0], argument[1] +  argument[6]*2, argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[10], argument[10], argument[10],argument[10], argument[8]);
+}
+draw_text_ext_transformed_color(argument[0], argument[1], argument[9], argument[4], argument[5], argument[6], argument[6], 0, argument[3], argument[3], argument[3], argument[3], argument[8]);
