@@ -258,22 +258,22 @@ else float_hud = 20;
 if form == 4 && (state == PS_IDLE || state == PS_WALK || state == PS_WALK_TURN) hud_offset = lerp(hud_offset, -floor(dsin(float_hud*4.5) * 3) + 7, (hud_offset > 12? 0.1: 1));
 
 //debug
-if get_match_setting(SET_PRACTICE) && taunt_down{
+if get_match_setting(SET_PRACTICE){
     if !training_cue && training_alpha training_alpha -= 1;
-    if up_down && gauge_val < 5000{
+    if up_down && gauge_val < 5000 && taunt_down{
         gauge_val += 100;
         training_cue = 0;
     }
-    if down_down && gauge_val{
+    if down_down && gauge_val && taunt_down{
         gauge_val -= 100;
         training_cue = 0;
     }
-    if shield_pressed && form < 4{
+    if shield_pressed && form < 4 && taunt_down{
         clear_button_buffer(PC_SHIELD_PRESSED);
         form++;
         training_cue = 0;
     }
-    if jump_pressed && form{
+    if jump_pressed && form && taunt_down{
         clear_button_buffer(PC_JUMP_PRESSED);
         form--;
         training_cue = 0;
