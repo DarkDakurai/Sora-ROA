@@ -104,7 +104,11 @@ switch form{
     }
     break;
     case 4:
-    if get_gameplay_time()%25 == 0{
+    if fps_real < 100{
+        final_partc_spawn = 40;
+        final_partc_amount = 5;
+    }
+    if get_gameplay_time()%final_partc_spawn == 0{
         var partc = instance_create(x, y, "obj_article2");
         partc.particle_type = 4;
         partc.y_displ = random_func_2(floor(abs(x%200)), 50, 0);

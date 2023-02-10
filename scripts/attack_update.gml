@@ -110,9 +110,11 @@ switch(attack){
     switch form{
         case 0:
         if window == 2 && attack_pressed{
-            window = 4;
-            window_timer = 0;
-            hsp = 6 * spr_dir;
+            if joy_pad_idle{
+                window = 4;
+                window_timer = 0;
+                hsp = 6 * spr_dir;
+            }else iasa_script();
         }
         if window == 3 && window_timer == 6{
             state = PS_IDLE;
@@ -193,7 +195,6 @@ switch(attack){
     switch form{
         case 0:
         hud_offset = floor(lerp(hud_offset, 90, 0.2));
-        if window == 4 && window_timer >= 10 + (has_hit? 0: 5) iasa_script();
         break;
         case 2:
         if window >= 11 hud_offset = floor(lerp(hud_offset, 95, 0.2));

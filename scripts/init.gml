@@ -676,6 +676,7 @@ prv_state = state;
 //particles
 particles = [];
 final_partc_amount = 10;
+final_partc_spawn = 25;
 
 //float
 float_time = 150;
