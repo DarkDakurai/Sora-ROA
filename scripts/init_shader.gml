@@ -1,7 +1,8 @@
-var alt_cur = get_player_color("alt_fix" in self? alt_fix: player);
+var cur_col = ("alt_cur" in self? alt_cur: get_player_color(player));
+
 if "sora_alt" in self{
 for(var k = 0; k < 7; k++){
-    set_character_color_slot(k, sora_alt["form" in self? form: 0][alt_cur][k][0], sora_alt["form" in self? form: 0][alt_cur][k][1], sora_alt["form" in self? form: 0][alt_cur][k][2]);
+    set_character_color_slot(k, sora_alt["form" in self? form: 0][cur_col][k][0], sora_alt["form" in self? form: 0][cur_col][k][1], sora_alt["form" in self? form: 0][cur_col][k][2]);
 }
 }else{
     sora_alt = [
@@ -177,22 +178,22 @@ for(var k = 0; k < 7; k++){
 ]
 ];
     for(var k = 0; k < 7; k++){
-        set_character_color_slot(k, sora_alt["form" in self? form: 0][alt_cur][k][0], sora_alt["form" in self? form: 0][alt_cur][k][1], sora_alt["form" in self? form: 0][alt_cur][k][2]);
+        set_character_color_slot(k, sora_alt["form" in self? form: 0][cur_col][k][0], sora_alt["form" in self? form: 0][cur_col][k][1], sora_alt["form" in self? form: 0][cur_col][k][2]);
     }
 }
 if "blade_alt" in self{
     if form && form != 2{
         //oblivion
-        set_article_color_slot(0, blade_alt[0][alt_cur][0][0], blade_alt[0][alt_cur][0][1], blade_alt[0][alt_cur][0][2]);
-        set_article_color_slot(2, blade_alt[0][alt_cur][1][0], blade_alt[0][alt_cur][1][1], blade_alt[0][alt_cur][1][2]);
-        set_article_color_slot(6, blade_alt[0][alt_cur][2][0], blade_alt[0][alt_cur][2][1], blade_alt[0][alt_cur][2][2]);
+        set_article_color_slot(0, blade_alt[0][cur_col][0][0], blade_alt[0][cur_col][0][1], blade_alt[0][cur_col][0][2]);
+        set_article_color_slot(2, blade_alt[0][cur_col][1][0], blade_alt[0][cur_col][1][1], blade_alt[0][cur_col][1][2]);
+        set_article_color_slot(6, blade_alt[0][cur_col][2][0], blade_alt[0][cur_col][2][1], blade_alt[0][cur_col][2][2]);
         //oathkeeper
-        set_article_color_slot(1, blade_alt[1][alt_cur][0][0], blade_alt[1][alt_cur][0][1], blade_alt[1][alt_cur][0][2]);
-        set_article_color_slot(3, blade_alt[1][alt_cur][1][0], blade_alt[1][alt_cur][1][1], blade_alt[1][alt_cur][1][2]);
-        set_article_color_slot(5, blade_alt[1][alt_cur][2][0], blade_alt[1][alt_cur][2][1], blade_alt[1][alt_cur][2][2]);
+        set_article_color_slot(1, blade_alt[1][cur_col][0][0], blade_alt[1][cur_col][0][1], blade_alt[1][cur_col][0][2]);
+        set_article_color_slot(3, blade_alt[1][cur_col][1][0], blade_alt[1][cur_col][1][1], blade_alt[1][cur_col][1][2]);
+        set_article_color_slot(5, blade_alt[1][cur_col][2][0], blade_alt[1][cur_col][2][1], blade_alt[1][cur_col][2][2]);
     }else{
-        set_article_color_slot(5, sora_alt[0][alt_cur][5][0], sora_alt[0][alt_cur][5][1], sora_alt[0][alt_cur][5][2]);
-        set_article_color_slot(6, sora_alt[0][alt_cur][6][0], sora_alt[0][alt_cur][6][1], sora_alt[0][alt_cur][6][2]);
+        set_article_color_slot(5, sora_alt[0][cur_col][5][0], sora_alt[0][cur_col][5][1], sora_alt[0][cur_col][5][2]);
+        set_article_color_slot(6, sora_alt[0][cur_col][6][0], sora_alt[0][cur_col][6][1], sora_alt[0][cur_col][6][2]);
     }
 }
 set_ui_element(UI_HUD_ICON, sprite_get("mapped_hud"));
