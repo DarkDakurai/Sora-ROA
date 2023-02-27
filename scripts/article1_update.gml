@@ -114,7 +114,7 @@ if instance_exists(colbox) && !lockout && !colbox.hitstop && !instance_exists(gr
 	vsp = -dsin(get_hitbox_angle(colbox)) * (colbox.damage + (colbox.kb_value * colbox.kb_scale));
 }
 
-if image_yscale >= 1 && instance_exists(colpla) && colpla != player_id && !instance_exists(grabp) && ((colpla.state == PS_HITSTUN || colpla.state == PS_HITSTUN_LAND) || (abs(hsp) > 1 || abs(vsp) > 1)){
+if image_yscale >= 1 && instance_exists(colpla) && colpla != player_id && !instance_exists(grabp) && ((colpla.state_cat == SC_HITSTUN) || (abs(hsp) > 1 || abs(vsp) > 1)) && !colpla.super_armor && !colpla.invincible{
 	grabp = colpla;
 }
 if instance_exists(grabp){
