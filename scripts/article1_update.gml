@@ -87,7 +87,7 @@ if inited{
 switch type{
 //ragnarok
 case 0:
-if !instance_exists(grabp) lifetime++;
+if !instance_exists(grabp) lifetime = 100;
 ragnarok_lv = (floor(lifetime/100) > 2? 2: floor(lifetime/100));
 sprite_index = sprite_get("ragnarok_artc_" + string(ragnarok_lv + 1));
 mask_index = sprite_get("ragnarok_artc_mask" + string(ragnarok_lv + 1));
@@ -103,15 +103,22 @@ if should_scale{
 hsp *= 0.90;
 vsp *= 0.90;
 if !player_id.form player_id.move_cooldown[AT_NSPECIAL] = 50;
-if vsp <= 0.2 && vsp >= 0 vsp = 0.2;
+if vsp <= 0.3 && vsp >= 0 vsp = 0.3;
 if lockout lockout--;
 var colbox = instance_place(x, y, pHitBox);
 var colpla = instance_place(x, y, oPlayer);
 
 if instance_exists(colbox) && !lockout && !colbox.hitstop && !instance_exists(grabp){
+	var box_angle = get_hitbox_angle(colbox);
+	if colbox.player_id = player_id && (colbox.attack == AT_FSTRONG || colbox.attack == AT_DSTRONG || colbox.attack == AT_DATTACK || colbox.attack == AT_NAIR || (colbox.attack == AT_FAIR && colbox.hbox_num >= 3) || colbox.attack == AT_JAB){
+		var oang = colbox.kb_angle;
+		colbox.kb_angle = 15;
+		var box_angle = get_hitbox_angle(colbox);
+		colbox.kb_angle = oang;
+	}
 	lockout = 10;
-	hsp = dcos(get_hitbox_angle(colbox)) * (colbox.damage + (colbox.kb_value * colbox.kb_scale));
-	vsp = -dsin(get_hitbox_angle(colbox)) * (colbox.damage + (colbox.kb_value * colbox.kb_scale));
+	hsp = dcos(box_angle) * (colbox.damage + (colbox.kb_value * colbox.kb_scale))*1.2;
+	vsp = -dsin(box_angle) * (colbox.damage + (colbox.kb_value * colbox.kb_scale))*1.2;
 }
 
 if image_yscale >= 1 && instance_exists(colpla) && colpla != player_id && !instance_exists(grabp) && ((colpla.state_cat == SC_HITSTUN) || (abs(hsp) > 1 || abs(vsp) > 1)) && !colpla.super_armor && !colpla.invincible{

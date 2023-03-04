@@ -2,7 +2,6 @@
 init_shader();
 draw_sprite_ext(sprite_get("animated_css"), animation_timer, x+8, y+10, 2, 2, 0, c_white, 1);
 animation_timer += (animation_timer < 43? 0.2: 0);
-print(string("alt_fix" in self) + "/draw");
 
 //switch to sound_get once KH sounds are added
 if (animation_timer == 1){
