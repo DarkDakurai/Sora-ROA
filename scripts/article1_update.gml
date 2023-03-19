@@ -87,7 +87,7 @@ if inited{
 switch type{
 //ragnarok
 case 0:
-if !instance_exists(grabp) lifetime = 100;
+if !instance_exists(grabp) lifetime++;
 ragnarok_lv = (floor(lifetime/100) > 2? 2: floor(lifetime/100));
 sprite_index = sprite_get("ragnarok_artc_" + string(ragnarok_lv + 1));
 mask_index = sprite_get("ragnarok_artc_mask" + string(ragnarok_lv + 1));
